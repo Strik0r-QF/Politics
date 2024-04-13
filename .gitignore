@@ -1,4 +1,5 @@
 /.DS_Store
+/.vscode
 
 # 不追踪辅助文件的更新
 *.aux
