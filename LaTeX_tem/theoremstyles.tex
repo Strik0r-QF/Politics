@@ -1,0 +1,60 @@
+\newtheoremstyle{mytheoremstyle}
+    {1.5ex}                                         % Space above
+    {1.5ex}                                         % Space below
+    {}                                              % Font for body
+    {}                                              % Indent amount
+    {\bfseries}                                     % Font for head
+    {}                                              % Punctuation after head
+    {0.5em plus 0.2em minus 0.1em}                  % Space after head
+    {\thmname{#1}\thmnumber{ #2}.\thmnote{ (#3).}}
+
+\theoremstyle{mytheoremstyle}
+\newtheorem{definition}{定义}[section]
+\newtheorem{example}{例}[section]
+\newtheorem{exercise}{习题}[section]
+\newtheorem{code}{程序清单}[section]
+\newtheorem*{result}{运行结果}
+
+\newtheoremstyle{my2theoremstyle}
+    {1.5ex}                                         % Space above
+    {1.5ex}                                         % Space below
+    {\kaishu}                                              % Font for body
+    {}                                              % Indent amount
+    {\bfseries}                                     % Font for head
+    {}                                              % Punctuation after head
+    {0.5em plus 0.2em minus 0.1em}                  % Space after head
+    {\thmname{#1}\thmnumber{ #2}.\thmnote{ (#3).}}
+
+\theoremstyle{my2theoremstyle}
+\newtheorem{thm}{定理}[section]
+\newtheorem{law}{定律}[section]
+\newtheorem{educt}{推论}
+\newtheorem{prop}{命题}
+\newtheorem{lemma}{引理}
+\newtheorem{axiom}{公理}
+\newtheorem{property}{性质}
+
+\newtheoremstyle{my4theoremstyle}
+    {1.5ex}                                         % Space above
+    {1.5ex}                                         % Space below
+    {}                                              % Font for body
+    {}                                              % Indent amount
+    {\bfseries}                                     % Font for head
+    {}                                              % Punctuation after head
+    {0.5em plus 0.2em minus 0.1em}                  % Space after head
+    {\thmname{#1}.}
+
+\theoremstyle{my4theoremstyle} \newtheorem*{sol}{解}
+
+\newtheoremstyle{my3theoremstyle}
+    {1.5ex}                                         % Space above
+    {1.5ex}                                         % Space below
+    {}                                              % Font for body
+    {}                                              % Indent amount
+    {\kaishu}                                       % Font for head
+    {}                                              % Punctuation after head
+    {0.5em plus 0.2em minus 0.1em}                  % Space after head
+    {\thmname{#1}\thmnumber{ #2}.\thmnote{ (#3).}}
+
+\theoremstyle{my3theoremstyle} \newtheorem*{remark}{注}
+\newtheorem*{cmt}{评注}

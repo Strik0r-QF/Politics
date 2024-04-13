@@ -1,0 +1,32 @@
+\usepackage{titlesec} % 定义标题样式
+
+% 设置 chapter 标题样式
+\titleformat{\chapter}[hang]{\centering\heiti\Large\bfseries}{第\,\thechapter\,章}{1em}{}
+
+% 定义 section 标题格式
+\titleformat{\section}[hang]{\heiti\centering\large\bfseries}{\thesection}{1em}{}
+
+% 定义 subsection 标题格式
+\titleformat{\subsection}[hang]{\heiti\bfseries}{\textbf{\thesubsection}}{1em}{}
+
+% 定义 subsubsection 标题格式
+\setcounter{secnumdepth}{3}
+\renewcommand\thesubsubsection{\arabic{subsubsection}.}
+\titleformat{\subsubsection}[hang]{\kaishu}{\quad\quad\thesubsubsection\,\,}{0em}{}
+
+% % 重新定义 textbf
+% \let\oldtextbf\textbf
+% \renewcommand{\textbf}[1]{{\heiti\oldtextbf{#1}}}
+
+% % 在导言区重新定义 \normalsize 命令
+% \makeatletter
+% \renewcommand\normalsize{%
+%    \@setfontsize\normalsize{10.5pt}{12pt}%
+%    \abovedisplayskip 8\p@ \@plus2\p@ \@minus5\p@
+%    \abovedisplayshortskip \z@ \@plus3\p@
+%    \belowdisplayshortskip 6\p@ \@plus3\p@ \@minus3\p@
+%    \belowdisplayskip \abovedisplayskip
+%    \let\@listi\@listI}
+% \makeatother
+
+

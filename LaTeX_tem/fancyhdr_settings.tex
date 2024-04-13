@@ -1,0 +1,30 @@
+\usepackage{fancyhdr} % 用于自定义页眉页脚
+
+
+% 设置页眉页脚样式
+\fancypagestyle{plain}{%
+    \fancyhf{} % 清空页眉页脚
+    \fancyhead[RO,LE]{·\thepage·} % 页眉显示页码, RO表示奇数页右侧, LE表示偶数页左侧
+    \fancyhead[LO]{\nouppercase{\rightmark}} % 页眉显示小节标题, LO表示奇数页左侧
+    \fancyhead[RE]{\nouppercase{\leftmark}} % 页眉显示章节标题, RE表示偶数页右侧
+    \renewcommand{\headrulewidth}{0.4pt} % 设置页眉横线的宽度
+    \renewcommand{\footrulewidth}{0pt} % 取消页脚横线
+}
+
+\renewcommand{\headrule}{\hrule width\textwidth height\headrulewidth\vskip-\headrulewidth}
+
+% % 取消奇偶页的页眉偏移
+% \fancyhfoffset[RO,LE]{0pt}
+
+% % 取消奇偶页的页眉偏移
+% \fancyhfoffset[RO,LE]{0pt}
+
+% 定义取消页眉的命令
+\newcommand{\cancelheader}{%
+    \fancyhead{} % 清空页眉
+    \renewcommand{\headrulewidth}{0pt} % 取消页眉横线
+    \renewcommand{\footrulewidth}{0pt} % 设置页脚横线的宽度
+}
+
+\renewcommand{\chaptermark}[1]{\markboth{第 \thechapter 章 \hspace{1em} #1}{}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection \, #1}}
