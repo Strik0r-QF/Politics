@@ -1,6 +1,8 @@
 /.DS_Store
 /.vscode
 
+.gitignore
+
 # 不追踪辅助文件的更新
 *.aux
 *.bbl

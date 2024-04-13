@@ -1,32 +1,15 @@
-\documentclass[10pt, UTF8]{ctexbook} %% ctexart
+\documentclass[10pt, UTF8]{book} %% ctexart
 
 \title{\textbf{中国近现代史纲要}
 
 学习参考与复习指导}
-\author{钱锋\thanks{Email: strik0r\_qf@mail.nwpu.edu.cn}}
+\author{钱锋\thanks{Email: strik0r.qf@gmail.com}${}^,$\thanks{
+    西北工业大学软件学院, School of Software, Northwestern Polytechnical University, 西安 710072
+}}
 
-
+\usepackage{ctex}
 \usepackage{graphicx}
 \usepackage[toc]{multitoc} % 加载multitoc宏包
-\makeatletter
-\renewcommand*{\@starttoc}[1]{%
-   \ifthenelse{\boolean{@multitoc@toc}\and\equal{#1}{toc}}{%
-      \begin{multicols}{\multicolumntoc}%
-         \@multitoc@starttoc{#1}%
-      \end{multicols}%
-      }{%
-   \ifthenelse{\boolean{@multitoc@lot}\and\equal{#1}{lot}}{%
-      \begin{multicols}{\multicolumnlot}%
-         \@multitoc@starttoc{#1}%
-      \end{multicols}%
-      }{%
-   \ifthenelse{\boolean{@multitoc@lof}\and\equal{#1}{lof}}{%
-      \begin{multicols}{\multicolumnlof}%
-         \@multitoc@starttoc{#1}%
-      \end{multicols}%
-      }{\@multitoc@starttoc{#1}}%
-   }}}
-\makeatother
 \usepackage{booktabs}
 \usepackage{longtable}
 \usepackage{amsthm, amssymb, amsmath, mathrsfs, mhchem}
@@ -51,166 +34,48 @@
 \usepackage{siunitx}
 \usepackage{cuted}
 
-\input{_geometry_setteings.tex}
-\input{_mdframed_settings.tex}
-\input{_titlesecsettings.tex}
-\input{_fancyhdr_settings.tex}
-\input{_listings_settings.tex}
+\input{LaTeX_tem/fancyhdr_settings.tex}
+\input{LaTeX_tem/titlesec_settings.tex}
+\input{LaTeX_tem/geometry_settings.tex}
+\input{LaTeX_tem/mdframed_settings.tex}
+\input{LaTeX_tem/listings_settings.tex}
 
 \usepackage{smartdiagram}
 \usepackage{tasks}
 
 \begin{document}
-
-\newtheoremstyle{mytheoremstyle}
-    {1.5ex}                                         % Space above
-    {1.5ex}                                         % Space below
-    {}                                              % Font for body
-    {}                                              % Indent amount
-    {\bfseries}                                     % Font for head
-    {}                                              % Punctuation after head
-    {0.5em plus 0.2em minus 0.1em}                  % Space after head
-    {\thmname{#1}\thmnumber{ #2}.\thmnote{ (#3).}}
-
-\theoremstyle{mytheoremstyle} \newtheorem{example}{例}[section]
-\theoremstyle{mytheoremstyle} \newtheorem{key}{核心要点}[section]
-
-\theoremstyle{plain} \newtheorem{thm}{分析论述}
-
-\newtheoremstyle{my3theoremstyle}
-    {1.5ex}                                         % Space above
-    {1.5ex}                                         % Space below
-    {}                                              % Font for body
-    {}                                              % Indent amount
-    {\kaishu}                                       % Font for head
-    {}                                              % Punctuation after head
-    {0.5em plus 0.2em minus 0.1em}                  % Space after head
-    {\thmname{#1}\thmnumber{ #2}.\thmnote{ (#3).}}
-
-\theoremstyle{my3theoremstyle}
-\newtheorem*{remark}{注}
-\newtheorem*{sol}{答案要点}
-
+\input{LaTeX_tem/theoremstyles.tex}
+\pagestyle{empty}
 \begin{titlepage}
     \thispagestyle{empty}
     \centering
-    \vspace*{2cm}
-    \includegraphics[width=0.5\textwidth]{npu_2.png}\par
-    \vspace{1cm}
-    \includegraphics[width=0.5\textwidth]{npu_1.png}\par
-    \vspace{1cm}
+        \vspace*{2cm}
+        \includegraphics[width=0.5\textwidth]{pic/npu_2.png}\par
+        \vspace{1em}
+        \includegraphics[width=0.5\textwidth]{pic/npu_1.png}\par
+    \vspace{1em}
         \begin{center}
-            \Huge {\heiti \textbf{中国近现代史纲要}}
+            \Huge \heiti \textbf{中国近现代史纲要}
 
-            An Abbreviated History of Modern China
+            An Outline of Modern Chinese History
         \end{center}
-        \vspace{5cm}
+        \vspace{17em}
         \begin{center}
         \songti
-        \kaishu 数学与统计学院 \, \heiti\textbf{钱锋} \quad \songti 编
-        \vspace{0.5cm}
+        \kaishu 软件学院 \, \heiti\textbf{钱锋} \quad \songti 编
+        \vspace{0.5em}
 
     \today
     \end{center}
 \end{titlepage}
+\cleardoublepage
+\maketitle
+\cleardoublepage
 
 \frontmatter
 \newpage
 \pagestyle{plain}
 \makeatother
-% \input{丛书前言.tex}
-
-% \chapter{第一版前言}
-% \thispagestyle{empty}
-
-% \quad\quad 2022 年 11 月，西北工业大学数学与统计学院和小 “数” 苗成长支持辅导中心开展学霸直播间朋辈交流活动，
-% 学霸直播间活动是我校数学与统计学院基于 Feynmann 学习法的，贯彻 “思政内容进课堂”、“我为同学办实事” 的，
-% 倡导朋辈交流、互助的一次有力创新，是我院在 2022 级本科大类班与强基班开展本科生三年学业学风建设行动的重要手段。
-% 我受聘成为小 “数” 苗成长支持辅导中心朋辈 “小导师”，负责期末复习基础课和学霸直播间的统筹协调工作，
-% 以及数学分析、高等代数、空间解析几何、大学美育 (美学原理)、军事理论和中国近现代史纲要等课程基础知识的讲解。
-
-% 这一轮授课形成了若干书面讲义和视频素材，如今我们将其系统地整理成册，供西北工业大学数学与统计学院
-% 以及全网有相关课程学习需求的同学参考。
-% 在刚开始进行本册资料的编写的时候，我原本只打算制作一份简易的考试复习资料。
-% 当时我简单地罗列了《中国近现代史纲要》课程中各个章节中经常考察的知识点，
-% 并将中国近现代史纲要课程的授课视频上传至网络，
-% 没想到吸引了来自全网的 50 多万人次的浏览和点击。对于这样的流量数据和一个考前突击视频的爆火，
-% 我既受宠若惊又诚惶诚恐，一方面，由于这么多年以来不温不火的视频创作，涨粉期的到来让我深感欣慰，
-% 自觉自己的努力并没有白费；
-% 另一方面，我毕竟只是一个正在本科阶段学习的学生，对相关知识点的了解、掌握和解读都不是那么的全面，
-% 巨大的流量数据意味着更多的监督和批评，也意味着对创作内容质量的更高要求，
-% 这要求我必须进一步、更深层次地进行相关课程的学习，才能对得起广大老师、同学和网友的期待。
-
-% 在课程速成视频走红后，有许多网友希望我将速成视频中讲义分享出来，以便于复习使用，
-% 于是在经过简单的整理后，本书的雏形就这样诞生了。pdf 格式的讲义经历了几次迭代后，
-% 有越来越多的网友建议我制作一份能兼顾课前预习、课堂学习、课后知识巩固、课外知识拓展、
-% 期末速成和考研复习等多维度学习需求的全面的学习资料，
-% 于是本书的内容便不断扩充，字数日益膨胀，最终形成了现在的这样一份资料。
-
-% \subsection*{本书编写的指导思想}
-
-% 在编写本书的过程中，我们遵循以下风格：
-
-% \subsubsection{深入贯彻思政育人理念，将思政课理论知识与中国特色社会主义新时代建设具体实践相结合，
-% 与我校三航特色的科学研究与技术创新具体实践相结合。}
-
-% 你瓜是这样的。
-
-% \subsubsection{体现新时代中国青年的时代风貌。}
-
-% 青年是这样的。
-
-% \subsection*{本书的内容组织}
-% \setcounter{subsubsection}{0}
-
-% 本书共五个部分，分别对应除形势与政策外的五门必修的思想政治理论类课程。每门思政课按照教材章节顺序组织，
-% 每章节分为内容精华、章节自主测试题和拓展提高三个模块。
-
-% \subsubsection{内容精华}
-
-% 内容精华部分罗列了本章节的学习重点、难点以及容易出现的疑难问题，这一部分可作为读者课前预习、课上参考和课后复习
-% 的材料使用。其中，\textbf{加粗的内容是重点中的重点，是经常考察的内容，是选择题的选项或分析论述题的关键词}，
-% 不论是出于何种目的学习，这些加粗内容都应该是读者阅读本书时重点关注的对象。时间实在紧迫的读者，可以只看加粗的内容。
-
-% 同时，我们针对每章节的内容精华部分制作了视频讲解，视频讲解的语速、节奏较快，知识点密度较高且重点突出，
-% 非常适合期末速成、突击的同学收看。
-
-% \subsubsection{章节自主测试题}
-
-% 该模块收录了近几年全国硕士研究生入学统一考试的考试真题，以及部分历年期末考试真题。
-% 读者可以在完成章节的学习后通过这些习题检测一下对本章知识的掌握情况。需要强调的是，
-% \textbf{在学习和复习的过程中不能淡化对分析论述题的训练，要功在平时，
-% 养成良好的 “观点+分析” 的分点论述作答习惯}，才不至于在考试中面对材料分析题和论述题无从下手。
-
-% \subsubsection{拓展提高}
-
-% 该模块收录了一些课程外阅读材料的精华内容。通过这些材料的阅读，读者能更好地理解本章的重点知识，
-% 能将内容精华部分罗列的离散的知识点串成一张网络，形成对知识点的全局视角和更高层次的理解。
-
-% 这一部分的讲解视频将作为我的高级包月充电专属视频发布，高级包月充电费用为 30 元/月。
-% 这些内容都不是通过考试或考试拿高分所必须掌握的知识，因此请各位同学不要盲目开通高级包月充电。
-
-% \subsection*{如何使用本书}
-% \setcounter{subsubsection}{0}
-
-% 随便用
-
-
-
-% % 落款
-% \begin{flushright}
-%     \kaishu
-%     钱锋
-
-%     西北工业大学数学与统计学院
-
-%     2023 年 10 月
-%     \songti
-% \end{flushright}
-
-% \newpage
-% \thispagestyle{empty}
-
 
 % 设置目录页的页码格式
 \pagenumbering{roman} % 切换回罗马数字页码
@@ -278,7 +143,6 @@
 
 \newpage
 \thispagestyle{empty}
-
 
 % 设置章节标题页的页眉和页脚为空白页样式
 \makeatletter
@@ -486,7 +350,7 @@ Adams 的解释是：通过正常的外交途径无法构建平等的国家关�
 
 两个新兴阶级：工人阶级、资产阶级。
 
-% \begin{key}
+% \begin{cmt}
 %     各个新阶级的产生时间：
 %     \begin{enumerate}[label=\textup{\arabic*}${}^\circ$]
 %         \item 工人阶级：19 世纪四五十年代；
@@ -494,7 +358,7 @@ Adams 的解释是：通过正常的外交途径无法构建平等的国家关�
 %         \item 城市小资产阶级：19 世纪末；
 %         \item 官僚买办资产阶级：20 世纪 20 年代末。
 %     \end{enumerate}
-% \end{key}
+% \end{cmt}
 
 \textbf{近代中国诞生的工人阶级}是中国新生产力的代表。它深受帝国主义、封建势力、资产阶级三重压迫，
 受剥削最深、革命性最强，\textbf{是近代中国最革命的阶级}。
@@ -522,7 +386,7 @@ Adams 的解释是：通过正常的外交途径无法构建平等的国家关�
 怎么通过发展来实现国家的富强和人民的幸福呢？所以这两大历史任务的关系是不难理解的。
 
 \begin{mdframed}
-    \begin{key}
+    \begin{cmt}
         鸦片战争对近代的中国社会造成了深远的改变，在鸦片战争后，中国社
         会的以下各个方面发生了巨大的变化：
         \begin{enumerate}[label=(\arabic*), itemsep=0pt]
@@ -545,7 +409,7 @@ Adams 的解释是：通过正常的外交途径无法构建平等的国家关�
         \end{enumerate}
         随着社会主要矛盾的变化，\textbf{中国逐步开始了反帝反封建的资产
         阶级民主革命}，正因如此，鸦片战争成为中国近代史的起点。
-    \end{key}
+    \end{cmt}
 \end{mdframed}
 
 在这里扯一个题外话说明一下，本书勾划重点的方式主要有粗体、打框和标记 “核心要点” 三种方式。
@@ -818,13 +682,13 @@ Adams 的解释是：通过正常的外交途径无法构建平等的国家关�
 \end{remark}
 
 \begin{mdframed}
-    \begin{key}
+    \begin{cmt}
         瓜分中国图谋破产的原因：
         帝国主义列强之所以没有能够实现瓜分中国的图谋，
         一个重要的原因是\textbf{帝国主义列强之间的矛盾和相互
         制约}。而帝国主义列强不能灭亡和瓜分中国，最根本的原因在
         于\textbf{中华民族的不屈不挠的反侵略斗争}。
-    \end{key}
+    \end{cmt}
 \end{mdframed}
 
 
@@ -1012,7 +876,7 @@ Adams 的解释是：通过正常的外交途径无法构建平等的国家关�
 % \newpage
 % \section{拓展提高}
 
-% \begin{key}
+% \begin{cmt}
 %     这一章中出现了许多琐碎的历史人物。在此总结如下：
 %     \begin{enumerate}[itemsep=0pt]
 %         \item 王韬，曾参与洋务运动，该经历及其对洋务运动的认识使他深刻体会到洋务运动的不足，
@@ -1023,7 +887,7 @@ Adams 的解释是：通过正常的外交途径无法构建平等的国家关�
 %         \item 康有为、梁启超的维新思想推动了维新变法运动的兴起。
 %         \item 西方社会进化论思想传入中国始于严复。
 %     \end{enumerate}
-% \end{key}
+% \end{cmt}
 
 
 
@@ -1632,14 +1496,12 @@ Adams 的解释是：通过正常的外交途径无法构建平等的国家关�
 \begin{example}
     1905 年至 1907 年间，围绕中国社会变革问题，资产阶级革命派与改良派分别以《民报》、
     《新民丛报》为主要的舆论阵地，展开了一场论战。这场论战 \underline{\qquad \qquad \qquad}。
-    \newline
-    A. 聚焦要不要以革命手段推翻清王朝；
-    \newline
-    B. 实际上是资产阶级思想和封建主义思想的交锋；
-    \newline
-    C. 传播了民主革命思想，促进了革命形势的发展；
-    \newline
-    D. 暴露了革命派在思想理论方面的弱点。
+    \begin{tasks}[label={\Alph*.}](1)
+        \task 聚焦要不要以革命手段推翻清王朝；
+        \task 实际上是资产阶级思想和封建主义思想的交锋；
+        \task 传播了民主革命思想，促进了革命形势的发展；
+        \task 暴露了革命派在思想理论方面的弱点。
+    \end{tasks}
 \end{example}
 
 \section{辛亥革命与中华民国的建立}
@@ -1647,6 +1509,23 @@ Adams 的解释是：通过正常的外交途径无法构建平等的国家关�
 \subsection{辛亥革命的爆发与清王朝的覆灭}
 \subsection{中华民国的建立}
 \subsection{辛亥革命的历史意义}
+\subsection{复习参考题}
+
+\begin{example}
+    （2015 年）毛泽东在谈到辛亥革命时指出，辛亥革命有它胜利的地方，
+    也有它失败的地方。“辛亥革命把皇帝赶跑，这不是胜利了吗？说它失败，
+    是说辛亥革命只把一个皇帝赶跑”。毛泽东这里所说的 “只把一个皇帝赶跑”
+    是指 \underline{\qquad \qquad \qquad}。
+    \begin{tasks}[label={\Alph*.}](2)
+        \task 没有推翻帝制
+        \task 反帝反封建的革命任务没有完成
+        \task 孙中山没有继续革命
+        \task 袁世凯窃取了胜利果实
+    \end{tasks}
+    \begin{cmt}
+        本题选择 B 选项。
+    \end{cmt}
+\end{example}
 
 \newpage
 
@@ -1783,7 +1662,28 @@ Adams 的解释是：通过正常的外交途径无法构建平等的国家关�
 \subsubsection{十月革命对中国先进分子的影响}
 \subsubsection{李大钊率先在中国举起马克思主义旗帜}
 
+{\captionof{table}{李大钊的文章} % 表格标题
+\label{李大钊的文章} % 交叉引用标签
+\begin{longtable}{p{6em}p{10em}p{14em}p{10em}}
+    \hline
+    % 表头
+    \textbf{时间} & \textbf{文章} & \textbf{意义} & \textbf{备注} \\
+    \hline
+    \endhead
+    \hline
+    \endfoot
 
+    % 表格内容
+    1918 年 7 月 & 《法俄革命之比较观》
+    & 指出 “俄罗斯之革命是二十世纪初期之革命，是立于社会主义之上的革命”，
+    向中国人民第一次正确地阐述了十月革命的本质。 \\
+    \hline
+    1918 年 11 月 & 《庶民的胜利》 & \multirow{2}{14em}{
+        深刻揭露了第一次世界大战的本质， 热情歌颂了十月革命和
+        布尔什维主义的胜利，欢呼 “将来的环球，必是赤旗的世界”。
+    }\\ 
+    1918 年 12 月 & 《布尔什维主义的胜利》 & \\ \\
+\end{longtable}}
 
 % 早期马克思主义者的队伍主要由三部分组成：\textbf{新文化运动的精神领袖}，
 % \textbf{五四爱国运动的左翼骨干}，以及\textbf{原中国同盟会会员、辛亥革命时期的活动家}。
@@ -1827,7 +1727,23 @@ Adams 的解释是：通过正常的外交途径无法构建平等的国家关�
 
 % \subsubsection{中国早期马克思主义思想运动}
 % \subsubsection{马克思主义与中国工人运动的结合}
-% \subsubsection{中国共产党的成立及其意义}
+\subsection{复习参考题}
+
+\begin{example}
+    1921 年 7 月 23 日，中国共产党第一次全国代表大会在上海举行，
+    从此，中国人民有了一个先进的坚强的政党作为凝聚自己力量的领导核心。
+    下列关于中共一大的说法错误的是 \underline{\qquad \qquad \qquad}。
+    \begin{tasks}[label={\Alph*.}](2)
+        \task 决定首先集中精力组织工人
+        \task 提出了反帝反封建的民主革命纲领
+        \task 提出了以无产阶级军队推翻资产阶级
+        \task 选举了由陈独秀、张国焘、李达组成的中央局
+    \end{tasks}
+    \begin{cmt}
+        反帝反封建的民主革命纲领是在中共二大第一次提出的，不是在中共一大。
+        因此本题选择 B 选项。
+    \end{cmt}
+\end{example}
 
 % 中国共产党的宗旨是\textbf{全心全意为人民服务}。
 
@@ -2578,10 +2494,7 @@ Adams 的解释是：通过正常的外交途径无法构建平等的国家关�
 
 % \section{拓展提高}
 
-\appendix
-% 设置 chapter 标题样式
-\titleformat{\chapter}[hang]{\centering\heiti\Large\bfseries}{附录\,\thechapter}{1em}{}
-\newpage
+\input{LateX_tem/appendix.tex}
 
 \chapter{《中国近现代史纲要》冲刺速成资料}
 
@@ -2712,6 +2625,6 @@ Adams 的解释是：通过正常的外交途径无法构建平等的国家关�
 \newpage
 \thispagestyle{empty}
 
-\input{_endpage.tex}
+\input{LateX_tem/endpage.tex}
 
 \end{document}
