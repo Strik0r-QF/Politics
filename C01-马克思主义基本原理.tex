@@ -1,0 +1,2285 @@
+\documentclass[10pt, UTF8]{book} %% ctexart
+
+\title{\textbf{马克思主义基本原理}}
+\author{钱锋\thanks{Email: strik0r.qf@gmail.com}${}^,$\thanks{
+    西北工业大学软件学院, School of Software, Northwestern Polytechnical University, 西安 710072
+}}
+
+\usepackage{ctex}
+\usepackage{graphicx}
+\usepackage[toc]{multitoc}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{amsthm, amssymb, amsmath, mathrsfs, mhchem}
+\usepackage{tikz}
+\usetikzlibrary{decorations.markings, angles, quotes}
+\usepackage{pgfplots}
+\usepackage{tikz-3dplot}
+\usepackage{extpfeil}
+\usepackage{diagbox}
+\usepackage{float}
+\usepackage{hyperref}
+\hypersetup{hidelinks,
+    colorlinks = true,
+    allcolors = black,
+    pdfstartview = Fit,
+    breaklinks = true}
+\usepackage{caption}
+\usepackage{enumitem}
+\usepackage{siunitx}
+\usepackage{cuted}
+
+\input{_titlesecsettings.tex}
+\input{_fancyhdr_settings.tex}
+\input{_listings_settings.tex}
+
+\input{_geometry_setteings.tex}
+
+% \usepackage[
+%     paperwidth=148mm,
+%     paperheight=210mm,
+%     top=35mm,
+%     bottom=20mm,
+%     left=18mm,
+%     right=18mm,
+%     footskip=15mm % 通过这里的值来调整页脚与正文内容的垂直距离
+% ]{geometry}
+
+\input{_mdframed_settings.tex}
+
+\usepackage{fancyhdr} % 用于自定义页眉页脚
+\usepackage{smartdiagram}
+\usepackage{multirow}
+\usepackage{tasks}
+
+\begin{document}
+
+\newtheoremstyle{mytheoremstyle}
+    {1.5ex}                                         % Space above
+    {1.5ex}                                         % Space below
+    {}                                              % Font for body
+    {}                                              % Indent amount
+    {\bfseries}                                     % Font for head
+    {}                                              % Punctuation after head
+    {0.5em plus 0.2em minus 0.1em}                  % Space after head
+    {\thmname{#1}\thmnumber{ #2}.\thmnote{ (#3).}}
+
+\theoremstyle{mytheoremstyle} \newtheorem{example}{例}[section]
+\theoremstyle{mytheoremstyle} \newtheorem{key}{核心要点}[section]
+
+\theoremstyle{plain} \newtheorem{thm}{分析论述}
+
+\newtheoremstyle{my3theoremstyle}
+    {1.5ex}                                         % Space above
+    {1.5ex}                                         % Space below
+    {}                                              % Font for body
+    {}                                              % Indent amount
+    {\kaishu}                                       % Font for head
+    {}                                              % Punctuation after head
+    {0.5em plus 0.2em minus 0.1em}                  % Space after head
+    {\thmname{#1}\thmnumber{ #2}.\thmnote{ (#3).}}
+
+\theoremstyle{my3theoremstyle}
+\newtheorem*{remark}{注}
+\newtheorem*{sol}{答案要点}
+\newtheorem*{cmt}{评注}
+
+\pagestyle{empty}
+\begin{titlepage}
+    \thispagestyle{empty}
+    \centering
+        \vspace*{2cm}
+        \includegraphics[width=0.5\textwidth]{npu_2.png}\par
+        \vspace{1em}
+        \includegraphics[width=0.5\textwidth]{npu_1.png}\par
+    \vspace{1em}
+        \begin{center}
+            \Huge \heiti \textbf{马克思主义基本原理}
+
+            Fundamental Principles of Marxism
+        \end{center}
+        \vspace{16em}
+        \begin{center}
+        \songti
+        \kaishu 数学与统计学院 \, \heiti\textbf{钱锋} \quad \songti 编
+        \vspace{0.5em}
+
+    \today
+    \end{center}
+\end{titlepage}
+
+\cleardoublepage
+\maketitle
+\cleardoublepage
+
+\frontmatter
+\newpage
+\pagestyle{plain}
+\makeatother
+% \input{丛书前言.tex}
+
+
+
+% 设置目录页的页码格式
+\pagenumbering{roman} % 切换回罗马数字页码
+\addtocontents{toc}{\protect\thispagestyle{empty}}
+\pagestyle{plain}
+{\tableofcontents}
+\newpage
+\thispagestyle{empty}
+\cleardoublepage % 确保正文从奇数页开始
+
+
+% 设置章节标题页的页眉和页脚为空白页样式
+\makeatletter
+\let\ps@plain\ps@empty
+\makeatother
+
+
+
+% \twocolumn
+% \setlength{\columnsep}{20pt}
+% \setlength{\columnseprule}{0.4pt} % 添加一条竖线，根据需要调整线的粗细
+
+\newpage
+\chapter*{导 \quad 言}
+
+\begin{quote}
+    人类历史上不管在哪一个领域，包括创造财富的领域，做成大事业的绝非只有一些小伎俩的精明之人，
+    而必是对世界和人生有广阔思考和独特领悟的拥有大智慧的人。
+    
+    真正的成功是做人的成功，即做一个有灵魂的人，一个精神上优秀的大写的人。这样的人即使在
+    世俗的意义上不成功，他的人生仍是充满意义的。
+    
+    \begin{flushright}
+        \kaishu —— 周国平
+    \end{flushright}
+\end{quote}
+
+\newpage
+\thispagestyle{empty}
+
+\chapter{导论}
+
+{\heiti\bfseries 复习建议：}
+马克思主义基本原理课程中需要吸收运用的理论和概念很多，不适合突击速成，
+全书共 97 个考点，在考研思想政治理论科目中占分 24\%，部分内容抽象且晦涩难懂，
+是考研政治的重点、难点所在。建议准备期末考试的同学保证 60 天以上的复习时间，准备考研的
+同学保证 180 天以上的复习时间。
+
+\begin{table}[H]
+    \small
+    \centering
+    \caption{《马克思主义基本原理》课程知识框架}
+    \begin{tabular}{p{0.2\textwidth}|p{0.35\textwidth}|p{0.32\textwidth}}
+        \hline
+        \textbf{组成部分} & \textbf{章节内容} & \textbf{备注} \\
+        \hline 
+        导论 & 马克思主义是关于无产阶级和人类解放的科学 \\ 
+        \hline
+        \multirow{4}{0.2\textwidth}{马克思主义哲学} 
+        & 辩证唯物论 & \multirow{4}{0.3\textwidth}{哲学部分占分 18/24，是马克思主义基本原理课程复习的重中之重。} \\
+        & 唯物辩证法 & \\
+        & 认识论 & \\
+        & 唯物史观 & \\
+        \hline 
+        \multirow{2}{0.2\textwidth}{马克思主义政治经济学}
+        & 资本主义的本质及规律 
+        & \multirow{2}{0.3\textwidth}{西工大期末只考导论及前五章。} \\ 
+        & 资本主义的发展及其趋势 & \\ 
+        \hline 
+        \multirow{2}{0.2\textwidth}{科学社会主义}
+        & 社会主义的发展及其规律 & \\ 
+        & 共产主义崇高理想及其最终实现 & \\ 
+        \hline
+    \end{tabular}
+\end{table}
+
+在人类思想史上，就科学性和影响力而言，没有一种思想理论能达到马克思主义的高度，
+也没有一种学说能像马克思主义那样对世界产生如此广泛而深远的影响。这充分体现了马克思主义
+的真理伟力，表明了马克思主义对人们认识世界、改造世界具有不可替代的作用。
+
+\section{马克思主义的创立和发展}
+
+\subsection{马克思主义的内涵及其构成}
+
+\subsubsection{马克思主义的内涵}
+
+马克思主义（Marxism）是由马克思\footnote{
+    马克思（Karl Marx）是19世纪德国哲学家、经济学家、社会学家和革命家，被视为现代社会科学的奠基人之一。他的著作《资本论》等著名著作探讨了资本主义经济的运作机制和阶级斗争的规律，提出了无产阶级革命的理论，并呼吁建立一个没有私有制的社会主义社会。
+}和恩格斯\footnote{
+    恩格斯（Friedrich Engels）是马克思的朋友、合作者和理论继承者，也是19世纪德国的哲学家、社会科学家和革命家。他与马克思合著了《共产党宣言》等重要文献，深入研究了资本主义的发展和工人阶级的境遇，为马克思主义理论的发展作出了重要贡献，也积极参与了国际工人运动。
+}创立并为后继者所不断发展的科学理论体系（起源与发展），
+是关于自然、社会和人类思维发展的一般规律的学说（内容、马克思主义哲学），是关于社会主义必然代替资本主义、
+最终实现共产主义的学说（目的、马克思主义政治经济学），
+是关于无产阶级解放、全人类解放和每个人自由而全面发展的学说（立场，科学社会主义），
+是无产阶级政党和社会主义国家的指导思想，是指引人民创造美好生活的行动指南（意义）。
+\begin{remark}
+    马克思主义的内涵，可以从六个角度来划分理解，这些划分的角度就是上文中括号中的内容。
+    马克思主义的内涵在考试中一般不做考察，但近两年的考研政治出题越来越出其不意，还是
+    尽量了解一下。
+\end{remark}
+
+\subsubsection{马克思主义的构成}
+
+
+
+马克思主义是一个博大精深的理论体系。恩格斯在《反杜林论》（{\itshape Anti-Dühring}）\footnote{
+    《反杜林论》是由恩格斯撰写的重要文献，旨在批判德国哲学家杜林的唯心主义哲学观点。
+    该文指出了杜林在对待自然科学和历史发展等问题上的错误观点，强调了历史唯物主义的重要性，
+    并阐述了历史唯物主义对社会发展和阶级斗争的解释。
+    恩格斯在《反杜林论》中提出了马克思主义唯物史观的基本原理，
+    \textbf{首次将马克思主义以三个组成部分的形式进行了全面阐述}，
+    为马克思主义思想的发展做出了重要贡献。
+}一文中将马克思主义的理论分成了
+三个基本组成部分：
+\begin{itemize}[itemsep=0pt]
+    \item 研究的基本理论和方法：马克思主义\textbf{哲学}（Marxist Philosophy）；
+    \item 主体内容：马克思主义\textbf{政治经济学}（Marxist Political Economy）；
+    \item 目的与归宿：\textbf{科学社会主义}（Scientific Socialism）。
+\end{itemize}
+% 这三个基本组成部分有机统一并共同构成了马克思主义理论的主体内容。
+从这一层面上来讲，马克思主义是以马克思主义政治经济学为主体内容的，以马克思主义哲学作为
+研究的基本理论与基本方法的，以科学社会主义作为最终目的与最终归宿的理论体系。
+\begin{figure}[H]
+    \centering
+    
+
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-0.9,xscale=0.9]
+%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+
+%Straight Lines [id:da7900404923689658] 
+\draw  [dash pattern={on 0.84pt off 2.51pt}]  (354,55.5) -- (434,55.5) ;
+%Straight Lines [id:da2776322276809655] 
+\draw  [dash pattern={on 0.84pt off 2.51pt}]  (399,126.5) -- (435,126.5) ;
+%Straight Lines [id:da8162475035000624] 
+\draw  [dash pattern={on 0.84pt off 2.51pt}]  (400,194.5) -- (436,194.5) ;
+%Straight Lines [id:da9764304210153608] 
+\draw    (291,73.5) -- (291,105.5) ;
+\draw [shift={(291,107.5)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da2506247619262363] 
+\draw    (291,141.5) -- (291,173.5) ;
+\draw [shift={(291,175.5)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da3783928279477312] 
+\draw  [dash pattern={on 0.84pt off 2.51pt}]  (291,210.5) -- (291,244.5) ;
+%Shape: Brace [id:dp8337992157264561] 
+\draw   (225,56.5) .. controls (220.33,56.5) and (218,58.83) .. (218,63.5) -- (218,115) .. controls (218,121.67) and (215.67,125) .. (211,125) .. controls (215.67,125) and (218,128.33) .. (218,135)(218,132) -- (218,186.5) .. controls (218,191.17) and (220.33,193.5) .. (225,193.5) ;
+
+% Text Node
+\draw (162,126) node   [align=left] {\begin{minipage}[lt]{68pt}\setlength\topsep{0pt}
+马克思主义的\\三大组成部分
+\end{minipage}};
+% Text Node
+\draw (290.5,56.75) node   [align=left] {\begin{minipage}[lt]{83.64pt}\setlength\topsep{0pt}
+马克思主义哲学
+\end{minipage}};
+% Text Node
+\draw (312.5,124.75) node   [align=left] {\begin{minipage}[lt]{113.56pt}\setlength\topsep{0pt}
+马克思主义政治经济学
+\end{minipage}};
+% Text Node
+\draw (313.5,193.75) node   [align=left] {\begin{minipage}[lt]{113.56pt}\setlength\topsep{0pt}
+科学社会主义
+\end{minipage}};
+% Text Node
+\draw (487,56) node   [align=left] {\begin{minipage}[lt]{69.36pt}\setlength\topsep{0pt}
+德国古典哲学
+\end{minipage}};
+% Text Node
+\draw (508.5,126) node   [align=left] {\begin{minipage}[lt]{98.6pt}\setlength\topsep{0pt}
+英国古典政治经济学
+\end{minipage}};
+% Text Node
+\draw (502,194) node   [align=left] {\begin{minipage}[lt]{88.4pt}\setlength\topsep{0pt}
+英法空想社会主义
+\end{minipage}};
+% Text Node
+\draw (297,81) node [anchor=north west][inner sep=0.75pt]   [align=left] {作为思想和方法};
+% Text Node
+\draw (297,149) node [anchor=north west][inner sep=0.75pt]   [align=left] {作为理论依据};
+% Text Node
+\draw (250,250) node [anchor=north west][inner sep=0.75pt]   [align=left] {最终的目的与归宿};
+
+
+\end{tikzpicture}
+\caption{马克思主义的三大组成部分}
+\end{figure}
+
+
+\subsection{马克思主义的基本立场、基本观点和基本方法}
+
+马克思主义基本原理是对马克思主义立场、观点、方法的集中概括，是马克思主义在其形成、
+发展和运用过程中经过时间反复检验而确立起来的具有普遍真理性的理论。它体现马克思主义的
+根本性质和整体特征，体现马克思主义科学性和革命性的统一。相对于特定历史条件下
+所做的个别理论判断和具体结论，马克思主义基本原理具有普遍的、根本的和长远的指导意义。
+
+我们可以从基本立场、基本观点、基本方法的有机统一中，来学习和把握马克思主义。
+
+\subsubsection{马克思主义的基本立场}
+
+马克思主义的基本立场，是马克思主义观察、分析和解决问题的根本立足点和出发点。
+\textbf{马克思主义以无产阶级的解放和全人类的解放为己任，以人的自由全面发展为美好目标，以人民为中心，
+一切为了人民，一切依靠人民，全心全意为人民服务。}
+
+\subsubsection{马克思主义的基本观点}
+
+马克思主义的基本观点，是关于自然、社会和人类思维发展一般规律的科学认识，是对人类思想成果和
+社会实践经验的科学总结。这些基本观点主要包括：
+\begin{tasks}(1)
+    \task 关于世界统一于物质、物质决定意识的观点；
+    \task 关于事物矛盾运动规律的观点；
+    \task 关于实践和认识辩证关系的观点；
+    \task 关于社会存在决定社会意识的观点；
+    \task 关于人与自然和谐共生的观点；
+    \task 关于人类社会基本矛盾运动规律的观点；
+    \task 关于人的自由而全面发展的观点；
+    \task 关于世界历史的观点；
+    \task 关于阶级和阶级斗争的观点；
+    \task 关于人民群众创造历史的观点；
+    \task 关于劳动价值论的观点；
+    \task 关于剩余价值和资本主义生产方式本质的观点；
+    \task 关于资本主义政治制度和意识形态本质的观点；
+    \task 关于垄断资本主义的观点；
+    \task 关于社会主义必然代替资本主义的观点；
+    \task 关于社会主义革命和无产阶级专政的观点；
+    \task 关于无产阶级政党建设的观点；
+    \task 关于社会主义社会本质特征和建设规律的特点；
+    \task 关于共产主义社会基本特征和共产主义远大理想的观点；
+    \task ……
+\end{tasks}
+\begin{remark}
+    “科学性是马克思主义独有的特点”，这一表述在思想政治类课程学习和考研政治中是一个
+    基本的论调。
+\end{remark}
+\begin{remark}
+    从内容的角度来分析马克思主义的内涵，是说{\kaishu 马克思主义是关于自然、社会和人类思维发展的
+    一般规律的学说}，这两个知识点可以结合在一起记忆。马克思主义的内容是关于自然、社会和人类思维发
+    展一般规律的，所以它的基本观点就是关于自然、社会和人类思维发展的一般规律的科学认识。
+\end{remark}
+
+\subsubsection{马克思主义的基本方法}
+
+马克思主义的基本方法，是建立在辩证唯物主义和历史唯物主义世界观和方法论基础上，
+指导我们正确认识世界和改造世界的思想方法和工作方法。它们包括：
+\begin{tasks}(2)
+    \task 实事求是的方法；
+    \task 辩证分析的方法；
+    \task 社会基本矛盾和主要矛盾分析的方法；
+    \task 历史分析的方法；
+    \task 阶级分析的方法；
+    \task 群众路线的方法
+    \task ……
+\end{tasks}
+
+\subsection{马克思主义的创立}
+
+
+
+\subsubsection{马克思主义创立的社会根源、阶级基础和思想渊源}
+
+马克思主义产生于 19 世纪 40 年代，创始人是马克思和恩格斯。
+马克思主义的产生具有深刻的社会根源、阶级基础和思想渊源。
+\begin{itemize}[itemsep=0pt]
+    \item 社会根源：\textbf{资本主义生产方式在欧洲已经有了相当的发展}：
+    {\small 工业革命和科技进步极大地提高了劳动生产率，促进了生产力的发展。
+    资本主义生产方式一方面带来了社会化大生产的迅猛发展，另一方面又造成了
+    深重的社会灾难：
+    \begin{enumerate}[itemsep=0pt, label=$\left.\arabic*\right)$]
+        \item 社会两极分化，工人极端困苦。机器大工业的发展，不仅没有改善工人的劳动和
+        生活条件，而且使工人成为机器的附庸。资本家采取延长劳动时间、增大劳动强度、
+        降低工人工资、廉价雇佣女工和童工等手段，拼命压榨工人血汗，无产阶级与资产阶级
+        的矛盾不断加剧。
+        \item 周期性经济危机频繁爆发。英国在工业革命开始后，曾多次发生局部性经济危机，
+        每一次经济危机都对社会造成巨大的破坏。
+    \end{enumerate}}
+    \item 阶级基础：无产阶级在反抗资产阶级剥削和压迫斗争的斗争中，逐渐走向自觉，并迫切
+    渴望科学的理论指导，法国、英国、德国工人运动的兴起，标志着现代无产阶级作为独立的
+    政治力量登上了历史舞台。\textbf{觉醒了的无产阶级迫切需要总结和升华自身的斗争经验，
+    形成科学的革命理论，以指导自身的解放斗争}。
+    \item 思想渊源：
+    \begin{figure}[H]
+        \centering
+    
+    
+    \tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+    
+    \begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+    %uncomment if require: \path (0,449); %set diagram left start at 0, and has height of 449
+    
+    %Shape: Brace [id:dp8589737925705583] 
+    \draw   (244,72.5) .. controls (239.33,72.5) and (237,74.83) .. (237,79.5) -- (237,172) .. controls (237,178.67) and (234.67,182) .. (230,182) .. controls (234.67,182) and (237,185.33) .. (237,192)(237,189) -- (237,284.5) .. controls (237,289.17) and (239.33,291.5) .. (244,291.5) ;
+    %Shape: Brace [id:dp8773220460912701] 
+    \draw   (364,27.5) .. controls (359.33,27.5) and (357,29.83) .. (357,34.5) -- (357,63.75) .. controls (357,70.42) and (354.67,73.75) .. (350,73.75) .. controls (354.67,73.75) and (357,77.08) .. (357,83.75)(357,80.75) -- (357,113) .. controls (357,117.67) and (359.33,120) .. (364,120) ;
+    %Shape: Brace [id:dp6324604138620569] 
+    \draw   (365,153.5) .. controls (360.33,153.5) and (358,155.83) .. (358,160.5) -- (358,189.75) .. controls (358,196.42) and (355.67,199.75) .. (351,199.75) .. controls (355.67,199.75) and (358,203.08) .. (358,209.75)(358,206.75) -- (358,239) .. controls (358,243.67) and (360.33,246) .. (365,246) ;
+    
+    % Text Node
+    \draw (142,162) node [anchor=north west][inner sep=0.75pt]   [align=left] {马克思主义\\的思想渊源};
+    % Text Node
+    \draw (252,64) node [anchor=north west][inner sep=0.75pt]   [align=left] {直接理论来源};
+    % Text Node
+    \draw (372,26) node [anchor=north west][inner sep=0.75pt]   [align=left] {德国古典哲学};
+    % Text Node
+    \draw (372,65) node [anchor=north west][inner sep=0.75pt]   [align=left] {英国古典政治经济学};
+    % Text Node
+    \draw (372,103) node [anchor=north west][inner sep=0.75pt]   [align=left] {英法空想社会主义};
+    % Text Node
+    \draw (252,192) node [anchor=north west][inner sep=0.75pt]   [align=left] {自然科学前提};
+    % Text Node
+    \draw (372,149) node [anchor=north west][inner sep=0.75pt]   [align=left] {细胞学说};
+    % Text Node
+    \draw (372,194) node [anchor=north west][inner sep=0.75pt]   [align=left] {能量守恒与转化定律};
+    % Text Node
+    \draw (372,230) node [anchor=north west][inner sep=0.75pt]   [align=left] {生物进化论};
+    % Text Node
+    \draw (252,273) node [anchor=north west][inner sep=0.75pt]   [align=left] {其他思想来源};
+    
+    
+    \end{tikzpicture}
+    \caption{马克思主义的思想渊源}
+    \end{figure}
+    \begin{enumerate}[itemsep=0pt, label=$\left.\arabic*\right)$]
+        \item 19 世纪西欧三大先进思潮为马克思主义的创立提供了直接的理论来源。
+            \begin{itemize}[itemsep=0pt]
+                \item \textbf{德国古典哲学} (classical philosophy)：
+                辩证法思想；
+                \item \textbf{英国古典政治经济学} (classical political economy)：对资本主义生产关系的分析和关于
+                劳动创造价值的思想；
+                \item \textbf{英法空想社会主义} 
+                (Utopian socialism)：
+                对资本主义社会的批判和对未来新社会的展望，
+            \end{itemize}
+            这三大思潮都是资本主义发展初期的先进的思想家求索时代课题的尝试。
+    
+        \item 19 世纪的三大科学发现，即\textbf{细胞学说}、
+        \textbf{能量守恒与转化定律}、\textbf{生物进化论}，为马克思主义的产生提供了自然科学前提。
+
+        \item 从更广泛的意义上讲，马克思主义的思想来源还有古希腊、罗马哲学、文艺复兴运动的思想成果、
+        法国复辟时期历史学家的进步思想等。
+    \end{enumerate}
+\end{itemize}
+
+
+
+\subsubsection{马克思与恩格斯的早期经历与世界观和政治立场的彻底转变}
+
+从优越的家庭条件和卓越的个人才华来说，马克思和恩格斯完全有可能跻身所谓的 “上流社会”，
+求得令人羡慕的个人前程，但是他们放弃了舒适安逸的生活，毅然选择了充满荆棘与坎坷的革命
+之路。
+
+马克思和恩格斯发表在 1844 年 2 月《德法年鉴》上的论文表明，他们完成了从唯心主义向
+唯物主义、从革命民主主义向共产主义的转变（称为 “两个转变”），
+为创立马克思主义奠定了思想前提。
+
+\subsubsection{《共产党宣言》的发表和马克思主义的公开问世}
+
+马克思、恩格斯接受国际性工人组织 “正义者同盟” 的邀请，将其改组为 \textbf{“共产主义者同盟”，
+这是世界上第一个共产主义政党}。并为其起草了\textbf{世界上第一个无产阶级政党的党纲
+——《共产党宣言》}。1848 年 2 月，\textbf{《共产党宣言》发表，标志着马克思主义的公开问世，
+标志着科学社会主义的诞生，标志着马克思主义的诞生}。
+\begin{remark}
+    这里需要注意的是，组织并不等于政党。因此 “正义者同盟” 仅仅是一个国际性的工人组织，
+    而不是共产主义政党。世界上的第一个共产主义政党是 “无产主义者同盟”。这两个组织的
+    名字里都带有 “同盟”，却具有完全不同的性质，前者是一个工人组织，而后者则是一个无产阶级政党。
+\end{remark}
+
+\subsubsection{总结革命经验 \quad 丰富革命理论}
+
+1848 年欧洲革命失败后，他们流亡英国。马克思进行了全面深入的政治经济学研究，撰写了《资本论》
+并出版了第一卷，系统阐述了剩余价值学说，揭示了资本主义生产关系的秘密。
+\textbf{唯物史观和剩余价值学说是马克思一生的两个伟大发现}。
+
+% \begin{table}[H]
+%     \centering
+%     \caption{马克思与恩格斯的经典著作}
+%     \begin{tabular}{p{0.2\textwidth}|p{0.3\textwidth}p{0.2\textwidth}p{0.2\textwidth}}
+%         \hline
+%         \textbf{作品} & \textbf{内容} & \textbf{关键词} & \textbf{备注} \\
+%         \hline
+%         《德法年鉴》（期刊）
+%         \newline 马克思、恩格斯 \newline 1844.2
+%         & 马克思、恩格斯在《德法年鉴》上分别发表了两篇文章，标志着马克思和恩格斯的两个转变，
+%         即从唯心主义转向唯物主义、从革命民主主义转向共产主义，这为马克思、恩格斯创立自己的理论奠定了
+%         思想前提
+%         & 两个转变 \\ 
+%         \hline
+%         《德意志意识形态》
+%         \newline 马克思、恩格斯 
+%         & 首次系统阐了历史唯物主义的基本观点，实现了历史观上的伟大变革，
+%         标志着马克思主义哲学的诞生
+%         & 唯物史观的创立 \newline 马克思主义哲学的诞生 \\ 
+%         \hline 
+%         《共产党宣言》
+%         \newline 马克思、恩格斯 \newline 1848.2
+%         & 标志着科学社会主义、马克思主义的诞生，是世界上第一个无产阶级政党的党纲
+%         & 科学社会主义的诞生 \newline 马克思主义的诞生 \newline 首个无产阶级政党党纲 \\
+%         \hline 
+%         《资本论》
+%         \newline 马克思 
+%         & 系统阐述剩余价值理论，标志着马克思主义政治经济学的诞生
+%         & 政治经济学的诞生 & 被称为 “工人阶级的圣经” \\ 
+%         \hline 
+%         《反杜林论》
+%         \newline 恩格斯 
+%         & 首次将马克思主义以三个组成部分（马克思主义哲学、政治经济学、科学社会主义）
+%         的形式进行了全面阐述
+%         & 全面阐述 \newline 三个组成部分
+%         & 被称为 “马克思主义的百科全书” \\
+%         \hline
+        
+%         《关于费尔巴哈的提纲》 \newline 马克思 
+%         & 首次确立了科学的实践观 
+%         & 实践观 \newline 历史唯物主义的起源 \\
+%         \hline
+%         《家庭、私有制和国家的起源》 \newline 恩格斯 
+%         & 关于古代社会发展规律的著作，是马克思主义国家学说的代表作之一 
+%         & 国家学说 \\ 
+%         \hline
+%     \end{tabular}
+% \end{table}
+
+{\small 
+\begin{longtable}{p{0.2\textwidth}|p{0.3\textwidth}p{0.15\textwidth}p{0.2\textwidth}}
+    \caption{马克思与恩格斯的经典著作}\\
+    \hline
+    \textbf{作品} & \textbf{内容} & \textbf{关键词} & \textbf{备注} \\
+    \hline
+    \endfirsthead
+    
+    \multicolumn{4}{r}%
+    {(续表)} \\
+    \hline
+    \textbf{作品} & \textbf{内容} & \textbf{关键词} & \textbf{备注} \\
+    \hline
+    \endhead
+    
+    \hline \multicolumn{4}{r}{{续下页}} \\
+    \endfoot
+    
+    \hline
+    \endlastfoot
+    
+    《德法年鉴》（期刊）
+    
+    马克思、恩格斯
+    
+    1844.2
+    & 马克思、恩格斯在《德法年鉴》上分别发表了两篇文章，标志着马克思和恩格斯的两个转变，
+    即从唯心主义转向唯物主义、从革命民主主义转向共产主义，这为马克思、恩格斯创立自己的理论奠定了
+    思想前提
+    & 两个转变 \\ 
+    \hline
+    《德意志意识形态》
+    \newline 马克思、恩格斯 
+    & 首次系统阐了历史唯物主义的基本观点，实现了历史观上的伟大变革，
+    标志着马克思主义哲学的诞生
+    & 唯物史观的创立 \newline 马克思主义哲学的诞生 \\ 
+    \hline 
+    《共产党宣言》
+    \newline 马克思、恩格斯 \newline 1848.2
+    & 标志着科学社会主义、马克思主义的诞生，是世界上第一个无产阶级政党的党纲
+    & 科学社会主义的诞生 \newline 马克思主义的诞生 \newline 首个无产阶级政党党纲 \\
+    \hline 
+    《资本论》
+    \newline 马克思 
+    & 系统阐述剩余价值理论，标志着马克思主义政治经济学的诞生
+    & 政治经济学的诞生 & 被称为 “工人阶级的圣经” \\ 
+    \hline 
+    《反杜林论》
+    \newline 恩格斯 
+    & 首次将马克思主义以三个组成部分（马克思主义哲学、政治经济学、科学社会主义）
+    的形式进行了全面阐述
+    & 全面阐述 \newline 三个组成部分
+    & 被称为 “马克思主义的百科全书” \\
+    \hline
+    
+    《关于费尔巴哈\footnote{
+        费尔巴哈（Ludwig Feuerbach）是19世纪德国哲学家，代表作有《基督教的本质》。他对黑格尔哲学进行批判，认为宗教是人类自身本质的投射，主张将神的属性还归给人类自身，以实现人的解放与自我意识觉醒。他的思想强调了人本身的重要性，为后来的唯物主义和人本主义哲学奠定了重要基础。
+    }的提纲》 \newline 马克思 
+    & 首次确立了科学的实践观 
+    & 实践观 \newline 历史唯物主义的起源 \\
+    \hline
+    《家庭、私有制和国家的起源》 \newline 恩格斯 
+    & 关于古代社会发展规律的著作，是马克思主义国家学说的代表作之一 
+    & 国家学说 \\ 
+    \hline
+\end{longtable}}
+
+\subsection{马克思主义的发展}
+
+列宁深刻分析了 19 世纪末 20 世纪初世界历史条件的变化，认为随着资本主义发展到
+垄断阶段，经济政治发展的不平衡已成为资本主义发展的绝对规律，提出了社会主义革命可能在
+一国或数国首先发生并取得胜利的论断。
+\begin{remark}
+    注意这里的因果关系，经济政治发展的不平衡是因，而社会主义革命可能会发生和胜利则是结果。
+\end{remark}
+
+
+
+
+\section{马克思主义的鲜明特征和当代价值}
+
+\subsection{马克思主义的鲜明特征}
+
+马克思主义具有鲜明的科学性、人民性、实践性、发展性，这些特征体现了马克思主义的
+本质和使命，也展现出马克思主义的理论形象。
+\begin{itemize}[itemsep=0pt]
+    \item \textbf{科学性}：马克思主义是对自然、社会和人类思维发展本质和规律的正确反映；
+    \item \textbf{人民性}：\textbf{人民至上是马克思主义的政治立场}；
+    \item \textbf{实践性}：从实践中来、到实践中去、在实践中接受检验、随实践而不断发展；
+    \item \textbf{发展性}：不断发展、与时俱进。
+\end{itemize}
+马克思主义的人民性、实践性和发展性，集中表现为革命性。因此，马克思主义的鲜明特征，
+如果用一句话来概括，就是\textbf{科学性与革命性的统一}。
+
+\begin{figure}[H]
+    \centering
+    
+
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+
+%Shape: Rectangle [id:dp5743918056710222] 
+\draw  [dash pattern={on 1.69pt off 2.76pt}][line width=1.5]  (135,99) -- (402,99) -- (402,187.5) -- (135,187.5) -- cycle ;
+
+% Text Node
+\draw    (68,111.75) -- (125,111.75) -- (125,143.75) -- (68,143.75) -- cycle  ;
+\draw (96.5,127.75) node   [align=left] {\begin{minipage}[lt]{36.04pt}\setlength\topsep{0pt}
+科学性
+\end{minipage}};
+% Text Node
+\draw    (154,111.75) -- (211,111.75) -- (211,143.75) -- (154,143.75) -- cycle  ;
+\draw (182.5,127.75) node   [align=left] {\begin{minipage}[lt]{36.04pt}\setlength\topsep{0pt}
+人民性
+\end{minipage}};
+% Text Node
+\draw    (240,111.75) -- (297,111.75) -- (297,143.75) -- (240,143.75) -- cycle  ;
+\draw (268.5,127.75) node   [align=left] {\begin{minipage}[lt]{36.04pt}\setlength\topsep{0pt}
+实践性
+\end{minipage}};
+% Text Node
+\draw    (326,111.75) -- (383,111.75) -- (383,143.75) -- (326,143.75) -- cycle  ;
+\draw (354.5,127.75) node   [align=left] {\begin{minipage}[lt]{36.04pt}\setlength\topsep{0pt}
+发展性
+\end{minipage}};
+% Text Node
+\draw (245,162) node [anchor=north west][inner sep=0.75pt]   [align=left] {革命性};
+
+
+\end{tikzpicture}
+\caption{马克思主义的鲜明特征}
+\end{figure}
+
+\subsection{马克思主义的当代价值}
+
+\subsubsection{观察当代世界变化的认识工具}
+马克思主义给予我们观察当代世界的宏大视野，给予我们透视时代风云的锐利目光，
+给予我们展望未来世界的长远眼光和战略定力。
+\subsubsection{指引当代中国发展的行动指南}
+马克思主义是指引当代中国发展的精神旗帜，是推动当代中国发展的精神动力，
+是引领当代中国实践的行动指南。
+\subsubsection{引领人类社会进步的科学真理}
+社会是在矛盾中进步的，每一个时代的社会进步总是伴随着相应的
+社会问题，人类社会怎样面对和处理这些问题，怎样才能走向更加美好的明天？
+回答和解决这样的根本性问题，还是需要到马克思主义中寻找智慧。
+
+\vspace*{1em}
+大学生在学习马克思主义的过程中，要有正确的学习态度和科学的学习方法。
+第一，要努力学习和掌握马克思主义的基本立场、观点、方法；
+第二，要努力学习和掌握马克思主义中国化的理论成果；
+第三，要坚持理论联系实际的马克思主义学风；
+第四，要自觉将马克思主义内化于心，外化于行。
+
+\clearpage
+\thispagestyle{empty}
+\mainmatter
+
+\part{马克思主义哲学}
+
+\chapter{世界的物质性及发展规律}
+
+% \begin{tasks}(2)
+%     \task 辩证唯物主义物质范畴
+%     \task 世界的物质统一性
+%     \task 主观能动性与客观规律性的辩证统一
+%     \task 联系和发展的基本规律
+%     \task 唯物辩证法是科学的认识方法
+%     \task 在实践中不断增强思维能力
+% \end{tasks}
+
+% 客观实在性是物质的共同特性，是指存在于人的意识之外，不以人的意志为转移并能为
+% 人所感知的客观存在，即物质世界。不管物质的形态、结构和属性如何千变万化，其客观实在
+% 的属性在任何时候、任何地方都是不变的，因而具有永恒性和绝对性，客观实在性是万事万物
+% 共有的特性。
+
+% 意识的内容是客观的，而在形式上是主观的，所以意识是客观内容和主观形式的统一。
+
+% 相对于过去的运动到达一个变化点或者一个转折点，该点即静止，也为结果，从这点开始了一个新的运动，
+% 即新运动的出发点。
+
+
+
+% \section{哲学及其基本问题}
+
+\section{世界的多样性与物质统一性}
+
+\subsection{物质及其存在方式}
+
+% \subsection{哲学是系统化、理论化的世界观}
+
+哲学是系统化、理论化的世界观，是对自然知识、社会知识和思维知识的概括和总结，
+哲学世界观起源于人类在生活实践中对世界的追问和思考，
+是关于宇宙和人生的总体性认识，为人类安身立命提供不可或缺的思想基础。
+
+\begin{figure}[H]
+    \centering
+
+
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+
+%Straight Lines [id:da06915972307109763] 
+\draw    (308,110.5) -- (308,150.5) ;
+\draw [shift={(308,153.5)}, rotate = 270] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (6.25,-3) -- (0,0) -- (6.25,3) -- cycle    ;
+
+% Text Node
+\draw (174,81) node [anchor=north west][inner sep=0.75pt]   [align=left] {世界观：人们对世界的总的看法和根本观点};
+% Text Node
+\draw (174,166) node [anchor=north west][inner sep=0.75pt]   [align=left] {方法论：人们认识世界和改造世界的根本原则和根本方法};
+% Text Node
+\draw (319,121) node [anchor=north west][inner sep=0.75pt]   [align=left] {决定};
+
+
+\end{tikzpicture}
+\caption{世界观与方法论}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    
+
+
+
+    \tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+    \begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+    %uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+    
+    %Shape: Brace [id:dp1198995538704497] 
+    \draw   (236,73.5) .. controls (231.33,73.5) and (229,75.83) .. (229,80.5) -- (229,111.25) .. controls (229,117.92) and (226.67,121.25) .. (222,121.25) .. controls (226.67,121.25) and (229,124.58) .. (229,131.25)(229,128.25) -- (229,162) .. controls (229,166.67) and (231.33,169) .. (236,169) ;
+    %Shape: Brace [id:dp05903287158077408] 
+    \draw   (457,74.5) .. controls (452.33,74.5) and (450,76.83) .. (450,81.5) -- (450,112.25) .. controls (450,118.92) and (447.67,122.25) .. (443,122.25) .. controls (447.67,122.25) and (450,125.58) .. (450,132.25)(450,129.25) -- (450,163) .. controls (450,167.67) and (452.33,170) .. (457,170) ;
+    %Straight Lines [id:da8154346896000187] 
+    \draw    (175.5,156.5) -- (175.5,196.5) ;
+    \draw [shift={(175.5,199.5)}, rotate = 270] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (5.36,-2.57) -- (0,0) -- (5.36,2.57) -- cycle    ;
+    
+    % Text Node
+    \draw    (353,108.25) -- (440,108.25) -- (440,136.25) -- (353,136.25) -- cycle  ;
+    \draw (396.5,122.25) node   [align=left] {\begin{minipage}[lt]{56.44pt}\setlength\topsep{0pt}
+    \begin{center}
+    人类活动
+    \end{center}
+    
+    \end{minipage}};
+    % Text Node
+    \draw    (460,57.75) -- (547,57.75) -- (547,92.75) -- (460,92.75) -- cycle  ;
+    \draw (503.5,75.25) node   [align=left] {\begin{minipage}[lt]{56.44pt}\setlength\topsep{0pt}
+    \begin{center}
+    认识世界
+    \end{center}
+    
+    \end{minipage}};
+    % Text Node
+    \draw    (461,151.75) -- (548,151.75) -- (548,186.75) -- (461,186.75) -- cycle  ;
+    \draw (504.5,169.25) node   [align=left] {\begin{minipage}[lt]{56.44pt}\setlength\topsep{0pt}
+    \begin{center}
+    改造世界
+    \end{center}
+    
+    \end{minipage}};
+    % Text Node
+    \draw (187,225.75) node   [align=left] {\begin{minipage}[lt]{72.08pt}\setlength\topsep{0pt}
+    具有多样性\\和物质统一性
+    \end{minipage}};
+    % Text Node
+    \draw    (132,94.75) -- (219,94.75) -- (219,149.75) -- (132,149.75) -- cycle  ;
+    \draw (175.5,122.25) node   [align=left] {\begin{minipage}[lt]{56.44pt}\setlength\topsep{0pt}
+    \begin{center}
+    世界上的\\各种现象
+    \end{center}
+    
+    \end{minipage}};
+    % Text Node
+    \draw    (239,56.75) -- (326,56.75) -- (326,91.75) -- (239,91.75) -- cycle  ;
+    \draw (282.5,74.25) node   [align=left] {\begin{minipage}[lt]{56.44pt}\setlength\topsep{0pt}
+    \begin{center}
+    物质现象
+    \end{center}
+    
+    \end{minipage}};
+    % Text Node
+    \draw    (239,149.75) -- (326,149.75) -- (326,184.75) -- (239,184.75) -- cycle  ;
+    \draw (282.5,167.25) node   [align=left] {\begin{minipage}[lt]{56.44pt}\setlength\topsep{0pt}
+    \begin{center}
+    精神现象
+    \end{center}
+    
+    \end{minipage}};
+    
+    
+    \end{tikzpicture}
+\caption{世界上的万事万物归结起来无非是两大类现象，即物质现象和精神现象；
+人类的活动归结起来无非也是两大类，即认识世界和改造世界}
+\end{figure}
+
+% \section{哲学及其基本问题}
+
+恩格斯总结和概括了哲学发展，特别是近代哲学发展的历史事实，第一次明确提出：“全部哲学
+问题，特别是近代哲学的重大的基本问题，是思维和存在的关系问题。” 哲学基本问题主要包括
+两个方面的内容：
+第一，存在和思维、物质和意识谁为本原的问题，即何者为第一性的问题，
+对这一问题的不同回答，形成了唯物主义和唯心主义两种根本对立的哲学派别。
+第二，存在和思维、物质和意识是否具有同一性的问题，即思维能否正确地反映存在、
+人能否认识或彻底认识世界的问题，
+对这一问题的不同回答，产生了可知论和不可知论的理论分野。
+
+对哲学基本问题的回答是解决其他一切哲学问题的前提和基础。
+只有科学解决存在和思维的关系问题，才能正确认识世界的本质和把握世界发展的规律。
+
+{\small
+\begin{mdframed}[frametitle={哲学的基本问题及其派别分类}]
+    \quad\quad 哲学的第一个基本问题是，存在和思维、物质和意识谁为本原的问题，即何者为第一性的问题。
+    对这一问题的不同回答，形成了唯物主义和唯心主义两种根本对立的哲学派别。
+    
+    % \subsubsection{唯物主义}
+    
+    凡是主张物质是本原，物质第一性、精神第二性的哲学流派，都属于唯物主义，
+    唯物主义坚持 “从物到感觉和思想” 的认识路线。唯物主义哲学在其历史发展过程中，
+    依次表现为三种基本的历史形态，即古代朴素唯物主义、近代机械唯物主义和马克思主义
+    的辩证唯物主义。
+    \begin{itemize}[itemsep=0pt]
+        \item 古代朴素唯物主义的主要特征是以自然原因去解释自然现象，肯定世界的
+        物质本原性和统一性。它的主要缺陷是把某种具体的物质形态看作世界的物质本原和统一的
+        物质基础，具有明显的 “猜测” 的性质。
+        \item 近代形而上学唯物主义以近代科学对自然现象的实证研究为基础，以新的实证知识和科学方法
+        论证世界的物质统一性，摆脱了古代唯物主义的朴素性；近代唯物主义自觉地提出并探讨了思维和存在
+        的关系问题，主要研究了认识内容的来源等问题，确认了唯物主义的反映论和可知论原则。
+    
+        近代唯物主义的局限性在于：
+        \begin{enumerate}[label={${\arabic*}^\circ$}, itemsep=0pt]
+            \item 把自然界中各种现象和过程归结为机械运动，用力学规律加以解释；
+            \item 用孤立、静止、片面的观点解释世界，是一种形而上学的思维方式；
+            \item 唯物主义的不彻底性，即自然观的唯物主义、历史观的唯心主义。
+        \end{enumerate}
+        \item 马克思、恩格斯创立的辩证唯物主义和历史唯物主义是哲学唯物主义的最高形态\footnote{
+            真的不会再被超越吗？
+        }，它克服了就唯物主义的局限性和不彻底性，实现了唯物论与辩证唯物法、唯物主义的自然观与
+        历史观的统一。
+    \end{itemize}
+    
+    % \subsubsection{唯心主义}
+    
+    % 在对思维与存在、精神与物质的关系的理解和解释中，如果 “把认识的某一特征、某一方面、某一侧面，
+    % 片面地、夸大地……发展（膨胀、扩大）为脱离了物质、脱离了自然的、神话了的绝对”，就会
+    % 导致唯心主义。
+    凡是断言精神对自然界来说是本原，精神第一性、物质第二性的哲学流派，都属于唯心主义，
+    唯心主义坚持 “从思想和感觉到物” 的认识路线。
+    在哲学史上，唯心主义哲学有众多流派，归结起来有两种基本形式：一是主观唯心主义，一是客观
+    唯心主义。
+    \begin{itemize}[itemsep=0pt]
+        \item 主观唯心主义把个人的感觉、心灵、意识、观念夸大为第一性的东西，否认物质世界
+        和客观规律不依赖于人的意识而存在。
+        \item 客观唯心主义则把某种 “客观精神” 说成是先于病独立于物质世界的存在，并把物质世界
+        说成是这种 “客观精神” 的产物、表现或附属品。
+    \end{itemize}
+    
+    % \subsection{}
+    哲学的第二个基本问题是，存在和思维、物质和意识是否具有同一性的问题，即思维能否正确地反映存在、人能否认识或彻底认识世界的问题。
+    依据对思维和存在是否具有同一性、我们的思维能不能认识现实问题的不同回答，可以把哲学区分为
+    可知论和不可知论。
+    \begin{itemize}[itemsep=0pt]
+        \item 绝大多数哲学学派都属于可知论，但唯物主义和唯心主义的可知论是方向不同的可知论。
+        唯物主义的可知论认为人的思维能够正确地反映现实世界，而唯心主义的可知论则用精神的本原性
+        来说明思维和存在的统一性的可知论。
+        \item 凡是对思维和存在是否具有统一性做出否定回答的哲学理论，都属于不可知论。
+    \end{itemize}
+\end{mdframed}}
+
+\subsubsection{哲学的物质范畴}
+
+古代朴素唯物主义用某一种或几种物质作为本原来解释世界，在当时具有合理性和进步性。
+但是，把物质等同于具体的物质形态，又有明显的局限性。近代形而上学唯物主义以近代科学为基础，
+把物质等同于物质的微观结构层次——原子，虽然使唯物主义对物质概念的理解建立在自然科学发现
+的基础上，却不能正确理解哲学的物质概念与自然科学的物质概念之间共性与个性的关系，
+更无法将唯物主义贯彻到历史领域中，无法说明社会运动的物质性。
+
+% 哲学上关于 “物质” 的概念有许多种提法（要注意把它们与自然科学关于具体的物质形态和物质结构的
+% 概念区分开来），我们要重点学习的是恩格斯和列宁的关于物质概念的提法:
+马克思、恩格斯批判了旧唯物主义对物质世界的直观、消极、机械的理解，强调要用辩证的观点把握世界，
+特别是要从实践出发去把握现实世界，从自然存在和社会存在的统一中去把握世界的物质性。
+马克思主义的 “物质” 范畴是一个高度抽象的哲学概念，是对世界上客观存在的各种事物
+共同本质的概括。
+\begin{itemize}[itemsep=0pt]
+    \item \textbf{恩格斯关于物质概念的提法}：“物、物质无非就是各种物的总和，而这个概念就是从
+    这一总和中抽象出来的”。
+    % 这就是说，物质这个名词是一种简称，“我们就用这种简称把感官可感知的
+    % 许多不同的事物依照其共同的属性概括起来”。
+    % 这个提法明确指出了\textbf{哲学物质概念与自然科学关于具体的物质形态和物质结构的
+    % 概念之间的共性与个性、普遍与特殊、具体和抽象的关系}。
+    % \begin{remark}
+    %     哲学物质概念与自然科学关于具体的物质形态和物质结构的概念之间不是 “整体和部分” 的关系！
+    % \end{remark}
+    \item \textbf{列宁关于物质概念的提法}：物质是标志客观实在的哲学范畴，这种客观实在
+    \begin{enumerate}[label=\textup{\arabic*}${}^\circ$, itemsep=0pt]
+        \item 是人通过感觉感知的；
+        \item \textbf{是不依赖于我们的感觉而存在的}；
+        \item 是为我们的感觉所复写、摄影、反映的。
+    \end{enumerate}
+
+    % 定义方式：\textbf{列宁是从物质与意识的关系上来把握物质的}。
+
+    % 物质范畴是对物质世界多样性和统一性所作的最高的哲学概括，\textbf{物质的共同特征、唯一特征是客观实在性}，
+    % 它存在于人类的意识之外，为人类的意识所反映。
+    % \begin{remark}
+    %     判断一个东西是否是物质的标准，就是它是否 “不依赖于我们的感觉而存在”。
+    % \end{remark}
+\end{itemize}
+这一定义表明，物质是不依赖于人类的意识而存在，并能为人类的意识所反映的客观实在。
+这种客观实在性，是从自然存在和社会存在中抽象出的共同特性。
+
+\subsubsection{物质的存在方式}
+
+物质的根本属性和存在方式是很么？运动着的物质的基本存在形式又是什么？
+
+\begin{figure}[H]
+    \centering
+
+
+    \tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+    \begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+    %uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+    
+    %Shape: Brace [id:dp5396784354798981] 
+    \draw   (98,108) .. controls (93.33,108) and (91,110.33) .. (91,115) -- (91,150.25) .. controls (91,156.92) and (88.67,160.25) .. (84,160.25) .. controls (88.67,160.25) and (91,163.58) .. (91,170.25)(91,167.25) -- (91,205.5) .. controls (91,210.17) and (93.33,212.5) .. (98,212.5) ;
+    %Straight Lines [id:da8349474099648175] 
+    \draw    (209,109) -- (283,109) ;
+    \draw [shift={(286,109)}, rotate = 180] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (5.36,-2.57) -- (0,0) -- (5.36,2.57) -- cycle    ;
+    %Straight Lines [id:da4818301777895936] 
+    \draw    (221,213) -- (283,213) ;
+    \draw [shift={(286,213)}, rotate = 180] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (5.36,-2.57) -- (0,0) -- (5.36,2.57) -- cycle    ;
+    %Straight Lines [id:da614178840929528] 
+    \draw    (331,109) -- (402,109) ;
+    \draw [shift={(405,109)}, rotate = 180] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (5.36,-2.57) -- (0,0) -- (5.36,2.57) -- cycle    ;
+    \draw [shift={(328,109)}, rotate = 0] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (5.36,-2.57) -- (0,0) -- (5.36,2.57) -- cycle    ;
+    %Straight Lines [id:da06975531545558333] 
+    \draw  [dash pattern={on 4.5pt off 4.5pt}]  (426,56.5) -- (426,91.5) ;
+    %Straight Lines [id:da40660857551724394] 
+    \draw  [dash pattern={on 4.5pt off 4.5pt}]  (307,56.5) -- (307,91.5) ;
+    %Shape: Brace [id:dp6981372480973064] 
+    \draw   (389,173) .. controls (384.33,173) and (382,175.33) .. (382,180) -- (382,202.75) .. controls (382,209.42) and (379.67,212.75) .. (375,212.75) .. controls (379.67,212.75) and (382,216.08) .. (382,222.75)(382,219.75) -- (382,245.5) .. controls (382,250.17) and (384.33,252.5) .. (389,252.5) ;
+    %Straight Lines [id:da4140572639136836] 
+    \draw  [dash pattern={on 4.5pt off 4.5pt}]  (540,184.38) -- (507,184.38) ;
+    %Straight Lines [id:da21808382125862624] 
+    \draw  [dash pattern={on 4.5pt off 4.5pt}]  (540,260.38) -- (507,260.38) ;
+    %Straight Lines [id:da35114719364911073] 
+    \draw    (307,128.5) -- (307,192.5) ;
+    \draw [shift={(307,195.5)}, rotate = 270] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (5.36,-2.57) -- (0,0) -- (5.36,2.57) -- cycle    ;
+    \draw [shift={(307,125.5)}, rotate = 90] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (5.36,-2.57) -- (0,0) -- (5.36,2.57) -- cycle    ;
+    %Shape: Rectangle [id:dp06362495612482066] 
+    \draw   (101,82.5) -- (150,82.5) -- (150,112.5) -- (101,112.5) -- cycle ;
+    %Curve Lines [id:da6459325889321588] 
+    \draw    (126.03,78.62) .. controls (137.75,18.94) and (300.51,61.91) .. (306.83,94.98) ;
+    \draw [shift={(307,97.5)}, rotate = 273.37] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (5.36,-2.57) -- (0,0) -- (5.36,2.57) -- cycle    ;
+    \draw [shift={(125.5,82.5)}, rotate = 274.69] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (5.36,-2.57) -- (0,0) -- (5.36,2.57) -- cycle    ;
+    
+    % Text Node
+    \draw (157,109) node   [align=left] {\begin{minipage}[lt]{68pt}\setlength\topsep{0pt}
+    物质的根本属性或存在方式
+    \end{minipage}};
+    % Text Node
+    \draw (307,109) node   [align=left] {\begin{minipage}[lt]{25.84pt}\setlength\topsep{0pt}
+    \begin{center}
+    运动
+    \end{center}
+    
+    \end{minipage}};
+    % Text Node
+    \draw (163,213) node   [align=left] {\begin{minipage}[lt]{76.16pt}\setlength\topsep{0pt}
+    运动着的物质的基本存在形式
+    \end{minipage}};
+    % Text Node
+    \draw (329.5,213) node   [align=left] {\begin{minipage}[lt]{56.44pt}\setlength\topsep{0pt}
+    时间与空间
+    \end{minipage}};
+    % Text Node
+    \draw (426,109) node   [align=left] {\begin{minipage}[lt]{25.84pt}\setlength\topsep{0pt}
+    \begin{center}
+    静止
+    \end{center}
+    
+    \end{minipage}};
+    % Text Node
+    \draw (366.5,93) node  [font=\small] [align=left] {\begin{minipage}[lt]{51pt}\setlength\topsep{0pt}
+    \begin{center}
+    对立统一
+    \end{center}
+    
+    \end{minipage}};
+    % Text Node
+    \draw (307,39) node   [align=left] {\begin{minipage}[lt]{36.72pt}\setlength\topsep{0pt}
+    \begin{center}
+    绝对的
+    \end{center}
+    
+    \end{minipage}};
+    % Text Node
+    \draw (426,39) node   [align=left] {\begin{minipage}[lt]{36.72pt}\setlength\topsep{0pt}
+    \begin{center}
+    相对的
+    \end{center}
+    
+    \end{minipage}};
+    % Text Node
+    \draw (452.5,184.38) node   [align=left] {\begin{minipage}[lt]{74.12pt}\setlength\topsep{0pt}
+    物质运动的持续性、顺序性
+    \end{minipage}};
+    % Text Node
+    \draw (451.5,260.38) node   [align=left] {\begin{minipage}[lt]{72.76pt}\setlength\topsep{0pt}
+    物质运动的广延性、伸张性
+    \end{minipage}};
+    % Text Node
+    \draw (569,260.38) node   [align=left] {\begin{minipage}[lt]{36.72pt}\setlength\topsep{0pt}
+    \begin{center}
+    三维的
+    \end{center}
+    
+    \end{minipage}};
+    % Text Node
+    \draw (569,186) node   [align=left] {\begin{minipage}[lt]{36.72pt}\setlength\topsep{0pt}
+    \begin{center}
+    一维的
+    \end{center}
+    
+    \end{minipage}};
+    % Text Node
+    \draw (267.5,164) node  [font=\small] [align=left] {\begin{minipage}[lt]{51pt}\setlength\topsep{0pt}
+    \begin{center}
+    不可分割
+    \end{center}
+    
+    \end{minipage}};
+    % Text Node
+    \draw (199.5,41) node  [font=\small] [align=left] {\begin{minipage}[lt]{51pt}\setlength\topsep{0pt}
+    \begin{center}
+    不可分割
+    \end{center}
+    
+    \end{minipage}};
+    
+    
+    \end{tikzpicture}
+\caption{物质、运动、时间、空间}
+\end{figure}
+
+首先，
+物质的根本属性是运动。恩格斯关于运动概念的提法是：“运动，就它被理解为物质的存在方式、
+物质的固有属性这一最一般的意义来说，涵盖宇宙中发生的一切变化和过程，
+从单纯的位置变动直到思维”。
+这就是说，\textbf{运动是标志一切事物和现象的变化及其过程的哲学范畴}。
+从这一运动概念的提法立即得到：
+\begin{enumerate}[label={${\arabic*}^\circ$}, itemsep=0pt]
+    \item \textbf{运动是物质的存在方式、根本属性和固有属性}。
+    \item 马克思主义的运动概念比物理学（尤其是运动学与动力学）中运动的
+    概念更加广泛，物体的机械运动、受力运动、定轴转动、机械振动与电磁振荡
+    是运动，化学反应、生物化学反应也是运动，人的思维过程也是运动。
+\end{enumerate}
+\textbf{物质和运动是不可分割的}，
+运动是物质的运动，物质是运动着的物质，离开物质的运动和离开运动的物质都是不存在的\footnote{
+    徐涛老师的政治强化课中对于 “不可分割” 的关系做了一个很有意思的归纳和概括：
+    所谓 $A$ 与 $B$ 不可分割，即 $A$ 是 $B$ 的 $A$, $B$ 是 $A$ 的 $B$，
+    离开了 $A$ 的 $B$ 与离开了 $B$ 的 $A$ 都是不存在的。
+}。
+
+% 脱离物质谈运动，将导致唯心主义；脱离运动谈物质，将导致形而上学。
+
+
+% \subsection{运动和静止}
+
+其次，\textbf{物质世界的运动是绝对的，而物质在运动过程中又有某种相对的静止}。
+相对静止是物质运动在一定条件下的稳定状态，具体包括两种状态：
+\begin{itemize}[itemsep=0pt]
+    \item 空间相对位置暂时不变；
+    \item 根本性质暂时不变。
+\end{itemize}
+无条件的绝对运动和有条件的相对静止构成了对立统一\footnote{
+    徐涛老师的政治强化课中对于对立统一关系也做了一个很有意思的归纳和概括：
+    $A$ 与 $B$ 对立统一，即 $A$ 与 $B$ 相互区别，同时 $A$ 与 $B$ 相互联系。
+    我们所要做的，就是基于这个框架，具体阐述这对概念的对立性和统一性是怎么具体体现的，
+    这就是说，具体解释它们怎么相互区别，又怎么相互联系。
+}的关系。
+运动的绝对性体现了物质运动的变动性、无条件性，静止的相对性则体现了物质运动
+的稳定性、条件性（运动和静止对立性的体现）。
+运动和静止相互依赖、相互渗透、相互包含，\textbf{“动中有静、静中有动”}（运动和静止统一性的体现）。
+% \begin{itemize}[itemsep=0pt]
+%     \item \textbf{静止的概念}：
+%     \item \textbf{运动和静止的关系}：对立统一。
+%     \begin{remark}
+%         
+%     \end{remark}
+%     \begin{itemize}[itemsep=0pt]
+%         \item \textbf{运动和静止的相互区别}：\textbf{运动的绝对性体现了物质运动的变动性、无条件性；静止的
+%         相对性体现了物质运动的稳定性、有条件性}。
+%         \item \textbf{运动和静止的相互联系}：}。
+%     \end{itemize}
+%     \item 两种错误的观点：夸大静止、否定运动，将导致形而上学；夸大运动、否定静止，将导致诡辩论。
+% \end{itemize}
+
+\begin{example}
+    赫拉克利特认为 “人不能两次踏进同一条河流”，但他的学生反驳说 “人一次也不能
+    踏进同一条河流”。下列对这两种观点的理解正确的有 \underline{\qquad \qquad \qquad}。
+    \begin{tasks}[label={\Alph*.}](2)
+        \task 前者是辩证法的观点
+        \task 后者是相对主义诡辩论
+        \task 前者肯定相对静止
+        \task 后者否定绝对运动
+    \end{tasks}
+    \begin{cmt}
+        “人不能两次踏进同一条河流” 体现的思想是物质是运动的， 运动是物质的
+        根本属性和存在方式，物质和运动是不可分割的。世界上的一切事物都处在运动变化
+        之中，这是辩证唯物主义的思想。辩证唯物主义在承认运动是绝对的同时，还承认
+        相对静止的存在。而 “人一次也不能踏进同一条河流” 的思想过分地夸大了运动，
+        否定相对静止的存在，陷入了相对主义诡辩论当中。因此本题选择 ABC。
+    \end{cmt}
+\end{example}
+
+\begin{table}[H]
+    \centering\small
+    \caption{两个概念的关系的问题}
+    \begin{tabular}{cc|c p{0.25\textwidth} p{0.25\textwidth}}
+        \hline
+        \textbf{概念 A} & \textbf{概念 B} & \textbf{关系} & \textbf{对立性的体现} & \textbf{统一性的体现} \\ 
+        \hline
+        物质 & 运动 & 不可分割 \\ 
+        \hline
+        运动 & 静止 & 对立统一 & 运动的绝对性体现了物质运动的变动性、无条件性，静止的相对性则体现了物质运动
+        的稳定性、条件性。 & 运动和静止相互依赖、相互渗透、相互包含，“动中有静、静中有动”。 \\
+        \hline
+    \end{tabular}
+    \begin{remark}
+        由于不可分割关系的框架是比较简单的，就是 “$A$ 是 $B$ 的 $A$, $B$ 是 $A$ 的 $B$，
+        离开了 $A$ 的 $B$ 与离开了 $B$ 的 $A$ 都是不存在的”，
+        所以在上表中不再专门划定一列来写有关的表述。
+    \end{remark}
+\end{table}
+
+第三，\textbf{时间和空间是运动着的物质的基本存在形式}。时间是指物质运动的
+持续性、顺序性，特点是一维性，即时间的流逝一去不复返。空间是指物质运动的广
+延性、伸张性，特点是三维性，即空间具有长、宽、高三方面的规定性。
+\textbf{物质运动与时空是不可分割的}，物质运动总是在一定的时间和空间中
+进行的，没有离开物质运动的 “纯粹” 空间和时间，也没有离开时间和空间
+的物质运动。
+
+% \subsubsection{物质世界的二重化}
+
+\subsection{物质与意识的辩证关系}
+
+人的意识是物质世界长期发展的产物，是社会实践的产物，物质与意识的关系是辩证统一的。
+
+\subsubsection{物质决定意识}
+
+意识是人脑的机能和属性，是客观世界的主观映象。物质对意识的决定作用表现在意识的起源
+和本质上。首先，从意识的起源来看：
+\begin{itemize}[itemsep=0pt]
+    \item 意识是自然界长期发展的产物。它的形成和发展经历了三个阶段：
+    \begin{enumerate}[label={$\left.\arabic*\right)$}, itemsep=0pt]
+        \item 从一切物质所具有的反应特性到低等生物的刺激感应性；
+        \item 再到高等动物的感觉和心理；
+        \item 最终发展为人类的意识。
+    \end{enumerate}
+    \item 意识是社会历史发展的产物：
+    \begin{enumerate}[label={$\left.\arabic*\right)$}, itemsep=0pt]
+        \item 社会实践，特别是劳动，在意识的产生和发展中起着决定性的作用。
+        劳动为意识的产生和发展提供了客观需要和可能。
+        \item 在人们的劳动和交往中形成的语言促进了意识的发展。
+    \end{enumerate}
+\end{itemize}
+其次，从意识的本质来看，\textbf{意识是} \textbf{人脑}这样一种特殊物质
+\textbf{的机能和属性}，是客观世界的主观映象。意识在内容上是客观的，
+在形式上是主观的，是客观内容和主观形式的统一。
+意识是物质的产物，但又不是物质本身。
+
+\begin{figure}[H]
+    \centering
+    
+
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+
+%Straight Lines [id:da06405785871650937] 
+\draw    (264,86.5) -- (235.23,112.49) ;
+\draw [shift={(233,114.5)}, rotate = 317.91] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (5.36,-2.57) -- (0,0) -- (5.36,2.57) -- cycle    ;
+%Straight Lines [id:da9397832976665516] 
+\draw    (292,132.5) -- (249,132.5) ;
+\draw [shift={(246,132.5)}, rotate = 360] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (5.36,-2.57) -- (0,0) -- (5.36,2.57) -- cycle    ;
+%Straight Lines [id:da746063512086695] 
+\draw    (247,173.5) -- (230.85,152.86) ;
+\draw [shift={(229,150.5)}, rotate = 51.95] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (5.36,-2.57) -- (0,0) -- (5.36,2.57) -- cycle    ;
+%Straight Lines [id:da9369887579003064] 
+\draw  [dash pattern={on 4.5pt off 4.5pt}]  (316,77.5) -- (353,77.5) ;
+%Straight Lines [id:da5150765964716902] 
+\draw  [dash pattern={on 4.5pt off 4.5pt}]  (343,132.5) -- (380,132.5) ;
+%Straight Lines [id:da9741770345940048] 
+\draw  [dash pattern={on 4.5pt off 4.5pt}]  (341,201) -- (378,201) ;
+
+% Text Node
+\draw    (201.5, 129.25) circle [x radius= 33.23, y radius= 20.51]   ;
+\draw (201.5,129.25) node   [align=left] {\begin{minipage}[lt]{31.96pt}\setlength\topsep{0pt}
+\begin{center}
+意识
+\end{center}
+
+\end{minipage}};
+% Text Node
+\draw (268,69) node [anchor=north west][inner sep=0.75pt]   [align=left] {劳动};
+% Text Node
+\draw (298,124) node [anchor=north west][inner sep=0.75pt]   [align=left] {语言};
+% Text Node
+\draw (251,182) node [anchor=north west][inner sep=0.75pt]   [align=left] {其他社会历\\史发展因素};
+% Text Node
+\draw (368,69) node [anchor=north west][inner sep=0.75pt]   [align=left] {决定性因素};
+% Text Node
+\draw (399,124) node [anchor=north west][inner sep=0.75pt]   [align=left] {促进作用};
+% Text Node
+\draw (396,192.5) node [anchor=north west][inner sep=0.75pt]   [align=left] {促进作用};
+
+
+\end{tikzpicture}
+\caption{意识是社会历史发展的产物}
+\end{figure}
+
+\begin{example}
+    （多选）
+    凤凰是中国古代传说中的鸟中之王，其雄性叫 “凤”，雌性叫 “凰”，
+    总称为 “凤” 或者 “凤凰”。根据《雨雅·释鸟》所记载，凤凰的形体为
+    “鸡头、蛇颈、燕颔、龟背、五彩色，高六尺许”。由此可见，
+    意识\footnote{
+        在徐涛老师的优题库习题集\cite{优题库}中，本题最终的设问是 “人们头脑中的凤凰观念是……”，
+        但我本人觉得这个设问配合答案其实并不合理——人们头脑中的凤凰观念是人类意识的一个
+        具体的实例，意识包含这一观念但是却比这一观念更加广泛，因此我在这里把最终的
+        设问换成了意识是什么。
+    }是 \underline{\qquad \qquad \qquad}。
+    \begin{tasks}[label={\Alph*.}](2)
+        \task 客观世界的主观映象
+        \task 人脑对客观世界的创造性反映
+        \task 人脑中特有的物质
+        \task 人脑的机能和属性
+    \end{tasks}
+    \begin{cmt}
+        意识是客观世界的主观映象，是人脑对客观世界的创造性反映，
+        是人脑的机能和属性。因此本题选择 ABD。
+        这里需要注意的是，类似 “意识是人脑的分泌物”、“意识是人脑中特有的物质”
+        的观点是庸俗唯物主义的观点，混淆了意识与物质的概念。
+    \end{cmt}
+\end{example}
+
+\subsubsection{意识对物质具有反作用}
+
+物质决定意识，意识对物质具有反作用，这种反作用就是意识的能动作用。这就是说，
+\textbf{物质决定意识，但意识能动地反作用于物质。}
+意识的能动作用主要表现在：
+\begin{figure}[H]
+    \centering
+
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+
+%Shape: Brace [id:dp6717037653773108] 
+\draw   (201,79.5) .. controls (196.33,79.5) and (194,81.83) .. (194,86.5) -- (194,124.75) .. controls (194,131.42) and (191.67,134.75) .. (187,134.75) .. controls (191.67,134.75) and (194,138.08) .. (194,144.75)(194,141.75) -- (194,183) .. controls (194,187.67) and (196.33,190) .. (201,190) ;
+%Straight Lines [id:da1265384458399238] 
+\draw  [dash pattern={on 4.5pt off 4.5pt}]  (381,80.5) -- (418,80.5) ;
+%Shape: Brace [id:dp8303029500623369] 
+\draw   (362,156.5) .. controls (366.67,156.5) and (369,154.17) .. (369,149.5) -- (369,140.25) .. controls (369,133.58) and (371.33,130.25) .. (376,130.25) .. controls (371.33,130.25) and (369,126.92) .. (369,120.25)(369,123.25) -- (369,111) .. controls (369,106.33) and (366.67,104) .. (362,104) ;
+%Straight Lines [id:da5154900684029353] 
+\draw  [dash pattern={on 4.5pt off 4.5pt}]  (381,130.5) -- (418,130.5) ;
+
+% Text Node
+\draw (152,136) node   [align=left] {\begin{minipage}[lt]{51.68pt}\setlength\topsep{0pt}
+意识的能动作用
+\end{minipage}};
+% Text Node
+\draw (214,72) node [anchor=north west][inner sep=0.75pt]   [align=left] {意识的目的性和计划性};
+% Text Node
+\draw (422,72) node [anchor=north west][inner sep=0.75pt]   [align=left] {主体的选择性};
+% Text Node
+\draw (214,105) node [anchor=north west][inner sep=0.75pt]   [align=left] {意识的创造性};
+% Text Node
+\draw (214,137) node [anchor=north west][inner sep=0.75pt]   [align=left] {意识对实践的指导性};
+% Text Node
+\draw (422,122) node [anchor=north west][inner sep=0.75pt]   [align=left] {实践的创造性};
+% Text Node
+\draw (214,174) node [anchor=north west][inner sep=0.75pt]   [align=left] {调控行为和生理活动};
+
+
+\end{tikzpicture}
+    \caption{意识的能动作用}
+\end{figure}
+\begin{enumerate}[label={${\arabic*}^\circ$}, itemsep=0pt]
+    \item \textbf{意识具有目的性和计划性}。人在认识客观世界、尊重客观规律的同时，
+    还总是根据一定的目的和要求去确定反映什么、不反映什么，以及怎样反映，
+    从而表现出主体的选择性。
+    \item \textbf{意识具有创造性}：人的意识不仅采取感觉、直觉、表象等形式，
+    反映事物的外部现象，而且运用概念、判断、推理等形式，对感性材料进行加工制作
+    和选择建构，在思维中构造一个现实中所没有的观念世界。
+    \begin{figure}[H]
+        \centering
+
+
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+
+%Shape: Rectangle [id:dp9192327536336478] 
+\draw   (221,41.5) -- (467,41.5) -- (467,133) -- (221,133) -- cycle ;
+%Shape: Rectangle [id:dp77288325526019] 
+\draw   (290,45.5) -- (460,45.5) -- (460,128) -- (290,128) -- cycle ;
+%Shape: Rectangle [id:dp19515254732615261] 
+\draw   (221,155.5) -- (467,155.5) -- (467,247) -- (221,247) -- cycle ;
+%Shape: Rectangle [id:dp8803354966010318] 
+\draw   (291,161.5) -- (461,161.5) -- (461,244) -- (291,244) -- cycle ;
+%Curve Lines [id:da5441281578657254] 
+\draw    (291,85.5) .. controls (251.8,108.04) and (254.86,178.6) .. (287.94,201.18) ;
+\draw [shift={(290,202.5)}, rotate = 210.96] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (8.93,-4.29) -- (0,0) -- (8.93,4.29) -- cycle    ;
+%Straight Lines [id:da7144092628062131] 
+\draw    (212,233) -- (176,233) ;
+\draw [shift={(173,233)}, rotate = 360] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (5.36,-2.57) -- (0,0) -- (5.36,2.57) -- cycle    ;
+
+% Text Node
+\draw (222,114) node [anchor=north west][inner sep=0.75pt]   [align=left] {客观世界};
+% Text Node
+\draw    (390, 67.5) circle [x radius= 24.04, y radius= 14.85]   ;
+\draw (374,59) node [anchor=north west][inner sep=0.75pt]   [align=left] {感觉};
+% Text Node
+\draw    (426, 104.5) circle [x radius= 24.04, y radius= 14.85]   ;
+\draw (410,96) node [anchor=north west][inner sep=0.75pt]   [align=left] {直觉};
+% Text Node
+\draw    (359, 105.5) circle [x radius= 24.04, y radius= 14.85]   ;
+\draw (343,97) node [anchor=north west][inner sep=0.75pt]   [align=left] {表象};
+% Text Node
+\draw (292,48.5) node [anchor=north west][inner sep=0.75pt]   [align=left] {感性材料};
+% Text Node
+\draw (224,223) node [anchor=north west][inner sep=0.75pt]   [align=left] {思维};
+% Text Node
+\draw (293,164.5) node [anchor=north west][inner sep=0.75pt]   [align=left] {观念世界};
+% Text Node
+\draw (263,137) node [anchor=north west][inner sep=0.75pt]   [align=left] {选择建构};
+% Text Node
+\draw    (391, 182.5) circle [x radius= 24.04, y radius= 14.85]   ;
+\draw (375,174) node [anchor=north west][inner sep=0.75pt]   [align=left] {概念};
+% Text Node
+\draw    (427, 219.5) circle [x radius= 24.04, y radius= 14.85]   ;
+\draw (411,211) node [anchor=north west][inner sep=0.75pt]   [align=left] {推理};
+% Text Node
+\draw    (360, 220.5) circle [x radius= 24.04, y radius= 14.85]   ;
+\draw (344,212) node [anchor=north west][inner sep=0.75pt]   [align=left] {判断};
+% Text Node
+\draw (121,227) node   [align=left] {\begin{minipage}[lt]{68pt}\setlength\topsep{0pt}
+是客观世界的主观映象
+\end{minipage}};
+
+
+\end{tikzpicture}
+        \caption{意识具有创造性}
+    \end{figure}
+    \item \textbf{意识具有指导实践改造客观世界的作用}：意识的能动作用
+    不限于从实践中形成一定的思想、形成活动的目的、计划、方法等观念的东西，
+    更重要的在于以这些观念的东西作为指导，通过实践使之一步步变成客观现实。
+    改变世界或创造世界不仅意味着强化客观世界的变化过程，而且意味着创造出
+    世界上原来所没有的东西，即没有人的参与永远也不可能出现的东西。
+    \item \textbf{意识具有调控人的行为和生理活动的作用}。现代科学和医学实验
+    证明，意识、心理因素能够对人的行为选择和健康状况产生重要影响。
+\end{enumerate}
+
+\begin{example}
+    马克思说，人在 “劳动过程结束时得到的结果，在这个过程开始时就已经在劳动
+    者的表象中存在着，即已经观念地存在着”。这说明意识具有目的性和计划性，
+    人的整个实践过程，就是围绕意识活动所构建的目标和蓝图来进行的。
+\end{example}
+
+\begin{example}
+    列宁说：“世界不会满足人，人决心以自己的行动来改变世界”。这说明了
+    意识具有指导实践改造客观世界的作用。
+\end{example}
+
+\begin{example}
+    物质对意识的决定作用表现在意识的起源、本质和作用上。从意识的起源来看，意识
+    既是自然界长期发展的产物，也是社会历史发展的产物。下列表述正确的有 \underline{\qquad \qquad \qquad}。
+    \begin{tasks}[label={\Alph*.}](1)
+        \task 劳动在意识的产生与发展中起着决定性的作用
+        \task 劳动为意识的产生和发展提供了客观需要和可能
+        \task 劳动使人在改造世界时充满了创造性
+        \task 人们在劳动过程中形成的语言促进了意识的发展
+    \end{tasks}
+    \begin{cmt}
+        劳动作为人的实践活动，在人的意识的产生与发展中起着决定性的作用，
+        劳动为意识的产生和发展提供了客观需要和可能，同时劳动也使得人脑变得更加复杂，
+        为意识的产生提供了条件。人们头脑当中的意识需要借助语言来表达，所以，
+        人们在劳动和交往过程中形成的语言也促进了意识的发展。
+        因此本题选择 ABC，需要注意的是，意识具有主观能动性，所以
+        意识是有创造性的，但是这与劳动本身并没有关系，是意识的创造性
+        使得人类改造世界的劳动充满了创造性。
+        \begin{figure}[H]
+            \centering
+
+
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+
+%Shape: Brace [id:dp06824378325166625] 
+\draw   (286,194.5) .. controls (290.67,194.5) and (293,192.17) .. (293,187.5) -- (293,157.75) .. controls (293,151.08) and (295.33,147.75) .. (300,147.75) .. controls (295.33,147.75) and (293,144.42) .. (293,137.75)(293,140.75) -- (293,108) .. controls (293,103.33) and (290.67,101) .. (286,101) ;
+%Straight Lines [id:da5392340952646961] 
+\draw    (310,147) -- (359,147) ;
+\draw [shift={(362,147)}, rotate = 180] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (5.36,-2.57) -- (0,0) -- (5.36,2.57) -- cycle    ;
+
+% Text Node
+\draw (205,118) node   [align=left] {\begin{minipage}[lt]{110.16pt}\setlength\topsep{0pt}
+意识具有指导实践改造客观世界的作用
+\end{minipage}};
+% Text Node
+\draw (225,191.75) node   [align=left] {\begin{minipage}[lt]{80.24pt}\setlength\topsep{0pt}
+意识具有创造性
+\end{minipage}};
+% Text Node
+\draw (429,148) node   [align=left] {\begin{minipage}[lt]{76.16pt}\setlength\topsep{0pt}
+人类的实践是充满创造性的
+\end{minipage}};
+% Text Node
+\draw (306,129) node [anchor=north west][inner sep=0.75pt]   [align=left] {{\small 因果关系}};
+
+
+\end{tikzpicture}
+\caption{人类的实践是充满创造性的}
+        \end{figure}
+    \end{cmt}
+\end{example}
+
+
+
+\subsubsection{主观能动性与客观规律性的辩证统一}
+
+正确认识和把握物质与意识的辩证关系，还需要处理好主观能动性和客观规律性
+的关系。
+尊重客观规律是正确发挥主观能动性的前提，只有充分发挥主观能动性，才能
+正确认识和利用客观规律。
+
+\begin{example}
+    （多选）
+    科学家在海边考察，发现一只小海龟从沙滩上的一个洞穴中探出头来四处张望，
+    这时一直在空中盘旋的海鸟发现了它，便冲了下来，小海龟急忙掉头往回爬。
+    科学家见状，顿生恻隐之心，决定帮小海龟一把，把它放到海里去。正当科学家为自己的
+    “义举” 沾沾自喜时，始料不及的事情发生了。洞穴里的其他小海龟见爬出去的那只小海龟
+    没有回来，以为外面是安全的，纷纷往外爬，这立即引来了一大群海鸟，它们不断冲下来，
+    享用者丰盛的美餐。实际上，第一支爬出来的海龟是探路的哨兵，一旦有危险就回去报信。
+    科学家出于好心帮了这只小海龟，却害惨了整窝海龟。这个故事给我们的启示有 \underline{\qquad \qquad \qquad}。
+    \begin{tasks}[label={\Alph*.}](1)
+        \task 认识和把握规律是发挥主观能动性的前提
+        \task 一切规律发挥作用的过程都是自发的
+        \task 人的活动一定受规律的限制
+        \task 实践是客观规律性与主观能动性统一的基础
+    \end{tasks}
+    \begin{cmt}
+        尊重客观规律是正确发挥主观能动性的前提，规律是客观的，不以人的意志为转移，
+        只要规律存在就一定会制约人的活动。因此本题选择 ACD，需要注意的是，
+        客观规律分为自然规律和社会历史规律，
+        自然规律发挥作用是自发的，不以人的意志为转移，但社会历史规律发挥作用必须要通过人
+        的有意识、有目的的实践活动才能完成，并不是自发的。
+    \end{cmt}
+\end{example}
+
+\begin{example}
+    （多选）
+    “揠苗助长” 却事与愿违，“庖丁解牛” 则事半功倍。这两则结果不同的寓言故事共同说明
+    的哲学道理有 \underline{\qquad \qquad \qquad}。
+    \begin{tasks}[label={\Alph*.}](2)
+        \task 不同的人对同一事物有不同的反映
+        \task 人具有主观能动性，可以改变和利用规律
+        \task 发挥主观能动性必须以尊重规律为前提
+        \task 物质决定意识，意识对物质具有巨大的反作用
+    \end{tasks}
+    \begin{cmt}
+        本题考查尊重客观规律与发挥主观能动性的关系。
+        尊重客观规律是正确发挥主观能动性的前提，“揠苗助长” 和 “庖丁解牛”
+        都发挥了主观能动性，但只有后者尊重了客观规律，按照牛肉的 “纹理” 来开刀，
+        所以取得了不一样的效果。主体对事物规律的正确认识会促进事物的发展，反之，
+        错误的认识会阻碍事物的发展，意识对物质具有巨大的反作用。
+        因此本题选择 CD。这里要注意的是，“庖丁解牛”、“揠苗助长” 并不是同一事物，
+        A 选项与题干无关；B 选项的错误则出在 “改变规律” 上，这是因为，
+        人类能够改变规律发生作用的条件和形式，使事物朝着有利于人类的方向发展，
+        但并不能改变、创造或者消灭规律本身。
+    \end{cmt}
+\end{example}
+
+\subsubsection{意识与人工智能}
+
+所谓人工智能，就是把人的部分智能活动机器化，它实质上是对人脑组织结构与思维运行机制的
+模仿，是人类智能的物化。
+
+尽管人工智能可以模拟和扩展人脑的某些活动，甚至在计算速度和准确度、程序化任务的执行能力
+等方面的表现超出人类所能，但即使是计算能力最强大、最先进的智能机器，也不能达到人类智能
+的层级，不能真正具有人的意识，不能取代或超越人类智能。原因如下：
+\begin{itemize}[itemsep=0pt]
+    \item 人类意识是知情意的统一体，而人工智能只是对人类的理性智能的模拟和扩展，不具备
+    情感、信念、意志等人类意识形式。
+    \item 社会性是人的意识所固有的本质属性，而人工智能不可能真正具备人类的社会属性。
+    \item 人类的自然语言是思维的物质外壳和意识的现实形式，而人工智能难以完全具备理解
+    自然语言真实意义的能力。
+\end{itemize}
+\begin{remark}
+    人的属性分为自然属性和社会属性，而人的本质属性在于社会属性而不是自然属性。
+\end{remark}
+
+
+
+\subsection{世界的物质统一性}
+
+\subsubsection{世界的物质统一性原理的内容}
+
+世界的统一性问题，是回答世界上的万事万物有没有统一性，即有没有共同的本质或本原的问题。
+马克思主义认为，世界的统一性在于它的物质性，世界统一于物质。
+\begin{enumerate}[label={${\arabic*}^\circ$}, itemsep=0pt]
+    \item {\kaishu 世界是物质的。}
+    % 人类是自然界长期演化发展的产物，依存于自然界，并通过实践活动
+    % 改造着自然界。自然界先于人类而存在，并不依赖于人类意识而存在。人类的实践活动能够改变自然事物的
+    % 形态和面貌，在自然界打上人类的印记，使之成为人化的自然，但不能改变自然界的客观实在性。人类
+    % 社会的自然基础是物质的，人类获取生活资料的生产活动是物质的，特别是物质资料的生产方式构成了
+    % 人类社会存在和发展的基础，集中体现着人类社会的物质性。
+    \item {\kaishu 人类社会本质上是成产实践基础上形成的物质体系。}
+    \item {\kaishu 人的意识统一于物质。}人类社会是整个物质世界的组成部分、
+    人类获取生活资料的活动是物质性的活动、
+    人类社会存在和发展的基础是物质资料的生产方式。
+\end{enumerate}
+世界的物质性是多样性的统一。物质世界包含着不同的物质现象和物质形态、不同的物质层次和物质结构、不同的
+物质过程和物质活动，包含着自然界和人类社会，是一个充满多样性的多姿多彩的世界。
+
+% 世界的物质统一性体现在以下两个方面：
+% \begin{itemize}[itemsep=0pt]
+%     \item 意识统一于物质，在统一的物质世界之外，没有任何非物质。
+%     \item 人类社会也统一于物质。
+%     {\small 马克思主义以前的旧唯物主义在自然观上是唯物主义的，
+%     但在社会历史领域，就唯物主义不理解人的实践活动本身是一种客观实在，不理解物质生产实践
+%     在社会生活中的地位和作用，而是把历史过程堪称人的主观意志的产物，因而得出社会意识
+%     决定社会存在的错误结论，成了不彻底的 “半截子” 唯物主义。}
+    
+%     人类社会的物质性主要表现在：
+%     \begin{itemize}[itemsep=0pt]
+%         \item 
+%     \end{itemize}
+% \end{itemize}
+
+\subsubsection{世界的物质统一性原理的意义}
+
+世界的物质统一性原理是马克思主义的基石。坚持实事求是，一切从实际出发，是世界的物质统一性
+在现实生活中和实际生活中的生动体现。
+
+\section{事物的普遍联系和变化发展}
+
+\subsection{联系和发展的普遍性}
+
+\subsubsection{事物的普遍联系}
+
+联系是指事物内部各要素之间和事物之间相互影响、相互制约和相互作用的关系。联系具有以下
+特点：
+\begin{itemize}[itemsep=0pt]
+    \item \textbf{客观性}：事物的联系是不以人的意志为转移的；
+    \item \textbf{普遍性}：\textbf{事物是普遍联系的}。事物联系的普遍性具有三层含义：
+    \begin{enumerate}[label={${\arabic*}^\circ$}, itemsep=0pt]
+        \item 任何事物的不同部分和要素是相互联系的，即任何事物都具有内在的结构性；
+        \item 任何事物都不能孤立存在，都同其他事物处于一定的相互联系之中；
+        \item 整个世界是相互联系的统一整体，每一事物都是世界普遍联系中的一个成分
+        或环节，并通过它表现出联系的普遍性。世界的普遍联系是通过 “中介” 来实现的。
+    \end{enumerate}
+    \item \textbf{多样性}；
+    \item \textbf{条件性}：
+    \begin{enumerate}[label={${\arabic*}^\circ$}, itemsep=0pt]
+        \item 条件对事物发展和人的活动具有支持或抑制作用；
+        \item 条件事可以改变的，人们经过努力可以创造出事物发展所需要的条件；
+        \item 改变和创造条件不是任意的，必须尊重事物发展的客观规律。
+    \end{enumerate}
+\end{itemize}
+
+
+
+\subsubsection{事物的变化发展}
+
+一切形式的变化就是运动，运动变化的基本趋势是发展。发展是前进上升的运动，
+发展的实质就是新事物的产生和旧事物的灭亡。需要注意的是，时间的先后顺序
+并不是区分新事物与旧事物的本质区别。关于新事物和旧事物，我们有如下的提法：
+\begin{itemize}[itemsep=0pt]
+    \item 所谓新事物，就是指合乎历史前进方向、具有远大前途的东西；
+    \item 所谓旧事物，就是指丧失历史必然性、日取灭亡的东西；
+    \item 新事物必然战胜旧事物的原因：
+    \begin{enumerate}[label={${\arabic*}^\circ$}, itemsep=0pt]
+        \item 就新事物与环境的关系而言，新事物有新的结构和功能，它适应
+        已经变化了的环境和条件；
+        \item 就新事物与旧事物的关系而言，新事物实在旧事物的 “母体” 中孕育成熟的，
+        它既都定了旧事物中消极腐朽的东西，又保留了旧事物中合理的、仍然适合新的条件的
+        因素，并添加了旧事物所不能容纳的新内容。
+        \item 在社会历史领域内，新事物是社会上先进的、富有创造力的人们创造性活动的
+        产物，它从根本上符合人民群众的利益和要求，能够得到人民群众的拥护。因而必然战胜
+        旧事物。
+    \end{enumerate}
+\end{itemize}
+事物的发展具有过程性，一切事物只有经过一定的过程才能实现自身的发展。所谓过程，就是指
+一切事物都有其产生、发展和转化为其他事物的历史，都有它的过去、现在和未来。
+
+\subsubsection{方法论意义}
+
+系统观念是唯物辩证法普遍联系观点的应有之义。要求人们要善于分析事物的具体联系，
+确立整体性、开放性的观念，从动态中考察事物的普遍联系。
+
+事物永恒发展的方法论意义是 “过程观念”，坚持事物发展是过程的思想，就要用历史的眼光
+看问题，把一切事物如实地看作变化、发展的过程，即要了解它们的过去、观察它们的现在，
+又要预见它们的未来。
+
+\subsection{对立统一规律是事物发展的根本规律}
+
+\textbf{对立统一规律是唯物辩证法的实质和核心}。对立统一规律\textbf{揭示了事物普遍联系的根本内容
+和永恒发展的内在动力}，从根本上\textbf{回答了事物为什么会发展的问题}。
+
+\subsubsection{矛盾的同一性和斗争性及其在事物发展中的作用}
+
+\begin{figure}[H]
+    \centering
+    
+
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+
+%Straight Lines [id:da44037850769317877] 
+\draw    (275.5,114) -- (275.5,134.8)(272.5,114) -- (272.5,134.8) ;
+\draw [shift={(274,141.8)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (6.56,-2.94) .. controls (4.17,-1.38) and (1.99,-0.4) .. (0,0) .. controls (1.99,0.4) and (4.17,1.38) .. (6.56,2.94)   ;
+\draw [shift={(274,107)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (6.56,-2.94) .. controls (4.17,-1.38) and (1.99,-0.4) .. (0,0) .. controls (1.99,0.4) and (4.17,1.38) .. (6.56,2.94)   ;
+%Straight Lines [id:da6454760751488681] 
+\draw    (477.4,61.6) -- (505.7,40) ;
+%Straight Lines [id:da5692197442041247] 
+\draw    (477.4,61.6) -- (505.7,84) ;
+%Straight Lines [id:da2669123723867791] 
+\draw    (307.5,90) -- (336.1,61.6) ;
+%Straight Lines [id:da6992473140685699] 
+\draw    (307.5,90) -- (336.1,136.4) ;
+%Straight Lines [id:da32195577749095716] 
+\draw    (477.4,136.4) -- (505.7,114.8) ;
+%Straight Lines [id:da3007604242747729] 
+\draw    (477.4,136.4) -- (505.7,158.8) ;
+
+% Text Node
+\draw (243.5,82) node [anchor=north west][inner sep=0.75pt]   [align=left] {斗争同一};
+% Text Node
+\draw (162,117.9) node [anchor=north west][inner sep=0.75pt]  [font=\small] [align=left] {在考研政治范畴内};
+% Text Node
+\draw (243.5,146.8) node [anchor=north west][inner sep=0.75pt]   [align=left] {对立统一};
+% Text Node
+\draw (339.1,53.6) node [anchor=north west][inner sep=0.75pt]   [align=left] {同一性——彼此联系};
+% Text Node
+\draw (339.1,128.4) node [anchor=north west][inner sep=0.75pt]   [align=left] {斗争性——相互区别};
+% Text Node
+\draw (508.7,32) node [anchor=north west][inner sep=0.75pt]   [align=left] {相互依存、互为前提};
+% Text Node
+\draw (508.7,76) node [anchor=north west][inner sep=0.75pt]   [align=left] {在一定条件下相互转化};
+% Text Node
+\draw (508.7,106.8) node [anchor=north west][inner sep=0.75pt]   [align=left] {对抗性};
+% Text Node
+\draw (508.7,150.8) node [anchor=north west][inner sep=0.75pt]   [align=left] {非对抗性};
+
+
+\end{tikzpicture}
+\caption{矛盾的同一性和斗争性}
+\end{figure}
+
+对立统一规律又称矛盾规律，矛盾是辩证法的核心概念。矛盾时反映事物内部和事物之间
+对立统一关系的哲学范畴。简言之，矛盾即对立统一。\textbf{对立和统一分别体现了矛盾的两种
+基本属性。矛盾的对立属性又称斗争性，矛盾的统一属性又称同一性}。
+\begin{itemize}[itemsep=0pt]
+    \item \textbf{矛盾的同一性是指矛盾双方相互依存、相互贯通的性质和趋势}。它有两个方面
+    的含义：
+    \begin{enumerate}[label={${\arabic*}^\circ$}, itemsep=0pt]
+        \item 矛盾着的对立面相互依存，互为存在的前提，并共处于一个统一体中；
+        \item 矛盾着的对立面相互贯通，在一定条件下相互转化。
+    \end{enumerate}
+    \item \textbf{矛盾的斗争性是指矛盾着的对立面之间相互排斥、相互分离的性质和趋势}。由于
+    矛盾的性质不同，矛盾的斗争形式也不同，对于多种多样的斗争形式，可以区分为
+    \textbf{对抗性和非对抗性的两种基本形式}。
+    \item 矛盾的同一性和斗争性的关系：矛盾的同一性和斗争性是相互连结、
+    相互制约的。同一性不能脱离斗争性而存在，没有斗争性就没有同一性；
+    \textbf{斗争性寓于同一性之中}，没有同一性也就没有斗争性。在事物的矛盾中，
+    \textbf{矛盾的斗争性是无条件的、绝对的，矛盾的同一性是有条件的、相对的}。
+\end{itemize}
+矛盾的同一性和斗争性是同时存在的，因此事物总是具有两面性，这要求我们看待
+事物时要做到 “一分为二”。例如，对待传统文化要 “批判地继承”，对待外来文化应该
+“批判地” 吸收。
+
+\subsubsection{矛盾的普遍性和特殊性及其相互关系}
+\subsubsection{矛盾的不平衡发展原理}
+
+主要矛盾是矛盾体系中处于支配地位，对事物发展起决定作用的矛盾。
+非根本矛盾、次要矛盾时处于服从地位的矛盾。
+
+在每一对矛盾中又有矛盾的主要方面与矛盾的次要方面，矛盾的性质主要是由矛盾
+的主要方面决定的。
+
+既要看到主要矛盾，强调主要矛盾，也要看到次要矛盾，不能忽略次要矛盾，
+做到 “两点论” 和 “重点论” 相结合。
+
+{\captionof{table}{矛盾分析方法} % 表格标题
+\label{矛盾分析方法} % 交叉引用标签
+\begin{longtable}{p{0.3\textwidth}p{0.5\textwidth}}
+    \toprule
+    % 表头
+    \textbf{矛盾原理} & \textbf{方法论总结} \\
+    \toprule
+    \endhead
+    \bottomrule
+    \endfoot
+
+    % 表格内容
+    矛盾的同一性和斗争性的辩证关系原理 & “一分为二”、批判地继承、物极必反、否极泰来、福祸相依、中庸和谐不走极端 \\ 
+    矛盾的同一性和斗争性在事务发展中的作用 & 反向思维、逆向思考 \\ 
+    矛盾的普遍性和特殊性及其相互关系原理 & 具体问题具体分析、举一反三、对症下药、因材施教、量体裁衣、马克思主义中国化 \\ 
+    矛盾的不平衡发展原理 & “两点论” 和 “重点论” 相结合， 抓关键、看主流 \\
+\end{longtable}}
+
+\newpage
+\subsection{量变质变规律和否定之否定规律}
+
+\subsubsection{量变质变规律}
+\subsubsection{否定之否定规律}
+
+\subsection{联系和发展的基本环节}
+
+\subsubsection{内容与形式}
+\subsubsection{本质与现象}
+\subsubsection{原因与结果}
+\subsubsection{必然与偶然}
+\subsubsection{现实与可能}
+
+\section{唯物辩证法是认识世界和改造世界的根本方法}
+
+\subsection{唯物辩证法的本质特征和认识功能}
+\subsubsection{唯物辩证法本质上是批判的和革命的}
+\subsubsection{唯物辩证法是客观辩证法与主观辩证法的统一}
+\subsubsection{唯物辩证法是科学的认识方法}
+
+\subsection{学习唯物辩证法，不断增强思维能力}
+\subsubsection{辩证思维能力}
+\subsubsection{历史思维能力}
+\subsubsection{系统思维能力}
+\subsubsection{战略思维能力}
+\subsubsection{底线思维能力}
+\subsubsection{创新思维能力}
+
+\newpage
+\thispagestyle{empty}
+
+\chapter{认识论}
+\chapter{唯物史观}
+
+\part{马克思主义政治经济学}
+
+\chapter{资本主义的发展及规律}
+\chapter{资本主义的发展及其趋势}
+
+\part{科学社会主义}
+
+\chapter{社会主义的发展及其规律}
+\chapter{共产主义崇高理想及其最终实现}
+
+\input{_appendix.tex}
+\pagenumbering{roman}
+\part{附录}
+\setcounter{page}{0}
+
+\chapter{共产党宣言}
+
+\quad\quad
+一个幽灵，共产主义的幽灵，在欧洲游荡。为了对这个幽灵进行神圣的围剿，旧欧洲的一切势力，教皇和沙皇、梅特涅和基佐、法国的激进派和德国的警察，都联合起来了。
+
+有哪一个反对党不被它的当政的敌人骂为共产党呢？又有哪一个反对党不拿共产主义这个罪名去回敬更进步的反对党人和自己的反动敌人呢？
+
+从这一事实中可以得出两个结论：
+
+共产主义已经被欧洲的一切势力公认为一种势力；
+
+现在是共产党人向全世界公开说明自己的观点、自己的目的、自己的意图并且拿党自己的宣言来反驳关于共产主义幽灵的神话的时候了。
+
+为了这个目的，各国共产党人集会于伦敦，拟定了如下的宣言，用英文、法文、德文、意大利文、弗拉芒文和丹麦文公布于世。
+
+\section{资产者和无产者}
+
+至今一切社会的历史都是阶级斗争的历史。
+
+自由民和奴隶、贵族和平民、领主和农奴、行会师傅和帮工，一句话，压迫者和被压迫者，始终处于相互对立的地位，进行不断的、有时隐蔽有时公开的斗争，而每一次斗争的结局都是整个社会受到革命改造或者斗争的各阶级同归于尽。
+
+在过去的各个历史时代，我们几乎到处都可以看到社会完全划分为各个不同的等级，看到社会地位分成多种多样的层次。在古罗马，有贵族、骑士、平民、奴隶，在中世纪，有封建主、臣仆、行会师傅、帮工、农奴，而且几乎在每一个阶级内部又有一些特殊的阶层。
+
+从封建社会的灭亡中产生出来的现代资产阶级社会并没有消灭阶级对立。它只是用新的阶级、新的压迫条件、新的斗争形式代替了旧的。
+
+但是，我们的时代，资产阶级时代，却有一个特点：它使阶级对立简单化了。整个社会日益分裂为两大敌对的阵营，分裂为两大相互直接对立的阶级：资产阶级和无产阶级。
+
+从中世纪的农奴中产生了初期城市的城关市民；从这个市民等级中发展出最初的资产阶级分子。
+
+美洲的发现、绕过非洲的航行，给新兴的资产阶级开辟了新天地。东印度和中国的市场、美洲的殖民化、对殖民地的贸易、交换手段和一般商品的增加，使商业、航海业和工业空前高涨，因而使正在崩溃的封建社会内部的革命因素迅速发展。
+
+以前那种封建的或行会的工业经营方式已经不能满足随着新市场的出现而增加的需求了。工场手工业代替了这种经营方式。行会师傅被工业的中间等级排挤掉了；各种行业组织之间的分工随着各个作坊内部的分工的出现而消失了。
+
+但是，市场总是在扩大，需求总是在增加。甚至工场手工业也不再能满足需要了。于是，蒸汽和机器引起了工业生产的革命。现代大工业代替了工场手工业；工业中的百万富翁，一支一支产业大军的首领，现代资产者，代替了工业的中间等级。
+
+大工业建立了由美洲的发现所准备好的世界市场。世界市场使商业、航海业和陆路交通得到了巨大的发展。这种发展又反过来促进了工业的扩展。同时，随着工业、商业、航海业和铁路的扩展，资产阶级也在同一程度上得到发展，增加自己的资本，把中世纪遗留下来的一切阶级排挤到后面去。
+
+由此可见，现代资产阶级本身是一个长期发展过程的产物，是生产方式和交换方式的一系列变革的产物。
+
+资产阶级的这种发展的每一个阶段，都伴随着相应的政治上的进展。它在封建主统治下是被压迫的等级，在公社里是武装的和自治的团体，在一些地方组成独立的城市共和国，在另一些地方组成君主国中的纳税的第三等级；后来，在工场手工业时期，它是等级君主国或专制君主国中同贵族抗衡的势力，而且是大君主国的主要基础；最后，从大工业和世界市场建立的时候起，它在现代的代议制国家里夺得了独占的政治统治。现代的国家政权不过是管理整个资产阶级的共同事务的委员会罢了。
+
+资产阶级在历史上曾经起过非常革命的作用。
+
+资产阶级在它已经取得了统治的地方把一切封建的、宗法的和田园般的关系都破坏了。它无情地斩断了把人们束缚于天然尊长的形形色色的封建羁绊，它使人和人之间除了赤裸裸的利害关系，除了冷酷无情的“现金交易”，就再也没有任何别的联系了。它把宗教虔诚、骑士热忱、小市民伤感这些情感的神圣发作，淹没在利己主义打算的冰水之中。它把人的尊严变成了交换价值，用一种没有良心的贸易自由代替了无数特许的和自力挣得的自由。总而言之，它用公开的、无耻的、直接的、露骨的剥削代替了由宗教幻想和政治幻想掩盖着的剥削。
+
+资产阶级抹去了一切向来受人尊崇和令人敬畏的职业的神圣光环。它把医生、律师、教士、诗人和学者变成了它出钱招雇的雇佣劳动者。
+
+资产阶级撕下了罩在家庭关系上的温情脉脉的面纱，把这种关系变成了纯粹的金钱关系。
+
+资产阶级揭示了，在中世纪深受反动派称许的那种人力的野蛮使用，是以极端怠惰作为相应补充的。它第一个证明了，人的活动能够取得什么样的成就。它创造了完全不同于埃及金字塔、罗马水道和哥特式教堂的奇迹；它完成了完全不同于民族大迁徙和十字军征讨的远征。
+
+资产阶级除非对生产工具，从而对生产关系，从而对全部社会关系不断地进行革命，否则就不能生存下去。反之，原封不动地保持旧的生产方式，却是过去的一切工业阶级生存的首要条件。生产的不断变革，一切社会状况不停的动荡，永远的不安定和变动，这就是资产阶级时代不同于过去一切时代的地方。一切固定的僵化的关系以及与之相适应的素被尊崇的观念和见解都被消除了，一切新形成的关系等不到固定下来就陈旧了。一切等级的和固定的东西都烟消云散了，一切神圣的东西都被亵渎了。人们终于不得不用冷静的眼光来看他们的生活地位、他们的相互关系。
+
+不断扩大产品销路的需要，驱使资产阶级奔走于全球各地。它必须到处落户，到处开发，到处建立联系。
+
+资产阶级，由于开拓了世界市场，使一切国家的生产和消费都成为世界性的了。使反动派大为惋惜的是，资产阶级挖掉了工业脚下的民族基础。古老的民族工业被消灭了，并且每天都还在被消灭。它们被新的工业排挤掉了，新的工业的建立已经成为一切文明民族的生命攸关的问题；这些工业所加工的，已经不是本地的原料，而是来自极其遥远的地区的原料；它们的产品不仅供本国消费，而且同时供世界各地消费。旧的、靠本国产品来满足的需要，被新的、要靠极其遥远的国家和地带的产品来满足的需要所代替了。过去那种地方的和民族的自给自足和闭关自守状态，被各民族的各方面的互相往来和各方面的互相依赖所代替了。物质的生产是如此，精神的生产也是如此。各民族的精神产品成了公共的财产。民族的片面性和局限性日益成为不可能，于是由许多种民族的和地方的文学形成了一种世界的文学。
+
+资产阶级，由于一切生产工具的迅速改进，由于交通的极其便利，把一切民族甚至最野蛮的民族都卷到文明中来了。它的商品的低廉价格，是它用来摧毁一切万里长城、征服野蛮人最顽强的仇外心理的重炮。它迫使一切民族——如果它们不想灭亡的话——采用资产阶级的生产方式；它迫使它们在自己那里推行所谓的文明，即变成资产者。一句话，它按照自己的面貌为自己创造出一个世界。
+
+资产阶级使农村屈服于城市的统治。它创立了巨大的城市，使城市人口比农村人口大大增加起来，因而使很大一部分居民脱离了农村生活的愚昧状态。正像它使农村从属于城市一样，它使未开化和半开化的国家从属于文明的国家，使农民的民族从属于资产阶级的民族，使东方从属于西方。
+
+资产阶级日甚一日地消灭生产资料、财产和人口的分散状态。它使人口密集起来，使生产资料集中起来，使财产聚集在少数人的手里。由此必然产生的结果就是政治的集中。各自独立的、几乎只有同盟关系的、各有不同利益、不同法律、不同政府、不同关税的各个地区，现在已经结合为一个拥有统一的政府、统一的法律、统一的民族阶级利益和统一的关税的统一的民族。
+
+资产阶级在它的不到一百年的阶级统治中所创造的生产力，比过去一切世代创造的全部生产力还要多，还要大。自然力的征服，机器的采用，化学在工业和农业中的应用，轮船的行驶，铁路的通行，电报的使用，整个整个大陆的开垦，河川的通航，仿佛用法术从地下呼唤出来的大量人口，——过去哪一个世纪料想到在社会劳动里蕴藏有这样的生产力呢？
+
+由此可见，资产阶级赖以形成的生产资料和交换手段，是在封建社会里造成的。在这些生产资料和交换手段发展的一定阶段上，封建社会的生产和交换在其中进行的关系，封建的农业和工场手工业组织，一句话，封建的所有制关系，就不再适应已经发展的生产力了。这种关系已经在阻碍生产而不是促进生产了。它变成了束缚生产的桎梏。它必须被炸毁，它已经被炸毁了。
+
+起而代之的是自由竞争以及与自由竞争相适应的社会制度和政治制度、资产阶级的经济统治和政治统治。
+
+现在，我们眼前又进行着类似的运动。资产阶级的生产关系和交换关系，资产阶级的所有制关系，这个曾经仿佛用法术创造了如此庞大的生产资料和交换手段的现代资产阶级社会，现在像一个魔法师一样不能再支配自己用法术呼唤出来的魔鬼了。几十年来的工业和商业的历史，只不过是现代生产力反抗现代生产关系、反抗作为资产阶级及其统治的存在条件的所有制关系的历史。只要指出在周期性的重复中越来越危及整个资产阶级社会生存的商业危机就够了。在商业危机期间，总是不仅有很大一部分制成的产品被毁灭掉，而且有很大一部分已经造成的生产力被毁灭掉。在危机期间，发生一种在过去一切时代看来都好像是荒唐现象的社会瘟疫，即生产过剩的瘟疫。社会突然发现自己回到了一时的野蛮状态；仿佛是一次饥荒、一场普遍的毁灭性战争，使社会失去了全部生活资料；仿佛是工业和商业全被毁灭了，——这是什么缘故呢？因为社会上文明过度，生活资料太多，工业和商业太发达。社会所拥有的生产力已经不能再促进资产阶级文明和资产阶级所有制关系的发展；相反，生产力已经强大到这种关系所不能适应的地步，它已经受到这种关系的阻碍；而它一着手克服这种障碍，就使整个资产阶级社会陷入混乱，就使资产阶级所有制的存在受到威胁。资产阶级的关系已经太狭窄了，再容纳不了它本身所造成的财富了。——资产阶级用什么办法来克服这种危机呢？一方面不得不消灭大量生产力，另一方面夺取新的市场，更加彻底地利用旧的市场。这究竟是怎样的一种办法呢？这不过是资产阶级准备更全面更猛烈的危机的办法，不过是使防止危机的手段越来越少的办法。
+
+资产阶级用来推翻封建制度的武器，现在却对准资产阶级自己了。
+
+但是，资产阶级不仅锻造了置自身于死地的武器；它还产生了将要运用这种武器的人——现代的工人，即无产者。
+
+随着资产阶级即资本的发展，无产阶级即现代工人阶级也在同一程度上得到发展；现代的工人只有当他们找到工作的时候才能生存，而且只有当他们的劳动增殖资本的时候才能找到工作。这些不得不把自己零星出卖的工人，像其他任何货物一样，也是一种商品，所以他们同样地受到竞争的一切变化、市场的一切波动的影响。
+
+由于推广机器和分工，无产者的劳动已经失去了任何独立的性质，因而对工人也失去了任何吸引力。工人变成了机器的单纯的附属品，要求他做的只是极其简单、极其单调和极容易学会的操作。因此，花在工人身上的费用，几乎只限于维持工人生活和延续工人后代所必需的生活资料。但是，商品的价格，从而劳动的价格，是同它的生产费用相等的。因此，劳动越使人感到厌恶，工资也就越少。不仅如此，机器越推广，分工越细致，劳动量出就越增加，这或者是由于工作时间的延长，或者是由于在一定时间内所要求的劳动的增加，机器运转的加速，等等。
+
+现代工业已经把家长式的师傅的小作坊变成了工业资本家的大工厂。挤在工厂里的工人群众就像士兵一样被组织起来。他们是产业军的普通士兵，受着各级军士和军官的层层监视。他们不仅仅是资产阶级的、资产阶级国家的奴隶，他们每日每时都受机器、受监工、首先是受各个经营工厂的资产者本人的奴役。这种专制制度越是公开地把营利宣布为自己的最终目的，它就越是可鄙、可恨和可恶。
+
+手的操作所要求的技巧和气力越少，换句话说，现代工业越发达，男工也就越受到女工和童工的排挤。对工人阶级来说，性别和年龄的差别再没有什么社会意义了。他们都只是劳动工具，不过因为年龄和性别的不同而需要不同的费用罢了。
+
+当厂主对工人的剥削告一段落，工人领到了用现钱支付的工资的时候，马上就有资产阶级中的另一部分人——房东、小店主、当铺老板等等向他们扑来。
+
+以前的中间等级的下层，即小工业家、小商人和小食利者，手工业者和农民——所有这些阶级都降落到无产阶级的队伍里来了，有的是因为他们的小资本不足以经营大工业，经不起较大的资本家的竞争；有的是因为他们的手艺已经被新的生产方法弄得不值钱了。无产阶级就是这样从居民的所有阶级中得到补充的。
+
+无产阶级经历了各个不同的发展阶段。它反对资产阶级的斗争是和它的存在同时开始的。
+
+最初是单个的工人，然后是某一工厂的工人，然后是某一地方的某一劳动部门的工人，同直接剥削他们的单个资产者作斗争。他们不仅仅攻击资产阶级的生产关系，而且攻击生产工具本身；他们毁坏那些来竞争的外国商品，捣毁机器，烧毁工厂，力图恢复已经失去的中世纪工人的地位。
+
+在这个阶段上，工人是分散在全国各地并为竞争所分裂的群众。工人的大规模集结，还不是他们自己联合的结果，而是资产阶级联合的结果，当时资产阶级为了达到自己的政治目的必须而且暂时还能够把整个无产阶级发动起来。因此，在这个阶段上，无产者不是同自己的敌人作斗争，而是同自己的敌人的敌人作斗争，即同专制君主制的残余、地主、非工业资产者和小资产者作斗争。因此，整个历史运动都集中在资产阶级手里；在这种条件下取得的每一个胜利都是资产阶级的胜利。
+
+但是，随着工业的发展，无产阶级不仅人数增加了，而且它结合成更大的集体，它的力量日益增长，它越来越感觉到自己的力量。机器使劳动的差别越来越小，使工资几乎到处都降到同样低的水平，因而无产阶级内部的利益、生活状况也越来越趋于一致。资产者彼此间日益加剧的竞争以及由此引起的商业危机，使工人的工资越来越不稳定；机器的日益迅速的和继续不断的改良，使工人的整个生活地位越来越没有保障；单个工人和单个资产者之间的冲突越来越具有两个阶级的冲突的性质。工人开始成立反对资产者的同盟；他们联合起来保卫自己的工资。他们甚至建立了经常性的团体，以便为可能发生的反抗准备食品。有些地方，斗争爆发为起义。
+
+工人有时也得到胜利，但这种胜利只是暂时的。他们斗争的真正成果并不是直接取得的成功，而是工人的越来越扩大的联合。这种联合由于大工业所造成的日益发达的交通工具而得到发展，这种交通工具把各地的工人彼此联系起来。只要有了这种联系，就能把许多性质相同的地方性的斗争汇合成全国性的斗争，汇合成阶级斗争。而一切阶级斗争都是政治斗争。中世纪的市民靠乡间小道需要几百年才能达到的联合，现代的无产者利用铁路只要几年就可以达到了。
+
+无产者组织成为阶级，从而组织成为政党这件事，不断地由于工人的自相竞争而受到破坏。但是，这种组织总是重新产生，并且一次比一次更强大，更坚固，更有力。它利用资产阶级内部的分裂，迫使他们用法律形式承认工人的个别利益。英国的十小时工作日法案就是一个例子。
+
+旧社会内部的所有冲突在许多方面都促进了无产阶级的发展。资产阶级处于不断的斗争中：最初反对贵族；后来反对同工业进步有利害冲突的那部分资产阶级；经常反对一切外国的资产阶级。在这一切斗争中，资产阶级都不得不向无产阶级呼吁，要求无产阶级援助，这样就把无产阶级卷进了政治运动。于是，资产阶级自己就把自己的教育因素即反对自身的武器给予了无产阶级。
+
+其次，我们已经看到，工业的进步把统治阶级的整批成员抛到无产阶级队伍里去，或者至少也使他们的生活条件受到威胁。他们也给无产阶级带来了大量的教育因素。
+
+最后，在阶级斗争接近决战的时期，统治阶级内部的、整个旧社会内部的瓦解过程，就达到非常强烈、非常尖锐的程度，甚至使得统治阶级中的一小部分人脱离统治阶级而归附于革命的阶级，即掌握着未来的阶级。所以，正像过去贵族中有一部分人转到资产阶级方面一样，现在资产阶级中也有一部分人，特别是已经提高到从理论上认识整个历史运动这一水平的一部分资产阶级思想家，转到无产阶级方面来了。
+
+在当前同资产阶级对立的一切阶级中，只有无产阶级是真正革命的阶级。其余的阶级都随着大工业的发展而日趋没落和灭亡，无产阶级却是大工业本身的产物。
+
+中间等级，即小工业家、小商人、手工业者、农民，他们同资产阶级作斗争，都是为了维护他们这种中间等级的生存，以免于灭亡。所以，他们不是革命的，而是保守的。不仅如此，他们甚至是反动的，因为他们力图使历史的车轮倒转。如果说他们是革命的，那是鉴于他们行将转入无产阶级的队伍，这样，他们就不是维护他们目前的利益，而是维护他们将来的利益，他们就离开自己原来的立场，而站到无产阶级的立场上来。
+
+流氓无产阶级是旧社会最下层中消极的腐化的部分，他们在一些地方也被无产阶级革命卷到运动里来，但是，由于他们的整个生活状况，他们更甘心于被人收买，去干反动的勾当。
+
+在无产阶级的生活条件中，旧社会的生活条件已经被消灭了。无产者是没有财产的；他们和妻子儿女的关系同资产阶级的家庭关系再没有任何共同之处了；现代的工业劳动，现代的资本压迫，无论在英国或法国，无论在美国或德国，都是一样的，都使无产者失去了任何民族性。法律、道德、宗教在他们看来全都是资产阶级偏见，隐藏在这些偏见后面的全都是资产阶级利益。
+
+过去一切阶级在争得统治之后，总是使整个社会服从于它们发财致富的条件，企图以此来巩固它们已获得的生活地位。无产者只有废除自己的现存的占有方式，从而废除全部现存的占有方式，才能取得社会生产力。无产者没有什么自己的东西必须加以保护，他们必须摧毁至今保护和保障私有财产的一切。
+
+过去的一切运动都是少数人的或者为少数人谋利益的运动。无产阶级的运动是绝大多数人的、为绝大多数人谋利益的独立的运动。无产阶级，现今社会的最下层，如果不炸毁构成官方社会的整个上层，就不能抬起头来，挺起胸来。
+
+如果不就内容而就形式来说，无产阶级反对资产阶级的斗争首先是一国范围内的斗争。每一个国家的无产阶级当然首先应该打倒本国的资产阶级。
+
+在叙述无产阶级发展的最一般的阶段的时候，我们循序探讨了现存社会内部或多或少隐蔽着的国内战争，直到这个战争爆发为公开的革命，无产阶级用暴力推翻资产阶级而建立自己的统治。
+
+我们已经看到，至今的一切社会都是建立在压迫阶级和被压迫阶级的对立之上的。但是，为了有可能压迫一个阶级，就必须保证这个阶级至少有能够勉强维持它的奴隶般的生存的条件。农奴曾经在农奴制度下挣扎到公社成员的地位，小资产者曾经在封建专制制度的束缚下挣扎到资产者的地位。现代的工人却相反，他们并不是随着工业的进步而上升，而是越来越降到本阶级的生存条件以下。工人变成赤贫者，贫困比人口和财富增长得还要快。由此可以明显地看出，资产阶级再不能做社会的统治阶级了，再不能把自己阶级的生存条件当作支配一切的规律强加于社会了。资产阶级不能统治下去了，因为它甚至不能保证自己的奴隶维持奴隶的生活，因为它不得不让自己的奴隶落到不能养活它反而要它来养活的地步。社会再不能在它统治下生存下去了，就是说，它的生存不再同社会相容了。
+
+资产阶级生存和统治的根本条件，是财富在私人手里的积累，是资本的形成和增殖；资本的条件是雇佣劳动。雇佣劳动完全是建立在工人的自相竞争之上的。资产阶级无意中造成而又无力抵抗的工业进步，使工人通过结社而达到的革命联合代替了他们由于竞争而造成的分散状态。于是，随着大工业的发展，资产阶级赖以生产和占有产品的基础本身也就从它的脚下被挖掉了。它首先生产的是它自身的掘墓人。资产阶级的灭亡和无产阶级的胜利是同样不可避免的。
+
+\section{无产者和共产党人}
+
+共产党人同全体无产者的关系是怎样的呢？
+
+共产党人不是同其他工人政党相对立的特殊政党。
+
+他们没有任何同整个无产阶级的利益不同的利益。
+
+他们不提出任何特殊的原则，用以塑造无产阶级的运动。
+
+共产党人同其他无产阶级政党不同的地方只是：一方面，在无产者不同的民族的斗争中，共产党人强调和坚持整个无产阶级共同的不分民族的利益；另一方面，在无产阶级和资产阶级的斗争所经历的各个发展阶段上，共产党人始终代表整个运动的利益。
+
+因此，在实践方面，共产党人是各国工人政党中最坚决的、始终起推动作用的部分；在理论方面，他们胜过其余无产阶级群众的地方在于他们了解无产阶级运动的条件、进程和一般结果。
+
+共产党人的最近目的是和其他一切无产阶级政党的最近目的一样的：使无产阶级形成为阶级，推翻资产阶级的统治，由无产阶级夺取政权。
+
+共产党人的理论原理，决不是以这个或那个世界改革家所发明或发现的思想、原则为根据的。
+
+这些原理不过是现存的阶级斗争、我们眼前的历史运动的真实关系的一般表述。废除先前存在的所有制关系，并不是共产主义所独具的特征。
+
+一切所有制关系都经历了经常的历史更替、经常的历史变更。
+
+例如，法国革命废除了封建的所有制，代之以资产阶级的所有制。
+
+共产主义的特征并不是要废除一般的所有制，而是要废除资产阶级的所有制。
+
+但是，现代的资产阶级私有制是建立在阶级对立上面、建立在一些人对另一些人的剥削上面的产品生产和占有的最后而又完备的表现。
+
+从这个意义上说，共产党人可以把自己的理论概括为一句话：消灭私有制。
+
+有人责备我们共产党人，说我们消灭个人挣得的、自己劳动得来的财产，要消灭构成个人的一切自由、活动和独立的基础的财产。
+
+好一个劳动得来的、自己挣得的、自己赚来的财产！你们说的是资产阶级财产出现以前的那种小资产阶级、小农的财产吗？那种财产用不着我们去消灭，工业的发展已经把它消灭了，而且每天都在消灭它。
+
+或者，你们说的是现代的资产阶级的私有财产吧？
+
+但是，难道雇佣劳动，无产者的劳动，会给无产者创造出财产来吗？没有的事。这种劳动所创造的资本，即剥削雇佣劳动的财产，只有在不断产生出新的雇佣劳动来重新加以剥削的条件下才能增殖的财产。现今的这种财产是在资本和雇佣劳动的对立中运动的。让我们来看看这种对立的两个方面吧。
+
+做一个资本家，这就是说，他在生产中不仅占有一种纯粹个人的地位，而且占有一种社会地位。资本是集体的产物，它只有通过社会许多成员的共同活动，而且归根到底只有通过社会全体成员的共同活动，才能运动起来。
+
+因此，资本不是一种个人力量，而是一种社会力量。
+
+因此，把资本变为公共的、属于社会全体成员的财产，这并不是把个人财产变为社会财产。这里所改变的只是财产的社会性质。它将失掉它的阶级性质。
+
+现在，我们来看看雇佣劳动。
+
+雇佣劳动的平均价格是最低限度的工资，即工人为维持其工人的生活所必需的生活资料的数额。因此，雇佣工人靠自己的劳动所占有的东西，只够勉强维持他的生命的再生产。我们决不打算消灭这种供直接生命再生产用的劳动产品的个人占有，这种占有并不会留下任何剩余的东西使人们有可能支配别人的劳动。我们要消灭的只是这种占有的可怜的性质，在这种占有下，工人仅仅为增殖资本而活着，只有在统治阶级的利益需要他活着的时候才能活着。
+
+在资产阶级社会里，活的劳动只是增殖已经积累起来的劳动的一种手段。在共产主义社会里，已经积累起来的劳动只是扩大、丰富和提高工人的生活的一种手段。
+
+因此，在资产阶级社会里是过去支配现在，在共产主义社会里是现在支配过去。在资产阶级社会里，资本具有独立性和个性，而活动着的个人却没有独立性和个性。
+
+而资产阶级却把消灭这种关系说成是消灭个性和自由！说对了。的确，正是要消灭资产者的个性、独立性和自由。
+
+在现今的资产阶级生产关系的范围内，所谓自由就是自由贸易，自由买卖。
+
+但是，买卖一消失，自由买卖也就会消失。关于自由买卖的言论，也像我们的资产阶级的其他一切关于自由的大话一样，仅仅对于不自由的买卖来说，对于中世纪被奴役的市民来说，才是有意义的，而对于共产主义要消灭买卖、消灭资产阶级生产关系和资产阶级本身这一点来说，却是毫无意义的。
+
+我们要消灭私有制，你们就惊慌起来。但是，在你们的现存社会里，私有财产对十分之九的成员来说已经被消灭了；这种私有制之所以存在，正是因为私有财产对十分之九的成员来说已经不存在。可见，你们责备我们，是说我们要消灭那种以社会上的绝大多数人没有财产为必要条件的所有制。
+
+总而言之，你们责备我们，是说我们要消灭你们的那种所有制。的确，我们是要这样做的。
+
+从劳动不再能变为资本、货币、地租，一句话，不再能变为可以垄断的社会力量的时候起，就是说，从个人财产不再能变为资产阶级财产的时候起，你们说，个性被消灭了。
+
+由此可见，你们是承认，你们所理解的个性，不外是资产者、资产阶级私有者。这样的个性确实应当被消灭。
+
+共产主义并不剥夺任何人占有社会产品的权力，它只剥夺利用这种占有去奴役他人劳动的权力。
+
+有人反驳说，私有制一消灭，一切活动就会停止，懒惰之风就会兴起。
+
+这样说来，资产阶级社会早就应该因懒惰而灭亡了，因为在这个社会里劳者不获，获者不劳。所有这些顾虑，都可以归结为这样一个同义反复：一旦没有资本，也就不再有雇佣劳动了。
+
+所有这些对共产主义的物质产品的占有方式和生产方式的责备，也被扩及到精神产品的占有和生产方面。正如阶级的所有制的终止在资产者看来是生产本身的终止一样，阶级的教育的终止在他们看来就等于一切教育的终止。
+
+资产者唯恐失去的那种教育，绝大多数人来说是把人训练成机器。
+
+但是，你们既然用你们资产阶级关于自由、教育、法等等的观念来衡量废除资产阶级所有制的主张，那就请你们不要同我们争论了。你们的观念本身是资产阶级的生产关系和所有制关系的产物，正像你们的法不过是被奉为法律的你们这个阶级的意志一样，而这种意志的内容是由你们这个阶级的物质生活条件决定的。
+
+你们的利己观念使你们把自己的生产关系和所有制关系从历史的、在生产过程中是暂时的关系变成永恒的自然规律和理性规律，这种利己观念是你们和一切灭亡了的统治阶级所共有的。谈到古代所有制的时候你们所能理解的，谈到封建所有制的时候你们所能理解的，一谈到资产阶级所有制你们就再也不能理解了。
+
+消灭家庭！连极端的激进派也对共产党人的这种可耻的意图表示愤慨。
+
+现代的、资产阶级的家庭是建立在什么基础上的呢？是建立在资本上面，建立在私人发财上面的。这种家庭只是在资产阶级那里才以充分发展的形式存在着，而无产者的被迫独居和公开的卖淫则是它的补充。
+
+资产者的家庭自然会随着它的这种补充的消失而消失，两者都要随着资本的消失而消失。
+
+你们是责备我们要消灭父母对子女的剥削吗？我们承认这种罪状。
+
+但是，你们说，我们用社会教育代替家庭教育，就是要消灭人们最亲密的关系。
+
+而你们的教育不也是由社会决定的吗？不也是由你们进行教育时所处的那种社会关系决定的吗？不也是由社会通过学校等等进行的直接的或间接的干涉决定的吗？共产党人并没有发明社会对教育的作用；他们仅仅是要改变这种作用的性质，要使教育摆脱统治阶级的影响。
+
+无产者的一切家庭联系越是由于大工业的发展而被破坏，他们的子女越是由于这种发展而被变成单纯的商品和劳动工具，资产阶级关于家庭和教育、关于父母和子女的亲密关系的空话就越是令人作呕。
+
+但是，你们共产党人是要实行公妻制的啊，——整个资产阶级异口同声地向我们这样叫喊。
+
+资产者是把自己的妻子看作单纯的生产工具的。他们听说生产工具将要公共使用，自然就不能不想到妇女也会遭到同样的命运。
+
+他们想也没有想到，问题正在于使妇女不再处于单纯生产工具的地位。
+
+其实，我们的资产者装得道貌岸然，对所谓的共产党人的正式公妻制表示惊讶，那是再可笑不过了。公妻制无需共产党人来实行，它差不多是一向就有的。
+
+我们的资产者不以他们的无产者的妻子和女儿受他们支配为满足，正式的卖淫更不必说了，他们还以互相诱奸妻子为最大的享乐。
+
+资产阶级的婚姻实际上是公妻制。人们至多只能责备共产党人，说他们想用正式的、公开的公妻制来代替伪善地掩蔽着的公妻制。其实，不言而喻，随着现在的生产关系的消灭，从这种关系中产生的公妻制，即正式的和非正式的卖淫，也就消失了。
+
+有人还责备共产党人，说他们要取消祖国，取消民族。
+
+工人没有祖国。决不能剥夺他们所没有的东西。因为无产阶级首先必须取得政治统治，上升为民族的阶级，把自身组织成为民族，所以它本身还是民族的，虽然完全不是资产阶级所理解的那种意思。
+
+随着资产阶级的发展，随着贸易自由的实现和世界市场的建立，随着工业生产以及与之相适应的生活条件的趋于一致，各国人民之间的民族分隔和对立日益消失。
+
+无产阶级的统治将使它们更快地消失。联合的行动，至少是各文明国家的联合的行动，是无产阶级获得解放的首要条件之一。
+
+人对人的剥削一消灭，民族对民族的剥削就会随之消灭。
+
+民族内部的阶级对立一消失，民族之间的敌对关系就会随之消失。
+
+从宗教的、哲学的和一切意识形态的观点对共产主义提出的种种责难，都不值得详细讨论了。
+
+人们的观念、观点和概念，一句话，人们的意识，随着人们的生活条件、人们的社会关系、人们的社会存在的改变而改变，这难道需要经过深思才能了解吗？
+
+思想的历史除了证明精神生产随着物质生产的改造而改造，还证明了什么呢？任何一个时代的统治思想始终都不过是统治阶级的思想。
+
+当人们谈到使整个社会革命化的思想时，他们只是表明了一个事实：在旧社会内部已经形成了新社会的因素，旧思想的瓦解是同旧生活条件的瓦解步调一致的。
+
+当古代世界走向灭亡的时候，古代的各种宗教就被基督教战胜了。当基督教思想在18世纪被启蒙思想击败的时候，封建社会正在同当时革命的资产阶级进行殊死的斗争。信仰自由和宗教自由的思想，不过表明竞争在信仰领域里占统治地位罢了。
+
+“但是”，有人会说，“宗教的、道德的、哲学的、政治的、法的观念等等在历史发展的进程中固然是不断改变的，而宗教、道德、哲学、政治和法在这种变化中却始终保存着。
+
+此外，还存在着一切社会状态所共有的永恒真理，如自由、正义等等。但是共产主义要废除永恒真理，它要废除宗教、道德，而不是加以革新，所以共产主义是同至今的全部历史发展相矛盾的。”
+
+这种责难归结为什么呢？至今的一切社会的历史都是在阶级对立中运动的，而这种对立在不同的时代具有不同的形式。
+
+但是，不管阶级对立具有什么样的形式，社会上一部分人对另一部分人的剥削却是过去各个世纪所共有的事实。因此，毫不奇怪，各个世纪的社会意识，尽管形形色色、千差万别，总是在某些共同的形式中运动的，这些形式，这些意识形式，只有当阶级对立完全消失的时候才会完全消失。
+
+共产主义革命就是同传统的所有制关系实行最彻底的决裂；毫不奇怪，它在自己的发展进程中要同传统的观念实行最彻底的决裂。
+
+不过，我们还是把资产阶级对共产主义的种种责难撇开吧。
+
+前面我们已经看到，工人革命的第一步就是使无产阶级上升为统治阶级，争得民主。
+
+无产阶级将利用自己的政治统治，一步一步地夺取资产阶级的全部资本，把一切生产工具集中在国家即组织成为统治阶级的无产阶级手里，并且尽可能快地增加生产力的总量。
+
+要做到这一点，当然首先必须对所有权和资产阶级生产关系实行强制性的干涉，也就是采取这样一些措施，这些措施在经济上似乎是不够充分的和没有力量的，但是在运动进程中它们会越出本身，而且作为变革全部生产方式的手段是必不可少的。
+
+这些措施在不同的国家里当然会是不同的。
+
+但是，最先进的国家几乎都可以采取下面的措施：
+\begin{enumerate}[itemsep=0pt]
+    \item 剥夺地产，把地租用于国家支出。
+    \item 征收高额累进税。
+    \item 废除继承权。
+    \item 没收一切流亡分子和叛乱分子的财产。
+    \item 通过拥有国家资本和独享垄断权的国家银行，把信贷集中在国家手里。
+    \item 把全部运输业集中在国家的手里。
+    \item 按照总的计划增加国家工厂和生产工具，开垦荒地和改良土壤。
+    \item 实行普遍劳动义务制，成立产业军，特别是在农业方面。
+    \item 把农业和工业结合起来，促使城乡对立逐步消灭。
+    \item 对所有儿童实行公共的和免费的教育。取消现在这种形式的儿童的工厂劳动。把教育同物质生产结合起来，等等。
+\end{enumerate}
+当阶级差别在发展进程中已经消失而全部生产集中在联合起来的个人的手里的时候，公共权力就失去政治性质。原来意义上的政治权力，是一个阶级用以压迫另一个阶级的有组织的暴力。如果说无产阶级在反对资产阶级的斗争中一定要联合为阶级，如果说它通过革命使自己成为统治阶级，并以统治阶级的资格用暴力消灭旧的生产关系，那么它在消灭这种生产关系的同时，也就消灭了阶级对立的存在条件，消灭阶级本身的存在条件，从而消灭了它自己这个阶级的统治。
+
+代替那存在着阶级和阶级对立的资产阶级旧社会的，将是这样一个联合体，在那里，每个人的自由发展是一切人的自由发展的条件。
+
+\section{社会主义的和共产主义的文献}
+
+\subsection{反动的社会主义}
+
+\subsubsection{封建的社会主义}
+
+法国和英国的贵族，按照他们的历史地位所负的使命，就是写一些抨击现代资产阶级社会的作品。在法国的1830年七月革命和英国的改革运动中，他们再一次被可恨的暴发户打败了。从此就再谈不上严重的政治斗争了。他们还能进行的只是文字斗争。但是，即使在文字方面也不可能重弹复辟时期的老调了。为了激起同情，贵族们不得不装模作样，似乎他们已经不关心自身的利益，只是为了被剥削的工人阶级的利益才去写对资产阶级的控诉书。他们用来泄愤的手段是：唱唱诅咒他们的新统治者的歌，并向他叽叽咕咕地说一些或多或少凶险的预言。
+
+这样就产生了封建的社会主义，半是挽歌，半是谤文，半是过去的回音，半是未来的恫吓；它有时也能用辛辣、俏皮而尖刻的评论刺中资产阶级的心，但是它由于完全不能理解现代历史的进程而总是令人感到可笑。
+
+为了拉拢人民，贵族们把无产阶级的乞食袋当作旗帜来挥舞。但是，每当人民跟着他们走的时候，都发现他们的臀部带有旧的封建纹章，于是就哈哈大笑，一哄而散。
+
+一部分法国正统派和“青年英国”，都演过这出戏。
+
+封建主说，他们的剥削方式和资产阶级的剥削不同，那他们只是忘记了，他们是在完全不同的、目前已经过时的情况和条件下进行剥削的。他们说，在他们的统治下并没有出现过现代的无产阶级，那他们只是忘记了，现代的资产阶级正是他们的社会制度的必然产物。
+
+不过，他们毫不掩饰自己的批评的反动性质，他们控告资产阶级的主要罪状正是在于：在资产阶级的统治下有一个将把整个旧社会制度炸毁的阶级发展起来。
+
+他们责备资产阶级，与其说是因为它产生了无产阶级，不如说是因为它产生了革命的无产阶级。
+
+因此，在政治实践中，他们参与对工人阶级采取的一切暴力措施，在日常生活中，他们违背自己的那一套冠冕堂皇的言词，屈尊拾取金苹果，不顾信义、仁爱和名誉去做羊毛、甜菜和烧酒的买卖。
+
+正如僧侣总是同封建主携手同行一样，僧侣的社会主义也总是同封建的社会主义携手同行的。
+
+要给基督教禁欲主义涂上一层社会主义的色彩，是再容易不过了。基督教不是也激烈反对私有财产，反对婚姻，反对国家吗？它不是提倡用行善和求乞、独身和禁欲、修道和礼拜来代替这一切吗？基督教的社会主义，只不过是僧侣用来使贵族的怨愤神圣的圣水罢了。
+
+\subsubsection{小资产阶级的社会主义}
+
+封建贵族并不是被资产阶级所推翻的、其生活条件在现代资产阶级社会里日益恶化和消失的唯一阶级。中世纪的城关市民和小农等级是现代资产阶级的前身。在工商业不很发达的国家里，这个阶级还在新兴的资产阶级身旁勉强生存着。
+
+在现代文明已经发展的国家里，形成了一个新的小资产阶级，它摇摆于无产阶级和资产阶级之间，并且作为资产阶级社会的补充部分不断地重新组成。但是，这一阶级的成员经常被竞争抛到无产阶级队伍里去，而且，随着大工业的发展，他们甚至觉察到，他们很快就会完全失去他们作为现代社会中一个独立部分的地位，在商业、工业和农业中很快就会被监工和雇员所代替。
+
+在农民阶级远远超过人口半数的国家，例如在法国，那些站在无产阶级方面反对资产阶级的著作家，自然是用小资产阶级和小农的尺度去批判资产阶级制度的，是从小资产阶级的立场出发替工人说话的。这样就形成了小资产阶级的社会主义。西斯蒙第不仅对法国而且对英国来说都是这类著作家的首领。
+
+这种社会主义非常透彻地分析了现代生产关系中的矛盾。它揭穿了经济学家的虚伪的粉饰。它确凿地证明了机器和分工的破坏作用、资本和地产的积聚、生产过剩、危机、小资产者和小农的必然没落、无产阶级的贫困、生产的无政府状态、财富分配的极不平均、各民族之间的毁灭性的工业战争，以及旧风尚、旧家庭关系和旧民族性的解体。
+
+但是，这种社会主义按其实际内容来说，或者是企图恢复旧的生产资料和交换手段，从而恢复旧的所有制关系和旧的社会，或者是企图重新把现代的生产资料和交换手段硬塞到已被它们突破而且必然被突破的旧的所有制关系的框子里去。它在这两种场合都是反动的，同时又是空想的。
+
+工业中的行会制度，农业中的宗法经济，——这就是它的结论。
+
+这一思潮在它以后的发展中变成了一种怯懦的悲叹。
+
+\subsubsection{德国的或“真正的”社会主义}
+
+法国的社会主义和共产主义的文献是在居于统治地位的资产阶级的压迫下产生的，并且是同这种统治作斗争的文字表现，这种文献被搬到德国的时候，那里的资产阶级才刚刚开始进行反对封建专制制度的斗争。
+
+德国的哲学家、半哲学家和美文学家，贪婪地抓住了这种文献，不过他们忘记了：在这种著作从法国搬到德国的时候，法国的生活条件却没有同时搬过去。在德国的条件下，法国的文献完全失去了直接实践的意义，而只具有纯粹文献的形式。它必然表现为关于真正的社会、关于实现人的本质的无谓思辨。这样，第一次法国革命的要求，在18世纪的德国哲学家看来，不过是一般“实践理性”的要求，而革命的法国资产阶级的意志的表现，在他们心目中就是纯粹的意志、本来的意志、真正人的意志的规律。
+
+德国著作家的唯一工作，就是把新的法国的思想同他们的旧的哲学信仰调和起来，或者毋宁说，就是从他们的哲学观点出发去掌握法国的思想。
+
+这种掌握，就像掌握外国语一样，是通过翻译的。
+
+大家知道，僧侣们曾经在古代异教经典的手抄本上面写上荒诞的天主教圣徒传。德国著作家对世俗的法国文献采取相反的作法。他们在法国的原著下面写上自己的哲学胡说。例如，他们在法国人对货币关系的批判下面写上“人的本质的外化”，在法国人对资产阶级国家的批判下面写上所谓“抽象普遍物的统治的扬弃”，等等。
+
+这种在法国人的论述下面塞进自己哲学词句的做法，他们称之为“行动的哲学”、”真正的社会主义”、“德国的社会主义科学”、“社会主义的哲学论证”，等等。
+
+法国的社会主义和共产主义的文献就这样被完全阉割了。既然这种文献在德国人手里已不再表现一个阶级反对另一个阶级的斗争，于是德国人就认为：他们克服了“法国人的片面性”，他们不代表真实的要求，而代表真理的要求，不代表无产者的利益，而代表人的本质的利益，即一般人的利益，这种人不属于任何阶级，根本不存在于现实界，而只存在于云雾弥漫的哲学幻想的太空。
+
+这种曾经郑重其事地看待自己那一套拙劣的小学生作业并且大言不惭地加以吹嘘的德国社会主义，现在渐渐失去了它的自炫博学的天真。
+
+德国的特别是普鲁士的资产阶级反对封建主和专制王朝的斗争，一句话，自由主义运动，越来越严重了。
+
+于是，“真正的”社会主义就得到了一个好机会，把社会主义的要求同政治运动对立起来，用诅咒异端邪说的传统办法诅咒自由主义，诅咒代议制国家，诅咒资产阶级的竞争、资产阶级的新闻出版自由、资产阶级的法、资产阶级的自由和平等，并且向人民群众大肆宣扬，说什么在这个资产阶级运动中，人民群众非但一无所得，反而会失去一切。德国的社会主义恰好忘记了，法国的批判（德国的社会主义是这种批判的可怜的回声）是以现代的资产阶级社会以及相应的物质生活条件和相当的政治制度为前提的，而这一切前提当时在德国正是尚待争取的。
+
+这种社会主义成了德意志各邦专制政府及其随从——僧侣、教员、容克和官僚求之不得的、吓唬来势汹汹的资产阶级的稻草人。
+
+这种社会主义是这些政府用来镇压德国工人起义的毒辣的皮鞭和枪弹的甜蜜的补充。
+
+既然“真正的”社会主义就这样成了这些政府对付德国资产阶级的武器，那么它也就直接代表了一种反动的利益，即德国小市民的利益。在德国，16世纪遗留下来的、从那时起经常以不同形式重新出现的小资产阶级，是现存制度的真实的社会基础。
+
+保存这个小资产阶级，就是保存德国的现存制度。这个阶级胆战心惊地从资产阶级的工业统治和政治统治那里等候着无可幸免的灭亡，这一方面是由于资本的积聚，另一方面是由于革命无产阶级的兴起。在它看来，“真正的”社会主义能起一箭双雕的作用。“真正的”社会主义像瘟疫一样流行起来了。
+
+德国的社会主义者给自己的那几条干瘪的“永恒真理”披上一件用思辨的蛛丝织成的、绣满华丽辞藻的花朵和浸透甜情蜜意的甘露的外衣，这件光彩夺目的外衣只是使他们的货物在这些顾客中间增加销路罢了。
+
+同时，德国的社会主义也越来越认识到自己的使命就是充当这种小市民的夸夸其谈的代言人。
+
+它宣布德意志民族是模范的民族，德国小市民是模范的人。它给这些小市民的每一种丑行都加上奥秘的、高尚的、社会主义的意义，使之变成完全相反的东西。它发展到最后，就直接反对共产主义的“野蛮破坏的”倾向，并且宣布自己是不偏不倚地超乎任何阶级斗争之上的。现今在德国流行的一切所谓社会主义和共产主义的著作，除了极少数的例外，都属于这一类卑鄙龌龊的、令人委靡的文献。
+
+\subsection{保守的或资产阶级的社会主义}
+
+资产阶级中的一部分人想要消除社会的弊病，以便保障资产阶级社会的生存。
+
+这一部分人包括：经济学家、博爱主义者、人道主义者、劳动阶级状况改善派、慈善事业组织者、动物保护协会会员、戒酒协会发起人以及形形色色的小改良家。这种资产阶级的社会主义甚至被制成一些完整的体系。
+
+我们可以举蒲鲁东的《贫困的哲学》作为例子。
+
+社会主义的资产者愿意要现代社会的生存条件，但是不要由这些条件必然产生的斗争和危险。他们愿意要现存的社会，但是不要那些使这个社会革命化和瓦解的因素。他们愿意要资产阶级，但是不要无产阶级。在资产阶级看来，它所统治的世界自然是最美好的世界。资产阶级的社会主义把这种安慰人心的观念制成半套或整套的体系。它要求无产阶级实现它的体系，走进新的耶路撒冷，其实它不过是要求无产阶级停留在现今的社会里，但是要抛弃他们关于这个社会的可恶的观念。
+
+这种社会主义的另一种不够系统、但是比较实际的形式，力图使工人阶级厌弃一切革命运动，硬说能给工人阶级带来好处的并不是这样或那样的政治改革，而仅仅是物质生活条件即经济关系的改变。但是，这种社会主义所理解的物质生活条件的改变，绝对不是只有通过革命的途径才能实现的资产阶级生产关系的废除，而是一些在这种生产关系的基础上实行的行政上的改良，因而丝毫不会改变资本和雇佣劳动的关系，至多只能减少资产阶级的统治费用和简化它的财政管理。
+
+资产阶级的社会主义只有在它变成纯粹的演说辞令的时候，才获得自己的适当的表现。
+
+自由贸易！为了工人阶级的利益；保护关税！为了工人阶级的利益；单身牢房！为了工人阶级的利益。——这才是资产阶级的社会主义唯一认真说出的最后的话。
+
+资产阶级的社会主义就是这样一个论断：资产者之为资产者，是为了工人阶级的利益。
+
+\subsection{批判的空想的社会主义和共产主义}
+
+在这里，我们不谈在现代一切大革命中表达过无产阶级要求的文献（巴贝夫等人的著作）。
+
+无产阶级在普遍激动的时代、在推翻封建社会的时期直接实现自己阶级利益的最初尝试，都不可避免地遭到了失败，这是由于当时无产阶级本身还不够发展，由于无产阶级解放的物质条件还没具备，这些条件只是资产阶级时代的产物。随着这些早期的无产阶级运动而出现的革命文献，就其内容来说必然是反动的。这种文献倡导普遍的禁欲主义和粗陋的平均主义。
+
+本来意义的社会主义和共产主义的体系，圣西门、傅立叶、欧文等人的体系，是在无产阶级和资产阶级之间的斗争还不发展的最初时期出现的。关于这个时期，我们在前面已经叙述过了（见《资产阶级和无产阶级》）。
+
+诚然，这些体系的发明家看到了阶级的对立，以及占统治地位的社会本身中的瓦解因素的作用。但是，他们看不到无产阶级方面的任何历史主动性，看不到它所特有的任何政治运动。
+
+由于阶级对立的发展是同工业的发展步调一致的，所以这些发明家也不可能看到无产阶级解放的物质条件，于是他们就去探求某种社会科学、社会规律，以便创造这些条件。
+
+社会的活动要由他们个人的发明活动来代替，解放的历史条件要由幻想的条件来代替，无产阶级的逐步组织成为阶级要由一种特意设计出来的社会组织来代替。在他们看来，今后的世界历史不过是宣传和实施他们的社会计划。
+
+诚然，他们也意识到，他们的计划主要是代表工人阶级这一受苦最深的阶级的利益。在他们心目中，无产阶级只是一个受苦最深的阶级。
+
+但是，由于阶级斗争不发展，由于他们本身的生活状况，他们就以为自己是高高超乎这种阶级对立之上的。他们要改善社会一切成员的生活状况，甚至生活最优裕的成员也包括在内。因此，他们总是不加区别地向整个社会呼吁，而且主要是向统治阶级呼吁。他们以为，人们只要理解他们的体系，就会承认这种体系是最美好的社会的最美好的计划。
+
+因此，他们拒绝一切政治行动，特别是一切革命行动；他们想通过和平的途径达到自己的目的，并且企图通过一些小型的、当然不会成功的试验，通过示范的力量来为新的社会福音开辟道路。
+
+这种对未来社会的幻想的描绘，在无产阶级还很不发展、因而对本身的地位的认识还基于幻想的时候，是同无产阶级对社会普遍改造的最初的本能的渴望相适应的。
+
+但是，这些社会主义和共产主义的著作也含有批判的成分。这些著作抨击现存社会的全部基础。因此，它们提供了启发工人觉悟的极为宝贵的材料。它们关于未来社会的积极的主张，例如消灭城乡对立，消灭家庭，消灭私人营利，消灭雇佣劳动，提倡社会和谐，把国家变成纯粹的生产管理机构，——所有这些主张都只是表明要消灭阶级对立，而这种阶级对立在当时刚刚开始发展，它们所知道的只是这种对立的早期的、不明显的、不确定的形式。因此，这些主张本身还带有纯粹空想的性质。
+
+批判的空想的社会主义和共产主义的意义，是同历史的发展成反比的。阶级斗争越发展和越具有确定的形式，这种超乎阶级斗争的幻想，这种反对阶级斗争的幻想，就越失去任何实践意义和任何理论根据。所以，虽然这些体系的创始人在许多方面是革命的，但是他们的信徒总是组成一些反动的宗派。这些信徒无视无产阶级的历史进展，还是死守着老师们的旧观点。因此，他们一贯企图削弱阶级斗争，调和对立。他们还总是梦想用试验的办法来实现自己的社会空想，创办单个的法伦斯泰尔，建立国内移民区，创立小伊加利亚，即袖珍版的新耶路撒冷，——而为了建造这一切空中楼阁，他们就不得不呼吁资产阶级发善心和慷慨解囊。他们逐渐地堕落到上述反动的或保守的社会主义者的一伙中去了，所不同的只是他们更加系统地卖弄学问，狂热地迷信自己那一套社会科学的奇功异效。
+
+因此，他们激烈地反对工人的一切政治运动，认为这种运动只是由于盲目地不相信新福音才发生的。
+
+在英国，有欧文主义者反对宪章派，在法国，有傅立叶主义者反对改革派。
+
+\section{共产党人对各种反对党派的态度}
+
+看过第二章之后，就可以了解共产党人同已经形成的工人政党的关系，因而也就可以了解他们同英国宪章派和北美土地改革派的关系。
+
+共产党人为工人阶级的最近的目的和利益而斗争，但是他们在当前的运动中同时代表运动的未来。在法国，共产党人同社会主义民主党联合起来反对保守的和激进的资产阶级，但是并不因此放弃对那些从革命的传统中承袭下来的空谈和幻想采取批判态度的权利。
+
+在瑞士，共产党人支持激进派，但是并不忽略这个政党是由互相矛盾的分子组成的，其中一部分是法国式的民主社会主义者，一部分是激进的资产者。
+
+在波兰人中间，共产党人支持那个把土地革命当作民族解放的条件的政党，即发动过1846年克拉科夫起义的政党。
+
+在德国，只要资产阶级采取革命的行动，共产党就同它一起去反对专制君主制、封建土地所有制和小市民的反动性。
+
+但是，共产党一分钟也不忽略教育工人尽可能明确地意识到资产阶级和无产阶级的敌对的对立，以便德国工人能够立刻利用资产阶级统治所必然带来的社会的和政治的条件作为反对资产阶级的武器，以便在推翻德国的反动阶级之后立即开始反对资产阶级本身的斗争。
+
+共产党人把自己的主要注意力集中在德国，因为德国正处在资产阶级革命的前夜，因为同17世纪的英国和18世纪的法国相比，德国将在整个欧洲文明更进步的条件下，拥有发展得多的无产阶级去实现这个变革，因而德国的资产阶级革命只能是无产阶级革命的直接序幕。
+
+总之，共产党人到处都支持一切反对现存的社会制度和政治制度的革命运动。
+
+在所有这些运动中，他们都强调所有制问题是运动的基本问题，不管这个问题的发展程度怎样。
+
+最后，共产党人到处都努力争取全世界民主政党之间的团结和协调。
+
+共产党人不屑于隐瞒自己的观点和意图。他们公开宣布：他们的目的只有用暴力推翻全部现存的社会制度才能达到。让统治阶级在共产主义革命面前发抖吧。无产者在这个革命中失去的只是锁链。他们获得的将是整个世界。
+
+全世界无产者，联合起来！
+
+\newpage
+\thispagestyle{empty}
+\begin{thebibliography}{1}
+    \addcontentsline{toc}{chapter}{参考文献}
+    \markboth{马克思主义基本原理}{参考文献}
+    \bibitem{2023版教材}
+    《马克思主义基本原理 (2023 版)》编写组. 马克思主义基本原理: 2023 版[M].
+    北京: 高等教育出版社, 2023.
+    \bibitem{核心考案}
+    徐涛主编, 考研政治核心考案[M], 北京：中国政法大学出版社, 2023.1
+    \bibitem{优题库}
+    徐涛主编, 考研政治通关优题库[M], 北京：中国政法大学出版社, 2023.2
+    \bibitem{真题库}
+    徐涛主编, 考研政治必刷真题库[M], 北京：中国政法大学出版社, 2023.2
+    \bibitem{冲刺背诵笔记}
+    徐涛主编, 考研政治冲刺背诵笔记[M], 北京：中国政法大学出版社, 2023.9
+    \bibitem{预测}
+    徐涛主编, 考研政治预测 6 套卷[M], 北京：中国政法大学出版社, 2023.10
+    \bibitem{预测}
+    徐涛, 曲艺主编, 考研政治考前预测必备 20 题[M], 北京：中国政法大学出版社, 2023.11
+    \bibitem{共产党宣言}
+    Karl Marx, Friedrich Engels. 共产党宣言.
+\end{thebibliography}
+
+\input{_endpage.tex}
+\end{document}
