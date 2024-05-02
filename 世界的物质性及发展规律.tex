@@ -1,40 +1,10 @@
-\documentclass[11pt, UTF8]{book} %% ctexart
-
-\title{\textbf{马克思主义基本原理}}
-\author{钱锋\thanks{Email: strik0r.qf@gmail.com}${}^,$\thanks{
-    西北工业大学软件学院, School of Software, Northwestern Polytechnical University, 西安 710072
-}}
+\documentclass[utf-8, 10pt]{article}
 
 \usepackage{ctex}
-\usepackage{graphicx}
-\usepackage[toc]{multitoc}
-\usepackage{booktabs}
-\usepackage{longtable}
-\usepackage{booktabs}
-\usepackage{longtable}
-\usepackage{amsthm, amssymb, amsmath, mathrsfs, mhchem}
-\usepackage{tikz}
-\usetikzlibrary{decorations.markings, angles, quotes}
-\usepackage{pgfplots}
-\usepackage{tikz-3dplot}
-\usepackage{extpfeil}
-\usepackage{diagbox}
-\usepackage{float}
-\usepackage{hyperref}
-\hypersetup{hidelinks,
-    colorlinks = true,
-    allcolors = black,
-    pdfstartview = Fit,
-    breaklinks = true}
-\usepackage{caption}
-\usepackage{enumitem}
-\usepackage{siunitx}
-\usepackage{cuted}
+
+\input{LaTeX_tem/geometry_settings.tex}
 
 \usepackage{titlesec} % 定义标题样式
-
-% 设置 chapter 标题样式
-\titleformat{\chapter}[hang]{\centering\heiti\Large\bfseries}{第\,\thechapter\,章}{1em}{}
 
 % 定义 section 标题格式
 \titleformat{\section}[hang]{\heiti\centering\large\bfseries}{\thesection}{1em}{}
@@ -43,9 +13,10 @@
 \titleformat{\subsection}[hang]{\heiti\bfseries}{\textbf{\thesubsection}}{1em}{}
 
 % 定义 subsubsection 标题格式
-\setcounter{secnumdepth}{3}
-\renewcommand\thesubsubsection{\arabic{subsubsection}.}
 \titleformat{\subsubsection}[hang]{\kaishu}{\quad\quad\thesubsubsection\,\,}{0em}{}
+
+\input{LaTeX_tem/mdframed_settings.tex}
+\input{LaTeX_tem/listings_settings.tex}
 
 \usepackage{fancyhdr} % 用于自定义页眉页脚
 
@@ -53,20 +24,13 @@
 % 设置页眉页脚样式
 \fancypagestyle{plain}{%
     \fancyhf{} % 清空页眉页脚
-    \fancyhead[RO,LE]{·\thepage·} % 页眉显示页码, RO表示奇数页右侧, LE表示偶数页左侧
-    \fancyhead[LO]{\nouppercase{\rightmark}} % 页眉显示小节标题, LO表示奇数页左侧
-    \fancyhead[RE]{\nouppercase{\leftmark}} % 页眉显示章节标题, RE表示偶数页右侧
+    \fancyhead[L]{·\thepage·} % 页眉显示页码, RO表示奇数页右侧, LE表示偶数页左侧
+    \fancyhead[R]{马克思主义基本原理}
     \renewcommand{\headrulewidth}{0.4pt} % 设置页眉横线的宽度
     \renewcommand{\footrulewidth}{0pt} % 取消页脚横线
 }
 
 \renewcommand{\headrule}{\hrule width\textwidth height\headrulewidth\vskip-\headrulewidth}
-
-% % 取消奇偶页的页眉偏移
-% \fancyhfoffset[RO,LE]{0pt}
-
-% % 取消奇偶页的页眉偏移
-% \fancyhfoffset[RO,LE]{0pt}
 
 % 定义取消页眉的命令
 \newcommand{\cancelheader}{%
@@ -75,697 +39,43 @@
     \renewcommand{\footrulewidth}{0pt} % 设置页脚横线的宽度
 }
 
-\renewcommand{\chaptermark}[1]{\markboth{第 \thechapter 章 \hspace{1em} #1}{}}
-\renewcommand{\sectionmark}[1]{\markright{\thesection \, #1}}
+\usepackage{caption, subcaption}
+\usepackage{longtable, diagbox, booktabs}
+\usepackage{float, graphicx}
+\usepackage{amsthm, amssymb, amsmath, mathrsfs, mhchem, siunitx, pgfplots}
+\usepackage{tikz, circuitikz, tikz-cd, tikz-3dplot}
+\usetikzlibrary{decorations.markings, angles, quotes}
+\usepackage{tasks, enumitem}
+\usepackage{hyperref}
+\hypersetup{hidelinks,
+    colorlinks = true,
+    allcolors = black,
+    pdfstartview = Fit,
+    breaklinks = true}
+\usepackage[toc]{multitoc}
+\usepackage{abstract}
+\usepackage{extpfeil}
+\usepackage{xcolor}
 
-\usepackage[
-    paperwidth=210mm,
-    paperheight=297mm,
-    top=40mm,
-    bottom=31.8mm,
-    left=25.4mm,
-    right=25.4mm,
-    footskip=15mm % 通过这里的值来调整页脚与正文内容的垂直距离
-]{geometry}
-
-\usepackage{mdframed}
-\mdfsetup{
-  linewidth=0.4pt,
-  frametitlebackgroundcolor=white, % 或者 transparent
-  frametitlefont=\heiti\bfseries,
-  frametitleaboveskip=10pt,
-  frametitlebelowskip=5pt,
-  frametitlealignment=\raggedright % 新增此行
-}
-
-\usepackage{smartdiagram}
-\usepackage{multirow}
-\usepackage{tasks}
+\everymath{\displaystyle}
 
 \begin{document}
+\input{LaTeX_tem/theoremstyles.tex}
+\pagestyle{plain}
+\title{世界的物质性及发展规律}
+\author{钱锋\thanks{电子邮件: strik0r.qf@gmail.com
+\newline \indent 西北工业大学软件学院, School of Software, Northwestern Polytechnical University, 西安 710072
+}}
 
-\newtheoremstyle{mytheoremstyle}
-    {1.5ex}                                         % Space above
-    {1.5ex}                                         % Space below
-    {}                                              % Font for body
-    {}                                              % Indent amount
-    {\bfseries}                                     % Font for head
-    {}                                              % Punctuation after head
-    {0.5em plus 0.2em minus 0.1em}                  % Space after head
-    {\thmname{#1}\thmnumber{ #2}.\thmnote{ (#3).}}
-
-\theoremstyle{mytheoremstyle} \newtheorem{example}{例}[section]
-\theoremstyle{mytheoremstyle} \newtheorem{key}{核心要点}[section]
-
-\theoremstyle{plain} \newtheorem{thm}{分析论述}
-
-\newtheoremstyle{my3theoremstyle}
-    {1.5ex}                                         % Space above
-    {1.5ex}                                         % Space below
-    {}                                              % Font for body
-    {}                                              % Indent amount
-    {\kaishu}                                       % Font for head
-    {}                                              % Punctuation after head
-    {0.5em plus 0.2em minus 0.1em}                  % Space after head
-    {\thmname{#1}\thmnumber{ #2}.\thmnote{ (#3).}}
-
-\theoremstyle{my3theoremstyle}
-\newtheorem*{remark}{注}
-\newtheorem*{sol}{答案要点}
-\newtheorem*{cmt}{评注}
-
-\pagestyle{empty}
-\begin{titlepage}
-    \thispagestyle{empty}
-    \centering
-        \vspace*{2cm}
-        \includegraphics[width=0.5\textwidth]{pic/npu_2.png}\par
-        \vspace{1em}
-        \includegraphics[width=0.5\textwidth]{pic/npu_1.png}\par
-    \vspace{1em}
-        \begin{center}
-            \Huge \heiti \textbf{马克思主义基本原理}
-
-            Fundamental Principles of Marxism
-        \end{center}
-        \vspace{16em}
-        \begin{center}
-        \songti
-        \kaishu 数学与统计学院 \, \heiti\textbf{钱锋} \quad \songti 编
-        \vspace{0.5em}
-
-    \today
-    \end{center}
-\end{titlepage}
-
-\cleardoublepage
 \maketitle
-\cleardoublepage
-
-\frontmatter
-\newpage
-\pagestyle{plain}
-\makeatother
-
-% 设置目录页的页码格式
-\pagenumbering{roman} % 切换回罗马数字页码
-\addtocontents{toc}{\protect\thispagestyle{empty}}
-\pagestyle{plain}
-{\tableofcontents}
-\newpage
 \thispagestyle{empty}
-\cleardoublepage % 确保正文从奇数页开始
-
-
-% 设置章节标题页的页眉和页脚为空白页样式
-\makeatletter
-\let\ps@plain\ps@empty
-\makeatother
-
-
-\newpage
-\chapter*{导 \quad 言}
-
-\begin{quote}
-    人类历史上不管在哪一个领域，包括创造财富的领域，做成大事业的绝非只有一些小伎俩的精明之人，
-    而必是对世界和人生有广阔思考和独特领悟的拥有大智慧的人。
+% \begin{abstract}
     
-    真正的成功是做人的成功，即做一个有灵魂的人，一个精神上优秀的大写的人。这样的人即使在
-    世俗的意义上不成功，他的人生仍是充满意义的。
-    
-    \begin{flushright}
-        \kaishu —— 周国平
-    \end{flushright}
-\end{quote}
-
-\newpage
-\thispagestyle{empty}
-
-\chapter{导论}
-
-{\heiti\bfseries 复习建议：}
-马克思主义基本原理课程中需要吸收运用的理论和概念很多，不适合突击速成，
-全书共 97 个考点，在考研思想政治理论科目中占分 24\%，部分内容抽象且晦涩难懂，
-是考研政治的重点、难点所在。建议准备期末考试的同学保证 60 天以上的复习时间，准备考研的
-同学保证 180 天以上的复习时间。
-
-\begin{table}[H]
-    \small
-    \centering
-    \caption{《马克思主义基本原理》课程知识框架}
-    \begin{tabular}{p{0.2\textwidth}|p{0.35\textwidth}|p{0.32\textwidth}}
-        \hline
-        \textbf{组成部分} & \textbf{章节内容} & \textbf{备注} \\
-        \hline 
-        导论 & 马克思主义是关于无产阶级和人类解放的科学 \\ 
-        \hline
-        \multirow{4}{0.2\textwidth}{马克思主义哲学} 
-        & 辩证唯物论 & \multirow{4}{0.3\textwidth}{哲学部分占分 18/24，是马克思主义基本原理课程复习的重中之重。} \\
-        & 唯物辩证法 & \\
-        & 认识论 & \\
-        & 唯物史观 & \\
-        \hline 
-        \multirow{2}{0.2\textwidth}{马克思主义政治经济学}
-        & 资本主义的本质及规律 
-        & \multirow{2}{0.3\textwidth}{西工大期末只考导论及前五章。} \\ 
-        & 资本主义的发展及其趋势 & \\ 
-        \hline 
-        \multirow{2}{0.2\textwidth}{科学社会主义}
-        & 社会主义的发展及其规律 & \\ 
-        & 共产主义崇高理想及其最终实现 & \\ 
-        \hline
-    \end{tabular}
-\end{table}
-
-在人类思想史上，就科学性和影响力而言，没有一种思想理论能达到马克思主义的高度，
-也没有一种学说能像马克思主义那样对世界产生如此广泛而深远的影响。这充分体现了马克思主义
-的真理伟力，表明了马克思主义对人们认识世界、改造世界具有不可替代的作用。
-
-\section{马克思主义的创立和发展}
-
-\subsection{马克思主义的内涵及其构成}
-
-\subsubsection{马克思主义的内涵}
-
-马克思主义（Marxism）是由马克思\footnote{
-    马克思（Karl Marx）是19世纪德国哲学家、经济学家、社会学家和革命家，被视为现代社会科学的奠基人之一。他的著作《资本论》等著名著作探讨了资本主义经济的运作机制和阶级斗争的规律，提出了无产阶级革命的理论，并呼吁建立一个没有私有制的社会主义社会。
-}和恩格斯\footnote{
-    恩格斯（Friedrich Engels）是马克思的朋友、合作者和理论继承者，也是19世纪德国的哲学家、社会科学家和革命家。他与马克思合著了《共产党宣言》等重要文献，深入研究了资本主义的发展和工人阶级的境遇，为马克思主义理论的发展作出了重要贡献，也积极参与了国际工人运动。
-}创立并为后继者所不断发展的科学理论体系（起源与发展），
-是关于自然、社会和人类思维发展的一般规律的学说（内容、马克思主义哲学），是关于社会主义必然代替资本主义、
-最终实现共产主义的学说（目的、马克思主义政治经济学），
-是关于无产阶级解放、全人类解放和每个人自由而全面发展的学说（立场，科学社会主义），
-是无产阶级政党和社会主义国家的指导思想，是指引人民创造美好生活的行动指南（意义）。
-\begin{remark}
-    马克思主义的内涵，可以从六个角度来划分理解，这些划分的角度就是上文中括号中的内容。
-    马克思主义的内涵在考试中一般不做考察，但近两年的考研政治出题越来越出其不意，还是
-    尽量了解一下。
-\end{remark}
-
-\subsubsection{马克思主义的构成}
-
-
-
-马克思主义是一个博大精深的理论体系。恩格斯在《反杜林论》（{\itshape Anti-Dühring}）\footnote{
-    《反杜林论》是由恩格斯撰写的重要文献，旨在批判德国哲学家杜林的唯心主义哲学观点。
-    该文指出了杜林在对待自然科学和历史发展等问题上的错误观点，强调了历史唯物主义的重要性，
-    并阐述了历史唯物主义对社会发展和阶级斗争的解释。
-    恩格斯在《反杜林论》中提出了马克思主义唯物史观的基本原理，
-    \textbf{首次将马克思主义以三个组成部分的形式进行了全面阐述}，
-    为马克思主义思想的发展做出了重要贡献。
-}一文中将马克思主义的理论分成了
-三个基本组成部分：
-\begin{itemize}[itemsep=0pt]
-    \item 研究的基本理论和方法：马克思主义\textbf{哲学}（Marxist Philosophy）；
-    \item 主体内容：马克思主义\textbf{政治经济学}（Marxist Political Economy）；
-    \item 目的与归宿：\textbf{科学社会主义}（Scientific Socialism）。
-\end{itemize}
-% 这三个基本组成部分有机统一并共同构成了马克思主义理论的主体内容。
-从这一层面上来讲，马克思主义是以马克思主义政治经济学为主体内容的，以马克思主义哲学作为
-研究的基本理论与基本方法的，以科学社会主义作为最终目的与最终归宿的理论体系。
-\begin{figure}[H]
-    \centering
-    
-
-\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
-
-\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-0.9,xscale=0.9]
-%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
-
-%Straight Lines [id:da7900404923689658] 
-\draw  [dash pattern={on 0.84pt off 2.51pt}]  (354,55.5) -- (434,55.5) ;
-%Straight Lines [id:da2776322276809655] 
-\draw  [dash pattern={on 0.84pt off 2.51pt}]  (399,126.5) -- (435,126.5) ;
-%Straight Lines [id:da8162475035000624] 
-\draw  [dash pattern={on 0.84pt off 2.51pt}]  (400,194.5) -- (436,194.5) ;
-%Straight Lines [id:da9764304210153608] 
-\draw    (291,73.5) -- (291,105.5) ;
-\draw [shift={(291,107.5)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
-%Straight Lines [id:da2506247619262363] 
-\draw    (291,141.5) -- (291,173.5) ;
-\draw [shift={(291,175.5)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
-%Straight Lines [id:da3783928279477312] 
-\draw  [dash pattern={on 0.84pt off 2.51pt}]  (291,210.5) -- (291,244.5) ;
-%Shape: Brace [id:dp8337992157264561] 
-\draw   (225,56.5) .. controls (220.33,56.5) and (218,58.83) .. (218,63.5) -- (218,115) .. controls (218,121.67) and (215.67,125) .. (211,125) .. controls (215.67,125) and (218,128.33) .. (218,135)(218,132) -- (218,186.5) .. controls (218,191.17) and (220.33,193.5) .. (225,193.5) ;
-
-% Text Node
-\draw (162,126) node   [align=left] {\begin{minipage}[lt]{68pt}\setlength\topsep{0pt}
-马克思主义的\\三大组成部分
-\end{minipage}};
-% Text Node
-\draw (290.5,56.75) node   [align=left] {\begin{minipage}[lt]{83.64pt}\setlength\topsep{0pt}
-马克思主义哲学
-\end{minipage}};
-% Text Node
-\draw (312.5,124.75) node   [align=left] {\begin{minipage}[lt]{113.56pt}\setlength\topsep{0pt}
-马克思主义政治经济学
-\end{minipage}};
-% Text Node
-\draw (313.5,193.75) node   [align=left] {\begin{minipage}[lt]{113.56pt}\setlength\topsep{0pt}
-科学社会主义
-\end{minipage}};
-% Text Node
-\draw (487,56) node   [align=left] {\begin{minipage}[lt]{69.36pt}\setlength\topsep{0pt}
-德国古典哲学
-\end{minipage}};
-% Text Node
-\draw (508.5,126) node   [align=left] {\begin{minipage}[lt]{98.6pt}\setlength\topsep{0pt}
-英国古典政治经济学
-\end{minipage}};
-% Text Node
-\draw (502,194) node   [align=left] {\begin{minipage}[lt]{88.4pt}\setlength\topsep{0pt}
-英法空想社会主义
-\end{minipage}};
-% Text Node
-\draw (297,81) node [anchor=north west][inner sep=0.75pt]   [align=left] {作为思想和方法};
-% Text Node
-\draw (297,149) node [anchor=north west][inner sep=0.75pt]   [align=left] {作为理论依据};
-% Text Node
-\draw (250,250) node [anchor=north west][inner sep=0.75pt]   [align=left] {最终的目的与归宿};
-
-
-\end{tikzpicture}
-\caption{马克思主义的三大组成部分}
-\end{figure}
-
-
-\subsection{马克思主义的基本立场、基本观点和基本方法}
-
-马克思主义基本原理是对马克思主义立场、观点、方法的集中概括，是马克思主义在其形成、
-发展和运用过程中经过时间反复检验而确立起来的具有普遍真理性的理论。它体现马克思主义的
-根本性质和整体特征，体现马克思主义科学性和革命性的统一。相对于特定历史条件下
-所做的个别理论判断和具体结论，马克思主义基本原理具有普遍的、根本的和长远的指导意义。
-
-我们可以从基本立场、基本观点、基本方法的有机统一中，来学习和把握马克思主义。
-
-\subsubsection{马克思主义的基本立场}
-
-马克思主义的基本立场，是马克思主义观察、分析和解决问题的根本立足点和出发点。
-\textbf{马克思主义以无产阶级的解放和全人类的解放为己任，以人的自由全面发展为美好目标，以人民为中心，
-一切为了人民，一切依靠人民，全心全意为人民服务。}
-
-\subsubsection{马克思主义的基本观点}
-
-马克思主义的基本观点，是关于自然、社会和人类思维发展一般规律的科学认识，是对人类思想成果和
-社会实践经验的科学总结。这些基本观点主要包括：
-\begin{tasks}(2)
-    \task 关于世界统一于物质、物质决定意识的观点；
-    \task 关于事物矛盾运动规律的观点；
-    \task 关于实践和认识辩证关系的观点；
-    \task 关于社会存在决定社会意识的观点；
-    \task 关于人与自然和谐共生的观点；
-    \task 关于人类社会基本矛盾运动规律的观点；
-    \task 关于人的自由而全面发展的观点；
-    \task 关于世界历史的观点；
-    \task 关于阶级和阶级斗争的观点；
-    \task 关于人民群众创造历史的观点；
-    \task 关于劳动价值论的观点；
-    \task 关于剩余价值和资本主义生产方式本质的观点；
-    \task 关于资本主义政治制度和意识形态本质的观点；
-    \task 关于垄断资本主义的观点；
-    \task 关于社会主义必然代替资本主义的观点；
-    \task 关于社会主义革命和无产阶级专政的观点；
-    \task 关于无产阶级政党建设的观点；
-    \task 关于社会主义社会本质特征和建设规律的特点；
-    \task 关于共产主义社会基本特征和共产主义远大理想的观点；
-    \task ……
-\end{tasks}
-\begin{remark}
-    “科学性是马克思主义独有的特点”，这一表述在思想政治类课程学习和考研政治中是一个
-    基本的论调。
-\end{remark}
-\begin{remark}
-    从内容的角度来分析马克思主义的内涵，是说{\kaishu 马克思主义是关于自然、社会和人类思维发展的
-    一般规律的学说}，这两个知识点可以结合在一起记忆。马克思主义的内容是关于自然、社会和人类思维发
-    展一般规律的，所以它的基本观点就是关于自然、社会和人类思维发展的一般规律的科学认识。
-\end{remark}
-
-\subsubsection{马克思主义的基本方法}
-
-马克思主义的基本方法，是建立在辩证唯物主义和历史唯物主义世界观和方法论基础上，
-指导我们正确认识世界和改造世界的思想方法和工作方法。它们包括：
-\begin{tasks}(2)
-    \task 实事求是的方法；
-    \task 辩证分析的方法；
-    \task 社会基本矛盾和主要矛盾分析的方法；
-    \task 历史分析的方法；
-    \task 阶级分析的方法；
-    \task 群众路线的方法
-    \task ……
-\end{tasks}
-
-\subsection{马克思主义的创立}
-
-
-
-\subsubsection{马克思主义创立的社会根源、阶级基础和思想渊源}
-
-马克思主义产生于 19 世纪 40 年代，创始人是马克思和恩格斯。
-马克思主义的产生具有深刻的社会根源、阶级基础和思想渊源。
-\begin{itemize}[itemsep=0pt]
-    \item 社会根源：\textbf{资本主义生产方式在欧洲已经有了相当的发展}：
-    {\small 工业革命和科技进步极大地提高了劳动生产率，促进了生产力的发展。
-    资本主义生产方式一方面带来了社会化大生产的迅猛发展，另一方面又造成了
-    深重的社会灾难：
-    \begin{enumerate}[itemsep=0pt, label=$\left.\arabic*\right)$]
-        \item 社会两极分化，工人极端困苦。机器大工业的发展，不仅没有改善工人的劳动和
-        生活条件，而且使工人成为机器的附庸。资本家采取延长劳动时间、增大劳动强度、
-        降低工人工资、廉价雇佣女工和童工等手段，拼命压榨工人血汗，无产阶级与资产阶级
-        的矛盾不断加剧。
-        \item 周期性经济危机频繁爆发。英国在工业革命开始后，曾多次发生局部性经济危机，
-        每一次经济危机都对社会造成巨大的破坏。
-    \end{enumerate}}
-    \item 阶级基础：无产阶级在反抗资产阶级剥削和压迫斗争的斗争中，逐渐走向自觉，并迫切
-    渴望科学的理论指导，法国、英国、德国工人运动的兴起，标志着现代无产阶级作为独立的
-    政治力量登上了历史舞台。\textbf{觉醒了的无产阶级迫切需要总结和升华自身的斗争经验，
-    形成科学的革命理论，以指导自身的解放斗争}。
-    \item 思想渊源：
-    \begin{figure}[H]
-        \centering
-    
-    
-    \tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
-    
-    \begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
-    %uncomment if require: \path (0,449); %set diagram left start at 0, and has height of 449
-    
-    %Shape: Brace [id:dp8589737925705583] 
-    \draw   (244,72.5) .. controls (239.33,72.5) and (237,74.83) .. (237,79.5) -- (237,172) .. controls (237,178.67) and (234.67,182) .. (230,182) .. controls (234.67,182) and (237,185.33) .. (237,192)(237,189) -- (237,284.5) .. controls (237,289.17) and (239.33,291.5) .. (244,291.5) ;
-    %Shape: Brace [id:dp8773220460912701] 
-    \draw   (364,27.5) .. controls (359.33,27.5) and (357,29.83) .. (357,34.5) -- (357,63.75) .. controls (357,70.42) and (354.67,73.75) .. (350,73.75) .. controls (354.67,73.75) and (357,77.08) .. (357,83.75)(357,80.75) -- (357,113) .. controls (357,117.67) and (359.33,120) .. (364,120) ;
-    %Shape: Brace [id:dp6324604138620569] 
-    \draw   (365,153.5) .. controls (360.33,153.5) and (358,155.83) .. (358,160.5) -- (358,189.75) .. controls (358,196.42) and (355.67,199.75) .. (351,199.75) .. controls (355.67,199.75) and (358,203.08) .. (358,209.75)(358,206.75) -- (358,239) .. controls (358,243.67) and (360.33,246) .. (365,246) ;
-    
-    % Text Node
-    \draw (142,162) node [anchor=north west][inner sep=0.75pt]   [align=left] {马克思主义\\的思想渊源};
-    % Text Node
-    \draw (252,64) node [anchor=north west][inner sep=0.75pt]   [align=left] {直接理论来源};
-    % Text Node
-    \draw (372,26) node [anchor=north west][inner sep=0.75pt]   [align=left] {德国古典哲学};
-    % Text Node
-    \draw (372,65) node [anchor=north west][inner sep=0.75pt]   [align=left] {英国古典政治经济学};
-    % Text Node
-    \draw (372,103) node [anchor=north west][inner sep=0.75pt]   [align=left] {英法空想社会主义};
-    % Text Node
-    \draw (252,192) node [anchor=north west][inner sep=0.75pt]   [align=left] {自然科学前提};
-    % Text Node
-    \draw (372,149) node [anchor=north west][inner sep=0.75pt]   [align=left] {细胞学说};
-    % Text Node
-    \draw (372,194) node [anchor=north west][inner sep=0.75pt]   [align=left] {能量守恒与转化定律};
-    % Text Node
-    \draw (372,230) node [anchor=north west][inner sep=0.75pt]   [align=left] {生物进化论};
-    % Text Node
-    \draw (252,273) node [anchor=north west][inner sep=0.75pt]   [align=left] {其他思想来源};
-    
-    
-    \end{tikzpicture}
-    \caption{马克思主义的思想渊源}
-    \end{figure}
-    \begin{enumerate}[itemsep=0pt, label=$\left.\arabic*\right)$]
-        \item 19 世纪西欧三大先进思潮为马克思主义的创立提供了直接的理论来源。
-            \begin{itemize}[itemsep=0pt]
-                \item \textbf{德国古典哲学} (classical philosophy)：
-                辩证法思想；
-                \item \textbf{英国古典政治经济学} (classical political economy)：对资本主义生产关系的分析和关于
-                劳动创造价值的思想；
-                \item \textbf{英法空想社会主义} 
-                (Utopian socialism)：
-                对资本主义社会的批判和对未来新社会的展望，
-            \end{itemize}
-            这三大思潮都是资本主义发展初期的先进的思想家求索时代课题的尝试。
-    
-        \item 19 世纪的三大科学发现，即\textbf{细胞学说}、
-        \textbf{能量守恒与转化定律}、\textbf{生物进化论}，为马克思主义的产生提供了自然科学前提。
-
-        \item 从更广泛的意义上讲，马克思主义的思想来源还有古希腊、罗马哲学、文艺复兴运动的思想成果、
-        法国复辟时期历史学家的进步思想等。
-    \end{enumerate}
-\end{itemize}
-
-
-
-\subsubsection{马克思与恩格斯的早期经历与世界观和政治立场的彻底转变}
-
-从优越的家庭条件和卓越的个人才华来说，马克思和恩格斯完全有可能跻身所谓的 “上流社会”，
-求得令人羡慕的个人前程，但是他们放弃了舒适安逸的生活，毅然选择了充满荆棘与坎坷的革命
-之路。
-
-马克思和恩格斯发表在 1844 年 2 月《德法年鉴》上的论文表明，他们完成了从唯心主义向
-唯物主义、从革命民主主义向共产主义的转变（称为 “两个转变”），
-为创立马克思主义奠定了思想前提。
-
-\subsubsection{《共产党宣言》的发表和马克思主义的公开问世}
-
-马克思、恩格斯接受国际性工人组织 “正义者同盟” 的邀请，将其改组为 \textbf{“共产主义者同盟”，
-这是世界上第一个共产主义政党}。并为其起草了\textbf{世界上第一个无产阶级政党的党纲
-——《共产党宣言》}。1848 年 2 月，\textbf{《共产党宣言》发表，标志着马克思主义的公开问世，
-标志着科学社会主义的诞生，标志着马克思主义的诞生}。
-\begin{remark}
-    这里需要注意的是，组织并不等于政党。因此 “正义者同盟” 仅仅是一个国际性的工人组织，
-    而不是共产主义政党。世界上的第一个共产主义政党是 “无产主义者同盟”。这两个组织的
-    名字里都带有 “同盟”，却具有完全不同的性质，前者是一个工人组织，而后者则是一个无产阶级政党。
-\end{remark}
-
-\subsubsection{总结革命经验 \quad 丰富革命理论}
-
-1848 年欧洲革命失败后，他们流亡英国。马克思进行了全面深入的政治经济学研究，撰写了《资本论》
-并出版了第一卷，系统阐述了剩余价值学说，揭示了资本主义生产关系的秘密。
-\textbf{唯物史观和剩余价值学说是马克思一生的两个伟大发现}。
-
-% \begin{table}[H]
-%     \centering
-%     \caption{马克思与恩格斯的经典著作}
-%     \begin{tabular}{p{0.2\textwidth}|p{0.3\textwidth}p{0.2\textwidth}p{0.2\textwidth}}
-%         \hline
-%         \textbf{作品} & \textbf{内容} & \textbf{关键词} & \textbf{备注} \\
-%         \hline
-%         《德法年鉴》（期刊）
-%         \newline 马克思、恩格斯 \newline 1844.2
-%         & 马克思、恩格斯在《德法年鉴》上分别发表了两篇文章，标志着马克思和恩格斯的两个转变，
-%         即从唯心主义转向唯物主义、从革命民主主义转向共产主义，这为马克思、恩格斯创立自己的理论奠定了
-%         思想前提
-%         & 两个转变 \\ 
-%         \hline
-%         《德意志意识形态》
-%         \newline 马克思、恩格斯 
-%         & 首次系统阐了历史唯物主义的基本观点，实现了历史观上的伟大变革，
-%         标志着马克思主义哲学的诞生
-%         & 唯物史观的创立 \newline 马克思主义哲学的诞生 \\ 
-%         \hline 
-%         《共产党宣言》
-%         \newline 马克思、恩格斯 \newline 1848.2
-%         & 标志着科学社会主义、马克思主义的诞生，是世界上第一个无产阶级政党的党纲
-%         & 科学社会主义的诞生 \newline 马克思主义的诞生 \newline 首个无产阶级政党党纲 \\
-%         \hline 
-%         《资本论》
-%         \newline 马克思 
-%         & 系统阐述剩余价值理论，标志着马克思主义政治经济学的诞生
-%         & 政治经济学的诞生 & 被称为 “工人阶级的圣经” \\ 
-%         \hline 
-%         《反杜林论》
-%         \newline 恩格斯 
-%         & 首次将马克思主义以三个组成部分（马克思主义哲学、政治经济学、科学社会主义）
-%         的形式进行了全面阐述
-%         & 全面阐述 \newline 三个组成部分
-%         & 被称为 “马克思主义的百科全书” \\
-%         \hline
-        
-%         《关于费尔巴哈的提纲》 \newline 马克思 
-%         & 首次确立了科学的实践观 
-%         & 实践观 \newline 历史唯物主义的起源 \\
-%         \hline
-%         《家庭、私有制和国家的起源》 \newline 恩格斯 
-%         & 关于古代社会发展规律的著作，是马克思主义国家学说的代表作之一 
-%         & 国家学说 \\ 
-%         \hline
-%     \end{tabular}
-% \end{table}
-
-{\small 
-\begin{longtable}{p{0.2\textwidth}|p{0.3\textwidth}p{0.15\textwidth}p{0.2\textwidth}}
-    \caption{马克思与恩格斯的经典著作}\\
-    \hline
-    \textbf{作品} & \textbf{内容} & \textbf{关键词} & \textbf{备注} \\
-    \hline
-    \endfirsthead
-    
-    \multicolumn{4}{r}%
-    {(续表)} \\
-    \hline
-    \textbf{作品} & \textbf{内容} & \textbf{关键词} & \textbf{备注} \\
-    \hline
-    \endhead
-    
-    \hline \multicolumn{4}{r}{{续下页}} \\
-    \endfoot
-    
-    \hline
-    \endlastfoot
-    
-    《德法年鉴》（期刊）
-    
-    马克思、恩格斯
-    
-    1844.2
-    & 马克思、恩格斯在《德法年鉴》上分别发表了两篇文章，标志着马克思和恩格斯的两个转变，
-    即从唯心主义转向唯物主义、从革命民主主义转向共产主义，这为马克思、恩格斯创立自己的理论奠定了
-    思想前提
-    & 两个转变 \\ 
-    \hline
-    《德意志意识形态》
-    \newline 马克思、恩格斯 
-    & 首次系统阐了历史唯物主义的基本观点，实现了历史观上的伟大变革，
-    标志着马克思主义哲学的诞生
-    & 唯物史观的创立 \newline 马克思主义哲学的诞生 \\ 
-    \hline 
-    《共产党宣言》
-    \newline 马克思、恩格斯 \newline 1848.2
-    & 标志着科学社会主义、马克思主义的诞生，是世界上第一个无产阶级政党的党纲
-    & 科学社会主义的诞生 \newline 马克思主义的诞生 \newline 首个无产阶级政党党纲 \\
-    \hline 
-    《资本论》
-    \newline 马克思 
-    & 系统阐述剩余价值理论，标志着马克思主义政治经济学的诞生
-    & 政治经济学的诞生 & 被称为 “工人阶级的圣经” \\ 
-    \hline 
-    《反杜林论》
-    \newline 恩格斯 
-    & 首次将马克思主义以三个组成部分（马克思主义哲学、政治经济学、科学社会主义）
-    的形式进行了全面阐述
-    & 全面阐述 \newline 三个组成部分
-    & 被称为 “马克思主义的百科全书” \\
-    \hline
-    
-    《关于费尔巴哈\footnote{
-        费尔巴哈（Ludwig Feuerbach）是19世纪德国哲学家，代表作有《基督教的本质》。他对黑格尔哲学进行批判，认为宗教是人类自身本质的投射，主张将神的属性还归给人类自身，以实现人的解放与自我意识觉醒。他的思想强调了人本身的重要性，为后来的唯物主义和人本主义哲学奠定了重要基础。
-    }的提纲》 \newline 马克思 
-    & 首次确立了科学的实践观 
-    & 实践观 \newline 历史唯物主义的起源 \\
-    \hline
-    《家庭、私有制和国家的起源》 \newline 恩格斯 
-    & 关于古代社会发展规律的著作，是马克思主义国家学说的代表作之一 
-    & 国家学说 \\ 
-    \hline
-\end{longtable}}
-
-\subsection{马克思主义的发展}
-
-列宁深刻分析了 19 世纪末 20 世纪初世界历史条件的变化，认为随着资本主义发展到
-垄断阶段，经济政治发展的不平衡已成为资本主义发展的绝对规律，提出了社会主义革命可能在
-一国或数国首先发生并取得胜利的论断。
-\begin{remark}
-    注意这里的因果关系，经济政治发展的不平衡是因，而社会主义革命可能会发生和胜利则是结果。
-\end{remark}
-
-
-
-
-\section{马克思主义的鲜明特征和当代价值}
-
-\subsection{马克思主义的鲜明特征}
-
-马克思主义具有鲜明的科学性、人民性、实践性、发展性，这些特征体现了马克思主义的
-本质和使命，也展现出马克思主义的理论形象。
-\begin{itemize}[itemsep=0pt]
-    \item \textbf{科学性}：马克思主义是对自然、社会和人类思维发展本质和规律的正确反映；
-    \item \textbf{人民性}：\textbf{人民至上是马克思主义的政治立场}；
-    \item \textbf{实践性}：从实践中来、到实践中去、在实践中接受检验、随实践而不断发展；
-    \item \textbf{发展性}：不断发展、与时俱进。
-\end{itemize}
-马克思主义的人民性、实践性和发展性，集中表现为革命性。因此，马克思主义的鲜明特征，
-如果用一句话来概括，就是\textbf{科学性与革命性的统一}。
-
-\begin{figure}[H]
-    \centering
-    
-
-\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
-
-\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
-%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
-
-%Shape: Rectangle [id:dp5743918056710222] 
-\draw  [dash pattern={on 1.69pt off 2.76pt}][line width=1.5]  (135,99) -- (402,99) -- (402,187.5) -- (135,187.5) -- cycle ;
-
-% Text Node
-\draw    (68,111.75) -- (125,111.75) -- (125,143.75) -- (68,143.75) -- cycle  ;
-\draw (96.5,127.75) node   [align=left] {\begin{minipage}[lt]{36.04pt}\setlength\topsep{0pt}
-科学性
-\end{minipage}};
-% Text Node
-\draw    (154,111.75) -- (211,111.75) -- (211,143.75) -- (154,143.75) -- cycle  ;
-\draw (182.5,127.75) node   [align=left] {\begin{minipage}[lt]{36.04pt}\setlength\topsep{0pt}
-人民性
-\end{minipage}};
-% Text Node
-\draw    (240,111.75) -- (297,111.75) -- (297,143.75) -- (240,143.75) -- cycle  ;
-\draw (268.5,127.75) node   [align=left] {\begin{minipage}[lt]{36.04pt}\setlength\topsep{0pt}
-实践性
-\end{minipage}};
-% Text Node
-\draw    (326,111.75) -- (383,111.75) -- (383,143.75) -- (326,143.75) -- cycle  ;
-\draw (354.5,127.75) node   [align=left] {\begin{minipage}[lt]{36.04pt}\setlength\topsep{0pt}
-发展性
-\end{minipage}};
-% Text Node
-\draw (245,162) node [anchor=north west][inner sep=0.75pt]   [align=left] {革命性};
-
-
-\end{tikzpicture}
-\caption{马克思主义的鲜明特征}
-\end{figure}
-
-\subsection{马克思主义的当代价值}
-
-\subsubsection{观察当代世界变化的认识工具}
-马克思主义给予我们观察当代世界的宏大视野，给予我们透视时代风云的锐利目光，
-给予我们展望未来世界的长远眼光和战略定力。
-\subsubsection{指引当代中国发展的行动指南}
-马克思主义是指引当代中国发展的精神旗帜，是推动当代中国发展的精神动力，
-是引领当代中国实践的行动指南。
-\subsubsection{引领人类社会进步的科学真理}
-社会是在矛盾中进步的，每一个时代的社会进步总是伴随着相应的
-社会问题，人类社会怎样面对和处理这些问题，怎样才能走向更加美好的明天？
-回答和解决这样的根本性问题，还是需要到马克思主义中寻找智慧。
-
-\vspace*{1em}
-大学生在学习马克思主义的过程中，要有正确的学习态度和科学的学习方法。
-第一，要努力学习和掌握马克思主义的基本立场、观点、方法；
-第二，要努力学习和掌握马克思主义中国化的理论成果；
-第三，要坚持理论联系实际的马克思主义学风；
-第四，要自觉将马克思主义内化于心，外化于行。
-
-\clearpage
-\thispagestyle{empty}
-\mainmatter
-
-\part{马克思主义哲学}
-
-\chapter{世界的物质性及发展规律}
-
-% \begin{tasks}(2)
-%     \task 辩证唯物主义物质范畴
-%     \task 世界的物质统一性
-%     \task 主观能动性与客观规律性的辩证统一
-%     \task 联系和发展的基本规律
-%     \task 唯物辩证法是科学的认识方法
-%     \task 在实践中不断增强思维能力
-% \end{tasks}
-
-% 客观实在性是物质的共同特性，是指存在于人的意识之外，不以人的意志为转移并能为
-% 人所感知的客观存在，即物质世界。不管物质的形态、结构和属性如何千变万化，其客观实在
-% 的属性在任何时候、任何地方都是不变的，因而具有永恒性和绝对性，客观实在性是万事万物
-% 共有的特性。
-
-% 意识的内容是客观的，而在形式上是主观的，所以意识是客观内容和主观形式的统一。
-
-% 相对于过去的运动到达一个变化点或者一个转折点，该点即静止，也为结果，从这点开始了一个新的运动，
-% 即新运动的出发点。
-
-
-
-% \section{哲学及其基本问题}
+%     \begin{keywords}
+
+%     \end{keywords}
+% \end{abstract}
+{\small \tableofcontents}
 
 \section{世界的多样性与物质统一性}
 
@@ -885,18 +195,19 @@
 恩格斯总结和概括了哲学发展，特别是近代哲学发展的历史事实，第一次明确提出：“全部哲学
 问题，特别是近代哲学的重大的基本问题，是思维和存在的关系问题。” 哲学基本问题主要包括
 两个方面的内容：
-第一，存在和思维、物质和意识谁为本原的问题，即何者为第一性的问题，
-对这一问题的不同回答，形成了唯物主义和唯心主义两种根本对立的哲学派别。
-第二，存在和思维、物质和意识是否具有同一性的问题，即思维能否正确地反映存在、
-人能否认识或彻底认识世界的问题，
-对这一问题的不同回答，产生了可知论和不可知论的理论分野。
-
+\begin{enumerate}[label={$\left.\arabic*\right)$}, itemsep=0pt]
+    \item 存在和思维、物质和意识谁为本原的问题，即何者为第一性的问题，
+    对这一问题的不同回答，形成了唯物主义和唯心主义两种根本对立的哲学派别。
+    \item 存在和思维、物质和意识是否具有同一性的问题，即思维能否正确地反映存在、
+    人能否认识或彻底认识世界的问题，
+    对这一问题的不同回答，产生了可知论和不可知论的理论分野。
+\end{enumerate}
 对哲学基本问题的回答是解决其他一切哲学问题的前提和基础。
 只有科学解决存在和思维的关系问题，才能正确认识世界的本质和把握世界发展的规律。
 
-{\small
-\begin{mdframed}[frametitle={哲学的基本问题及其派别分类}]
-    \quad\quad 哲学的第一个基本问题是，存在和思维、物质和意识谁为本原的问题，即何者为第一性的问题。
+\vspace{1em}
+{
+哲学的第一个基本问题是，存在和思维、物质和意识谁为本原的问题，即何者为第一性的问题。
     对这一问题的不同回答，形成了唯物主义和唯心主义两种根本对立的哲学派别。
     
     % \subsubsection{唯物主义}
@@ -919,17 +230,13 @@
             \item 用孤立、静止、片面的观点解释世界，是一种形而上学的思维方式；
             \item 唯物主义的不彻底性，即自然观的唯物主义、历史观的唯心主义。
         \end{enumerate}
-        \item 马克思、恩格斯创立的辩证唯物主义和历史唯物主义是哲学唯物主义的最高形态\footnote{
-            真的不会再被超越吗？
-        }，它克服了就唯物主义的局限性和不彻底性，实现了唯物论与辩证唯物法、唯物主义的自然观与
-        历史观的统一。
+        \item 马克思、恩格斯创立的辩证唯物主义和历史唯物主义是哲学唯物主义的
+        最高形态，它克服了就唯物主义的局限性和不彻底性，实现了唯物论与辩证唯物
+        法、唯物主义的自然观与历史观的统一。
     \end{itemize}
     
     % \subsubsection{唯心主义}
     
-    % 在对思维与存在、精神与物质的关系的理解和解释中，如果 “把认识的某一特征、某一方面、某一侧面，
-    % 片面地、夸大地……发展（膨胀、扩大）为脱离了物质、脱离了自然的、神话了的绝对”，就会
-    % 导致唯心主义。
     凡是断言精神对自然界来说是本原，精神第一性、物质第二性的哲学流派，都属于唯心主义，
     唯心主义坚持 “从思想和感觉到物” 的认识路线。
     在哲学史上，唯心主义哲学有众多流派，归结起来有两种基本形式：一是主观唯心主义，一是客观
@@ -940,6 +247,9 @@
         \item 客观唯心主义则把某种 “客观精神” 说成是先于病独立于物质世界的存在，并把物质世界
         说成是这种 “客观精神” 的产物、表现或附属品。
     \end{itemize}
+    在对思维与存在、精神与物质的关系的理解和解释中，如果 “把认识的某一特征、某一方面、某一侧面，
+    片面地、夸大地……发展（膨胀、扩大）为脱离了物质、脱离了自然的、神话了的绝对”，就会
+    导致唯心主义。
     
     % \subsection{}
     哲学的第二个基本问题是，存在和思维、物质和意识是否具有同一性的问题，即思维能否正确地反映存在、人能否认识或彻底认识世界的问题。
@@ -950,8 +260,7 @@
         唯物主义的可知论认为人的思维能够正确地反映现实世界，而唯心主义的可知论则用精神的本原性
         来说明思维和存在的统一性的可知论。
         \item 凡是对思维和存在是否具有统一性做出否定回答的哲学理论，都属于不可知论。
-    \end{itemize}
-\end{mdframed}}
+    \end{itemize}}
 
 \subsubsection{哲学的物质范畴}
 
@@ -1703,6 +1012,30 @@
 
 \subsubsection{矛盾的同一性和斗争性及其在事物发展中的作用}
 
+
+
+对立统一规律又称矛盾规律，矛盾是辩证法的核心概念。矛盾是反映事物内部和事物之间
+对立统一关系的哲学范畴。简言之，矛盾即对立统一。\textbf{对立和统一分别体现了矛盾的两种
+基本属性。矛盾的对立属性又称斗争性，矛盾的统一属性又称同一性}。
+\begin{itemize}[itemsep=0pt]
+    \item \textbf{矛盾的同一性是指矛盾双方相互依存、相互贯通的性质和趋势}。它有两个方面
+    的含义：
+    \begin{enumerate}[label={${\arabic*}^\circ$}, itemsep=0pt]
+        \item 矛盾着的对立面相互依存，互为存在的前提，并共处于一个统一体中；
+        \item 矛盾着的对立面相互贯通，在一定条件下相互转化。
+    \end{enumerate}
+    \item \textbf{矛盾的斗争性是指矛盾着的对立面之间相互排斥、相互分离的性质和趋势}。由于
+    矛盾的性质不同，矛盾的斗争形式也不同，对于多种多样的斗争形式，可以区分为
+    \textbf{对抗性和非对抗性的两种基本形式}。
+    \item 矛盾的同一性和斗争性的关系：矛盾的同一性和斗争性是相互连结、
+    相互制约的。同一性不能脱离斗争性而存在，没有斗争性就没有同一性；
+    \textbf{斗争性寓于同一性之中}，没有同一性也就没有斗争性。在事物的矛盾中，
+    \textbf{矛盾的斗争性是无条件的、绝对的，矛盾的同一性是有条件的、相对的}。
+\end{itemize}
+矛盾的同一性和斗争性是同时存在的，因此事物总是具有两面性，这要求我们看待
+事物时要做到 “一分为二”。例如，对待传统文化要 “批判地继承”，对待外来文化应该
+“批判地” 吸收。
+
 \begin{figure}[H]
     \centering
     
@@ -1753,39 +1086,25 @@
 \caption{矛盾的同一性和斗争性}
 \end{figure}
 
-对立统一规律又称矛盾规律，矛盾是辩证法的核心概念。矛盾是反映事物内部和事物之间
-对立统一关系的哲学范畴。简言之，矛盾即对立统一。\textbf{对立和统一分别体现了矛盾的两种
-基本属性。矛盾的对立属性又称斗争性，矛盾的统一属性又称同一性}。
-\begin{itemize}[itemsep=0pt]
-    \item \textbf{矛盾的同一性是指矛盾双方相互依存、相互贯通的性质和趋势}。它有两个方面
-    的含义：
-    \begin{enumerate}[label={${\arabic*}^\circ$}, itemsep=0pt]
-        \item 矛盾着的对立面相互依存，互为存在的前提，并共处于一个统一体中；
-        \item 矛盾着的对立面相互贯通，在一定条件下相互转化。
-    \end{enumerate}
-    \item \textbf{矛盾的斗争性是指矛盾着的对立面之间相互排斥、相互分离的性质和趋势}。由于
-    矛盾的性质不同，矛盾的斗争形式也不同，对于多种多样的斗争形式，可以区分为
-    \textbf{对抗性和非对抗性的两种基本形式}。
-    \item 矛盾的同一性和斗争性的关系：矛盾的同一性和斗争性是相互连结、
-    相互制约的。同一性不能脱离斗争性而存在，没有斗争性就没有同一性；
-    \textbf{斗争性寓于同一性之中}，没有同一性也就没有斗争性。在事物的矛盾中，
-    \textbf{矛盾的斗争性是无条件的、绝对的，矛盾的同一性是有条件的、相对的}。
-\end{itemize}
-矛盾的同一性和斗争性是同时存在的，因此事物总是具有两面性，这要求我们看待
-事物时要做到 “一分为二”。例如，对待传统文化要 “批判地继承”，对待外来文化应该
-“批判地” 吸收。
-
 \subsubsection{矛盾的普遍性和特殊性及其相互关系}
+
+矛盾的普遍性简单来说可以表述为 {\kaishu 矛盾无处不在，矛盾无时不有}。
+矛盾的特殊性是指各个具体事物的矛盾及每一个矛盾的各个方面在发展的不同阶段
+上各有其特点。
+
+矛盾的普遍性和特殊性是辩证统一的关系。矛盾的普遍性即矛盾的共性，
+矛盾的特殊性即矛盾的个性。矛盾的共性是无条件的、绝对的，矛盾的个性是有条件的、
+相对的。
+
+任何现实存在的事物都是共性和个性的有机统一体，共性寓于个性之中，
+没有离开个性的共性，也没有离开共性的个性。
+
 \subsubsection{矛盾的不平衡发展原理}
 
 主要矛盾是矛盾体系中处于支配地位，对事物发展起决定作用的矛盾。
 非根本矛盾、次要矛盾时处于服从地位的矛盾。
-
 在每一对矛盾中又有矛盾的主要方面与矛盾的次要方面，矛盾的性质主要是由矛盾
 的主要方面决定的。
-
-既要看到主要矛盾，强调主要矛盾，也要看到次要矛盾，不能忽略次要矛盾，
-做到 “两点论” 和 “重点论” 相结合。
 
 {\captionof{table}{矛盾分析方法} % 表格标题
 \label{矛盾分析方法} % 交叉引用标签
@@ -1943,57 +1262,169 @@
 
 \subsubsection{必然与偶然}
 
+必然性是指事物的联系和发展过程中，前提能够完全决定结果，
+具有确定性的特征。偶然性是指在事物的联系和发展过程中，前提不能够
+完全决定结果，具有一定的随机性的特点。
+
+必然与偶然是\textbf{对立统一}的，
+这就是说{\kaishu 必然和偶然既相区别，又相联系}。
+一方面，必然与偶然是相互区别的，具体而言：
+\begin{enumerate}[label={$\left.\arabic*\right)$}, itemsep=0pt]
+    \item \textbf{产生和形成的原因不同}：必然产生于事物内部的根本矛盾、偶然产生于非根本
+    矛盾和外部条件。
+    \item \textbf{表现形式不同}：必然在事物发展中比较稳定、时空上比较确定，
+    是同类事物普遍具有的发展趋势；偶然则是不稳定的、暂时的、不确定的，
+    是事物发展中的个别表现。
+    \item \textbf{在事物发展中的地位和作用不同}：必然在事物发展中居于支配地位，
+    决定着事物发展的方向；偶然居于从属地位，对必然的发展过程起促进或
+    延缓作用，使发展的确定趋势带有一定的特点和偏差。
+\end{enumerate}
+另一方面，必然与偶然又是统一的，必然存在于偶然之中，
+通过大量的偶然表现出来，并为自己开辟道路；
+偶然背后隐藏着必然，受必然的支配，偶然是必然的表现形式和补充；
+必然和偶然在一定条件下可以相互转化。
+
+{\captionof{table}{必然与偶然的区别} % 表格标题
+\label{必然与偶然的区别} % 交叉引用标签
+\begin{longtable}{p{7em}|p{11em}p{16em}}
+    \hline
+    % 表头
+    & \textbf{必然} & \textbf{可能} \\
+    \hline
+    \endhead
+    \hline
+    \endfoot
+
+    % 表格内容
+    \textbf{产生与形成} & 内部；根本矛盾 & 外部；非根本矛盾 \\ 
+    \textbf{表现形式} & 确定性；稳定性；普遍性 & 不稳定；不确定；暂时性；个别性 \\ 
+    \textbf{对事物发展……} & 支配地位；决定作用 & 从属地位，促进/延缓作用；存在偏差 \\
+\end{longtable}}
 
 
-\newpage
+必然与偶然的对立统一关系可以通过概率统计的知识来加以理解。
+一般来说，我们能够观察到的各种客观现象，按照其结果的确定性而言可以分为
+确定性事件（包括必然事件 $\varOmega$ 与不可能事件 $\varnothing$）
+和随机事件两大类。
+随机现象的发生是不确定的，但是大量的随机事件之中却蕴含着一定的统计规律性，
+概率论与随机分析专家曾经写过一首 “悟道诗”：
+\begin{quote}
+    \kaishu
+    随机非随意，概率破玄机。
+
+    无序隐有序，统计解迷离。
+\end{quote}
+这首悟道诗非常深刻地揭示了必然与偶然之间相互区别但是相互联系的关系。
+任何一个事物都具有它必然的一面，也有它偶然的一面。此外，需要注意的是，
+一个事件是确定的还是非确定的，取决于我们要研究的问题。
+
 \subsubsection{现实与可能}
+
+可能是指事物发展过程中潜在的东西，是指包含在事物中并于是事物发展前途的
+种种趋势；现实则指相互联系着的实际存在的事物的综合。
+
+\begin{figure}[H]
+    \centering
+
+
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+
+
+% Text Node
+\draw (242.02,137) node    {$a_{0}$};
+% Text Node
+\draw (302.02,82.5) node    {$a_{11}$};
+% Text Node
+\draw (311.02,152.5) node    {$a_{12}$};
+% Text Node
+\draw (303.02,213) node    {$a_{13}$};
+% Text Node
+\draw (362.02,53) node    {$a_{21}$};
+% Text Node
+\draw (363.02,103.5) node    {$a_{22}$};
+% Text Node
+\draw (382.02,155) node    {$a_{23}$};
+% Text Node
+\draw (366.52,203) node    {$a_{24}$};
+% Text Node
+\draw (370.02,250.5) node    {$a_{25}$};
+% Connection
+\draw    (253.02,127.01) -- (286.03,97.02) ;
+\draw [shift={(288.25,95)}, rotate = 137.75] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (5.36,-2.57) -- (0,0) -- (5.36,2.57) -- cycle    ;
+% Connection
+\draw    (253.02,139.47) -- (294.09,148.7) ;
+\draw [shift={(297.02,149.36)}, rotate = 192.66] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (5.36,-2.57) -- (0,0) -- (5.36,2.57) -- cycle    ;
+% Connection
+\draw    (252.05,149.5) -- (291.1,198.16) ;
+\draw [shift={(292.98,200.5)}, rotate = 231.25] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (5.36,-2.57) -- (0,0) -- (5.36,2.57) -- cycle    ;
+% Connection
+\draw    (316.02,75.62) -- (345.32,61.21) ;
+\draw [shift={(348.02,59.88)}, rotate = 153.82] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (5.36,-2.57) -- (0,0) -- (5.36,2.57) -- cycle    ;
+% Connection
+\draw    (316.02,87.32) -- (346.18,97.7) ;
+\draw [shift={(349.02,98.68)}, rotate = 199] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (5.36,-2.57) -- (0,0) -- (5.36,2.57) -- cycle    ;
+% Connection
+\draw    (325.02,152.99) -- (365.02,154.4) ;
+\draw [shift={(368.02,154.51)}, rotate = 182.02] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (5.36,-2.57) -- (0,0) -- (5.36,2.57) -- cycle    ;
+% Connection
+\draw    (317.02,210.8) -- (349.55,205.67) ;
+\draw [shift={(352.52,205.2)}, rotate = 171.05] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (5.36,-2.57) -- (0,0) -- (5.36,2.57) -- cycle    ;
+% Connection
+\draw    (317.02,220.84) -- (353.4,241.2) ;
+\draw [shift={(356.02,242.66)}, rotate = 209.24] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (5.36,-2.57) -- (0,0) -- (5.36,2.57) -- cycle    ;
+
+\end{tikzpicture}
+
+    % \includegraphics*[width=\textwidth]{imagefile}
+
+    \caption{现实与可能}
+    \label{现实与可能}
+\end{figure}
+
+现实与可能实际上是一对相当 “历史” 的概念。所谓现实，可以理解为是当下的
+历史节点，而所谓可能，则是立足于当下，我们未来的一些发展趋势。
+如图 \ref{现实与可能} 所示，如果立足于 $a_0$, 那么 $a_{11}$,
+$a_{12}$ 和 $a_{13}$ 就是这个现实下的 “可能”。一旦主客观条件
+成熟，历史的节点就会来到它们中的一个（也有可能是图中没有画出来的另外
+的 $a_0$ 的后继节点），这是原先的 “可能” 就转化为了新的历史条件
+下的 “现实”，而新的现实则产生了更多新的可能性。
+事实上，图 \ref{现实与可能} 中的根节点 $a_0$ 其实也曾是更前面的
+现实的可能，只不过我们在这里并没有画出来。
+
+可能与现实的辩证统一告诉我们，尽管时间是具有一维性的，但历史的选择从来
+不是只有单一选项。在面对选择的历史的十字路口的时候
+（或者是面对个人自己的一些需要做出决策的问题的时候），我们需要立足现实，
+展望未来，注意分析事物发展的各种可能，发挥主观能动性，做好应对不利情况
+的准备，争取实现好的可能。然而遗憾的是，一个可能的好坏，往往要等到
+它成为了现实之后才能明显地感觉出来，对于深处选择题中的我们，更多时候
+感受到的都是茫然和无措。
+
+区分可能与不可能的依据，是 {\kaishu 这件事在现实中是否有根据}。
+区分现实的可能与抽象（潜在）的可能的依据是 {\kaishu 这件事在现实中的根据是否充分}。
 
 \section{唯物辩证法是认识世界和改造世界的根本方法}
 
-\subsection{唯物辩证法的本质特征和认识功能}
-\subsubsection{唯物辩证法本质上是批判的和革命的}
-\subsubsection{唯物辩证法是客观辩证法与主观辩证法的统一}
-\subsubsection{唯物辩证法是科学的认识方法}
+唯物辩证法本质上是批判的和革命的。
 
-\subsection{学习唯物辩证法，不断增强思维能力}
-\subsubsection{辩证思维能力}
-\subsubsection{历史思维能力}
-\subsubsection{系统思维能力}
-\subsubsection{战略思维能力}
-\subsubsection{底线思维能力}
-\subsubsection{创新思维能力}
+唯物辩证法是客观辩证法与主观辩证法的统一。具体而言：
 
-\newpage
-\thispagestyle{empty}
+\begin{enumerate}[label={$\left.\arabic*\right)$}, itemsep=0pt]
+    \item 客观辩证法是指客观事物或客观存在的辩证法，即客观事物以相互作用、
+    相互联系的形式呈现出的各种物质形态的辩证运动和发展规律。
+    它存在于客观的物质世界中，可以离开人的意识、思维而独立存在，
+    不以人的意志为转移。
+    \item 主观辩证法
+    是指人类认识和思维运动的辩证法，即以概念作为思维细胞的辩证思维运动和
+    发展的规律。它存在于意识对客观物质世界的反映之中。
+\end{enumerate}
 
-\chapter{认识论}
-\chapter{唯物史观}
+这就是说，主观辩证法是意识对客观辩证法的反映。
 
-\part{马克思主义政治经济学}
-
-\chapter{资本主义的发展及规律}
-\chapter{资本主义的发展及其趋势}
-
-\part{科学社会主义}
-
-\chapter{社会主义的发展及其规律}
-\chapter{共产主义崇高理想及其最终实现}
-
-\appendix
-% 设置 chapter 标题样式
-\titleformat{\chapter}[hang]{\centering\heiti\Large\bfseries}{附录\,\thechapter}{1em}{}
-\renewcommand{\chaptermark}[1]{\markboth{附录 \thechapter\, #1}{}}
-
-% \part{附录}
-
-
-
-
-\newpage
-\thispagestyle{empty}
 \begin{thebibliography}{1}
-    \addcontentsline{toc}{chapter}{参考文献}
-    \markboth{马克思主义基本原理}{参考文献}
+    \addcontentsline{toc}{section}{参考文献}
     \bibitem{2023版教材}
     《马克思主义基本原理 (2023 版)》编写组. 马克思主义基本原理: 2023 版[M].
     北京: 高等教育出版社, 2023.
@@ -2011,24 +1442,4 @@
     徐涛, 曲艺主编, 考研政治考前预测必备 20 题[M], 北京：中国政法大学出版社, 2023.11
 \end{thebibliography}
 
-\newpage
-\thispagestyle{empty}
-\vspace*{5cm}
-\begin{center}
-    \includegraphics*[width=\textwidth]{pic/i_love_npu.jpeg}
-    \large
-    公诚勇毅 \quad 永矢毋忘
-
-    中华灿烂 \quad 工大无疆
-\end{center}
-\vspace*{13em}
-\begin{center}
-    \small
-    本文档由\textbf{钱锋}编写, 钱锋保留一切权利.
-
-    文档中出现的部分素材来源于网络, 笔者承诺这些素材仅供学习交流之用, 
-    它们的原作者保留一切权利.
-
-    2023 年 \quad 西北工业大学 \quad 中国西安 
-\end{center}
 \end{document}
