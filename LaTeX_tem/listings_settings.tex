@@ -1,0 +1,37 @@
+\usepackage{fontspec}
+% 设置 Menlo 字体
+\setmonofont{Menlo}
+\usepackage{fancyvrb}
+\usepackage{xcolor}
+\usepackage{listings}
+
+% \definecolor{string}{HTML}{067D17}
+% \definecolor{comment}{HTML}{8C8C8C}
+% \definecolor{keyword}{HTML}{0033B3}
+% \definecolor{class_field}{HTML}{871094}
+
+\lstset{breaklines}
+%这条命令可以让LaTeX自动将长的代码行换行排版
+\lstset{extendedchars=false}
+%这一条命令可以解决代码跨页时，章节标题，页眉等汉字不显示的问题
+\lstset{escapeinside={(*}{*)}}
+
+\lstset{
+    basicstyle=\small\ttfamily\heiti,
+    numbers=left,
+    numberstyle=\scriptsize\fontspec{Menlo}, % 使用 Menlo 字体
+    stepnumber=1,
+    numbersep=8pt,
+    frame=leftline,
+    xleftmargin=2em, % 调整代码块的左边界
+    framexleftmargin=0pt, % 调整边框的位置
+    breaklines=true,
+    % postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space},
+    % keywordstyle=\bfseries\color{keyword},          % keyword style
+    % commentstyle=\heiti\color{comment},       % comment style
+    % stringstyle=\color[HTML]{067D17},
+    showstringspaces=false,
+    % string literal style
+    % escapeinside={\%*}{*)},            % if you want to add LaTeX within your code
+    % morekeywords={}               % if you want to add more keywords to the set
+}
